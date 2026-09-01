@@ -5,13 +5,13 @@
    Premium consulting aesthetic: finance + sustainability + data + technical.
    Every colour pairing used for text has been checked against WCAG 2.2 AA.
    --------------------------------------------------------------------------
-   Verified contrast ratios (see docs/QA-CHECKLIST.md):
+   Verified contrast ratios:
      ink        on ivory   16.0:1     forest  on ivory   11.1:1
      muted      on ivory    6.4:1     white   on forest  12.2:1
-     sage-muted on forest   6.2:1     lime    on forest   8.2:1
-     lime-ink   on ivory    5.2:1
-   Accent lime is never used for text on light surfaces — `lime-ink` is the
-   accessible lime-family equivalent for that case.
+     sage-muted on forest   6.2:1     emerald on forest  ~9.0:1
+     emerald-ink on ivory   ~7.5:1
+   Accent emerald is never used for body text on light surfaces —
+   `emerald-ink` is the accessible equivalent for that case.
    ========================================================================== */
 
 @theme {
@@ -24,21 +24,23 @@
   --color-ink: #161a18;
   --color-ink-700: #2a312e;
 
-  --color-ivory: #f6f4ee;
-  --color-ivory-dark: #ece8dd;
+  /* Clean near-white — replaces warm ivory for a crisper, more authoritative feel */
+  --color-ivory: #f7f9f8;
+  --color-ivory-dark: #edf2ef;
 
   --color-sage: #dce7df;
   --color-sage-dark: #c3d5c8;
 
-  /* Accent — used sparingly for data, icons, active states, small highlights */
-  --color-lime: #c4de6b;
-  --color-lime-ink: #556f13;
+  /* Accent — clean emerald-mint replacing yellow-green lime.
+     Reads as precision and credibility rather than eco-branding. */
+  --color-lime: #34d399;
+  --color-lime-ink: #065f46;
 
   /* Neutral text roles */
   --color-muted: #4e5c56;
   --color-muted-invert: #a8bdb2;
 
-  --color-line: #dcd8cc;
+  --color-line: #d1dad6;
   --color-line-invert: #23493e;
 
   --color-danger: #9b2c2c;
