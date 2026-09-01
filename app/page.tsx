@@ -196,7 +196,7 @@ export default function HomePage() {
           id="capabilities-heading"
           lead="Four capability areas, each addressing a distinct set of business obligations."
         />
-        <CardGrid columns={4} className="mt-14">
+        <CardGrid columns={4} className="mt-8">
           {categories.map((category) => (
             <CapabilityCard
               key={category.slug}
@@ -211,7 +211,7 @@ export default function HomePage() {
       <Section surface="ivory" labelledBy="why-heading">
         <SectionHeader eyebrow="Why CER" title="Evidence, not adjectives" id="why-heading" />
 
-        <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {[
             {
               title: 'Singapore-based, regionally relevant',
@@ -258,7 +258,7 @@ export default function HomePage() {
           lead="Sustainability requirements land differently depending on what an organisation does. These are the sectors CER works in."
           action={<ArrowLink href="/industries/">View all industries</ArrowLink>}
         />
-        <CardGrid columns={3} className="mt-14">
+        <CardGrid columns={3} className="mt-8">
           {industries.map((industry) => (
             <IndustryCard key={industry.slug} industry={industry} />
           ))}
@@ -277,7 +277,7 @@ export default function HomePage() {
             id="cases-heading"
             action={<ArrowLink href="/case-studies/">View case studies</ArrowLink>}
           />
-          <CardGrid columns={3} className="mt-14">
+          <CardGrid columns={3} className="mt-8">
             {caseStudies.map((caseStudy) => (
               <CaseStudyCard key={caseStudy.slug} caseStudy={caseStudy} />
             ))}
@@ -306,7 +306,7 @@ export default function HomePage() {
           id="experts-heading"
           action={<ArrowLink href="/about/experts/">View all experts</ArrowLink>}
         />
-        <CardGrid columns={3} className="mt-14">
+        <CardGrid columns={3} className="mt-8">
           {experts.map((expert) => (
             <ExpertCard key={expert.slug} expert={expert} />
           ))}
@@ -329,7 +329,7 @@ export default function HomePage() {
             </div>
           }
         />
-        <CardGrid columns={3} className="mt-14">
+        <CardGrid columns={3} className="mt-8">
           {courses.map((course) => (
             <CourseCard key={course.slug} course={course} />
           ))}
@@ -344,7 +344,7 @@ export default function HomePage() {
           id="insights-heading"
           action={<ArrowLink href="/insights/">View all insights</ArrowLink>}
         />
-        <CardGrid columns={3} className="mt-14">
+        <CardGrid columns={3} className="mt-8">
           {articles.map((article) => (
             <ArticleCard key={article.slug} article={article} />
           ))}

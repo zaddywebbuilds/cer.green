@@ -77,8 +77,8 @@
   --text-eyebrow--letter-spacing: 0.12em;
 
   /* ---- Layout ---- */
-  --spacing-section: clamp(4rem, 2.5rem + 5vw, 8.75rem);
-  --spacing-section-sm: clamp(3rem, 2rem + 3.2vw, 5.5rem);
+  --spacing-section: clamp(2.5rem, 1rem + 4vw, 5rem);
+  --spacing-section-sm: clamp(1.5rem, 0.75rem + 2.5vw, 3rem);
   --spacing-gutter: clamp(1.25rem, 0.5rem + 3.2vw, 6rem);
 
   --radius-card: 4px;

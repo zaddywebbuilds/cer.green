@@ -90,7 +90,7 @@ function PhotoBadge({ children }: { children: React.ReactNode }) {
 
 // ── Cards ────────────────────────────────────────────────────────────────────
 
-/** Full-bleed editorial card for solution categories (homepage + solutions hub). */
+/** Split-layout editorial card: crisp photo surface on top, dark content below. */
 export function CapabilityCard({
   category,
   count,
@@ -100,23 +100,26 @@ export function CapabilityCard({
 }) {
   const img = CAPABILITY_IMAGES[category.slug] ?? DEFAULT_IMAGE;
   return (
-    <article className="group relative aspect-[4/3] overflow-hidden rounded-(--radius-card)">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={img}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-        loading="lazy"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-forest-900/95 via-forest-900/55 to-forest-900/10" />
-      <div className="relative flex h-full flex-col justify-end p-7 md:p-8">
+    <article className="group flex flex-col overflow-hidden rounded-(--radius-card)">
+      {/* Photo — full surface, clearly visible */}
+      <div className="relative aspect-[4/3] overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={img}
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-108"
+          loading="lazy"
+        />
         {count ? (
-          <p className="eyebrow mb-3 text-lime">
+          <span className="absolute right-3 top-3 rounded-[2px] bg-forest-900/80 px-2.5 py-1 font-heading text-xs font-semibold uppercase tracking-wider text-lime backdrop-blur-sm">
             {count} {count === 1 ? 'service' : 'services'}
-          </p>
+          </span>
         ) : null}
-        <h3 className="text-h3 text-white">
+      </div>
+      {/* Content — solid dark forest, crisp edge against photo */}
+      <div className="flex flex-1 flex-col bg-forest p-6">
+        <h3 className="text-h4 font-semibold text-white">
           <Link
             href={`/solutions/${category.slug}/`}
             className="transition-colors duration-200 hover:text-lime"
@@ -124,7 +127,9 @@ export function CapabilityCard({
             {category.title}
           </Link>
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-white/80">{category.summary}</p>
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-invert">
+          {category.summary}
+        </p>
         <ArrowLink href={`/solutions/${category.slug}/`} className="mt-5" onDark>
           View capability
         </ArrowLink>
@@ -310,22 +315,25 @@ export function ExpertCard({ expert }: { expert: Expert }) {
   );
 }
 
-/** Full-bleed editorial card for industry sectors. */
+/** Split-layout editorial card for industry sectors. */
 export function IndustryCard({ industry }: { industry: Industry }) {
   const img = INDUSTRY_IMAGES[industry.slug] ?? DEFAULT_IMAGE;
   return (
-    <article className="group relative aspect-[4/3] overflow-hidden rounded-(--radius-card)">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={img}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-        loading="lazy"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-forest-900/95 via-forest-900/55 to-forest-900/10" />
-      <div className="relative flex h-full flex-col justify-end p-7 md:p-8">
-        <h3 className="text-h3 text-white">
+    <article className="group flex flex-col overflow-hidden rounded-(--radius-card)">
+      {/* Photo — full surface, clearly visible */}
+      <div className="relative aspect-[4/3] overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={img}
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-108"
+          loading="lazy"
+        />
+      </div>
+      {/* Content — solid dark forest */}
+      <div className="flex flex-1 flex-col bg-forest p-6">
+        <h3 className="text-h4 font-semibold text-white">
           <Link
             href={`/industries/${industry.slug}/`}
             className="transition-colors duration-200 hover:text-lime"
@@ -333,7 +341,9 @@ export function IndustryCard({ industry }: { industry: Industry }) {
             {industry.title}
           </Link>
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-white/80">{industry.challenge}</p>
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-invert">
+          {industry.challenge}
+        </p>
         <ArrowLink href={`/industries/${industry.slug}/`} className="mt-5" onDark>
           <span className="sr-only">{industry.title}: </span>View sector expertise
         </ArrowLink>
