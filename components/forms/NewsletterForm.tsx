@@ -23,19 +23,18 @@ export function NewsletterForm() {
     data.sourcePage = window.location.pathname;
 
     try {
-      const response = await fetch('/api/newsletter/', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(data),
       });
       const payload = (await response.json().catch(() => ({}))) as {
-        ok?: boolean;
+        success?: boolean;
         message?: string;
-        errors?: Record<string, string>;
       };
 
-      if (!response.ok || !payload.ok) {
-        setError(payload.errors?.email ?? payload.message ?? 'Please check your email address.');
+      if (!response.ok || !payload.success) {
+        setError(payload.message ?? 'Please check your email address.');
         setStatus('error');
         return;
       }
@@ -67,6 +66,8 @@ export function NewsletterForm() {
         </p>
       ) : (
         <form onSubmit={onSubmit} noValidate className="flex flex-col gap-3">
+          <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? ''} />
+          <input type="hidden" name="subject" value="New newsletter signup — CER" />
           <Honeypot />
           <div className="flex flex-col gap-3 sm:flex-row">
             <div className="flex-1">

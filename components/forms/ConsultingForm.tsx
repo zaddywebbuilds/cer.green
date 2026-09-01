@@ -24,7 +24,6 @@ export function ConsultingForm({ defaultArea }: { defaultArea?: string }) {
     successRef,
     isSubmitting,
   } = useEnquiryForm({
-    endpoint: '/api/enquiry/consulting/',
     startEvent: 'consultation_form_start',
     submitEvent: 'consultation_form_submit',
   });
@@ -60,6 +59,8 @@ export function ConsultingForm({ defaultArea }: { defaultArea?: string }) {
         </div>
       ) : null}
 
+      <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? ''} />
+      <input type="hidden" name="subject" value="New consulting enquiry — CER" />
       <Honeypot />
 
       <div className="grid gap-6 sm:grid-cols-2">

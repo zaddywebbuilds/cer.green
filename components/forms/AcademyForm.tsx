@@ -45,7 +45,6 @@ export function AcademyForm({
     successRef,
     isSubmitting,
   } = useEnquiryForm({
-    endpoint: '/api/enquiry/academy/',
     startEvent: 'course_enquiry_start',
     submitEvent:
       participantType === 'Corporate / group' ? 'corporate_training_submit' : 'course_enquiry_submit',
@@ -82,6 +81,8 @@ export function AcademyForm({
         </div>
       ) : null}
 
+      <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? ''} />
+      <input type="hidden" name="subject" value="New Academy enquiry — CER" />
       <Honeypot />
 
       <TextField label="Name" name="name" autoComplete="name" required error={errors.name} />
