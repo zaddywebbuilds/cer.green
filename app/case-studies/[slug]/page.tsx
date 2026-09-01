@@ -28,9 +28,11 @@ type Params = { params: Promise<{ slug: string }> };
 
 export const dynamicParams = false;
 
-/** Empty until CER publishes an approved case study. */
 export function generateStaticParams() {
-  return getCaseStudies().map((caseStudy) => ({ slug: caseStudy.slug }));
+  const slugs = getCaseStudies().map((c) => ({ slug: c.slug }));
+  // Static export requires at least one path. Return a placeholder when there
+  // are no published case studies; the page calls notFound() for unknown slugs.
+  return slugs.length > 0 ? slugs : [{ slug: '_' }];
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {

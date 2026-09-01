@@ -1,4 +1,6 @@
 import type { MetadataRoute } from 'next';
+
+export const dynamic = 'force-static';
 import { siteUrl } from '@/lib/site';
 import { gonePaths } from '@/lib/redirects';
 

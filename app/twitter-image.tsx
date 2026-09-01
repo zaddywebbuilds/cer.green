@@ -5,4 +5,5 @@
  * convention to emit the `twitter:image` tag, so this re-exports rather than
  * duplicating the design.
  */
+export const dynamic = 'force-static';
 export { default, alt, size, contentType } from './opengraph-image';

@@ -1,17 +1,16 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import Link from 'next/link';
 
 import { JsonLd } from '@/components/layout/JsonLd';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
-import { ConsultingForm } from '@/components/forms/ConsultingForm';
-import { AcademyForm } from '@/components/forms/AcademyForm';
+import { ContactTabs } from '@/components/forms/ContactTabs';
 import { IfVerified } from '@/components/ui/Verify';
 import { Card, Eyebrow, Section } from '@/components/ui/primitives';
 import { getCourses } from '@/lib/content';
 import { buildCrumbs, buildMetadata } from '@/lib/seo';
 import { breadcrumbSchema, jsonLd } from '@/lib/schema';
 import { site } from '@/lib/site';
-import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = buildMetadata({
   path: '/contact/',
@@ -34,13 +33,7 @@ const crumbs = buildCrumbs({ label: 'Contact', href: '/contact/' });
  * site can deep-link to the right form, and the selection survives a refresh
  * or a shared link.
  */
-export default async function ContactPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ enquiry?: string; type?: string }>;
-}) {
-  const { enquiry, type } = await searchParams;
-  const isAcademy = enquiry === 'academy';
+export default function ContactPage() {
   const courseOptions = [
     ...getCourses().map((c) => c.title),
     'A customised programme',
@@ -71,42 +64,9 @@ export default async function ContactPage({
               Enquiry form
             </h2>
 
-            <nav aria-label="Choose enquiry type" className="mb-10">
-              <ul className="flex flex-wrap gap-2">
-                <li>
-                  <EnquiryTab href="/contact/?enquiry=consulting" active={!isAcademy}>
-                    Consulting enquiry
-                  </EnquiryTab>
-                </li>
-                <li>
-                  <EnquiryTab href="/contact/?enquiry=academy" active={isAcademy}>
-                    Academy &amp; training enquiry
-                  </EnquiryTab>
-                </li>
-              </ul>
-            </nav>
-
-            {isAcademy ? (
-              <>
-                <h3 className="text-h3">Training enquiry</h3>
-                <p className="mt-4 mb-8 max-w-[62ch] text-ink-700">
-                  For professional courses, corporate training, executive sessions and custom
-                  programmes.
-                </p>
-                <AcademyForm
-                  courseOptions={courseOptions}
-                  defaultParticipantType={type === 'corporate' ? 'Corporate / group' : undefined}
-                />
-              </>
-            ) : (
-              <>
-                <h3 className="text-h3">Consulting enquiry</h3>
-                <p className="mt-4 mb-8 max-w-[62ch] text-ink-700">
-                  For ESG, carbon, climate, compliance and sustainable finance advisory.
-                </p>
-                <ConsultingForm />
-              </>
-            )}
+            <Suspense>
+              <ContactTabs courseOptions={courseOptions} />
+            </Suspense>
           </div>
 
           <aside className="flex flex-col gap-6">
@@ -216,27 +176,3 @@ export default async function ContactPage({
   );
 }
 
-function EnquiryTab({
-  href,
-  active,
-  children,
-}: {
-  href: string;
-  active: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      aria-current={active ? 'true' : undefined}
-      className={cn(
-        'inline-flex min-h-12 items-center rounded-[3px] border px-5 font-heading text-[0.95rem] font-semibold transition-colors',
-        active
-          ? 'border-forest bg-forest text-white'
-          : 'border-line bg-white text-ink-700 hover:border-forest/40',
-      )}
-    >
-      {children}
-    </Link>
-  );
-}
