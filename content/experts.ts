@@ -37,7 +37,7 @@ export const experts: Expert[] = [
       'Bachelor of Business, Actuarial Science major, Nanyang Technological University',
     ],
     credentials: ['Over 20 years in actuarial science and risk management'],
-    linkedin: needsVerification('LinkedIn profile URL for Raymond Cheung'),
+    linkedin: 'https://www.linkedin.com/in/raymond-cheung-erm/',
     courseSlugs: [
       'esg-essentials',
       'carbon-literacy-for-professionals',
