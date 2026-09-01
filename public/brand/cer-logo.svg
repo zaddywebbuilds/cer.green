@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 44" role="img" aria-label="CER">
+  <rect width="44" height="44" rx="4" fill="#123C32"/>
+  <circle cx="13" cy="22" r="3.6" fill="#C4DE6B"/>
+  <circle cx="22" cy="22" r="3.6" fill="#F6F4EE" opacity="0.85"/>
+  <circle cx="31" cy="22" r="3.6" fill="#F6F4EE" opacity="0.55"/>
+  <text x="56" y="31" font-family="Manrope, Inter, system-ui, sans-serif" font-size="27" font-weight="700" letter-spacing="-1" fill="#123C32">CER</text>
+</svg>

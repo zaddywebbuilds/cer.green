@@ -1,0 +1,39 @@
+{
+  "name": "cer-green",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CER \u2014 sustainability advisory (CER Solutions) and professional training (CER Academy). Singapore-based, Asia-focused.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run lint && npm run check:content",
+    "check:content": "node scripts/check-content.mjs",
+    "check:content:strict": "node scripts/check-content.mjs --strict",
+    "check:site": "node scripts/check-site.mjs",
+    "prelaunch": "npm run check && npm run build && npm run check:content:strict"
+  },
+  "dependencies": {
+    "next": "^16.3.4",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.6",
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "^16.3.4",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
