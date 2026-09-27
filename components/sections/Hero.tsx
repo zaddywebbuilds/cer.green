@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { HeroSceneLoader } from '@/components/3d/HeroSceneLoader';
 import { Button } from '@/components/ui/primitives';
 import { cta, site } from '@/lib/site';
 
@@ -11,8 +12,13 @@ import { cta, site } from '@/lib/site';
  */
 export function Hero() {
   return (
-    <section className="relative bg-forest-900 text-white on-dark" data-surface="dark">
-      <div className="shell pt-(--spacing-section)">
+    <section className="relative overflow-hidden bg-forest-900 text-white on-dark" data-surface="dark">
+      {/* 3D environment — decorative, behind all content */}
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+        <HeroSceneLoader />
+      </div>
+
+      <div className="relative z-10 shell pt-(--spacing-section)">
 
         {/* Discipline tags */}
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -65,7 +71,7 @@ export function Hero() {
       </div>
 
       {/* Bottom info bar */}
-      <div className="border-t border-line-invert">
+      <div className="relative z-10 border-t border-line-invert">
         <div className="shell flex flex-wrap items-center justify-between gap-x-8 gap-y-3 py-4">
           <span className="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-muted-invert">
             <span>Singapore-based</span>

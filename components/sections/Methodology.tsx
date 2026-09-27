@@ -1,5 +1,9 @@
 import { cn } from '@/lib/utils';
 import { site } from '@/lib/site';
+import { StageSceneLoader } from '@/components/3d/StageSceneLoader';
+import type { StageType } from '@/components/3d/StageScene';
+
+const STAGE_3D: StageType[] = ['crystalise', 'economise', 'revitalise'];
 
 /**
  * Crystalise → Economise → Revitalise — the signature CER experience.
@@ -47,6 +51,9 @@ export function Methodology({
                 index > 0 ? 'md:pl-10 lg:pl-16' : '',
               )}
             >
+              {/* 3D stage illustration */}
+              <StageSceneLoader stage={STAGE_3D[index]!} />
+
               {/* Ghost number — design element, not readable content */}
               <p
                 aria-hidden="true"

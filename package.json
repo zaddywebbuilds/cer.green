@@ -2,7 +2,7 @@
   "name": "cer-green",
   "version": "1.0.0",
   "private": true,
-  "description": "CER \u2014 sustainability advisory (CER Solutions) and professional training (CER Academy). Singapore-based, Asia-focused.",
+  "description": "CER — sustainability advisory (CER Solutions) and professional training (CER Academy). Singapore-based, Asia-focused.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -16,9 +16,12 @@
     "prelaunch": "npm run check && npm run build && npm run check:content:strict"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.1",
     "next": "^16.3.4",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "three": "^0.186.1",
     "zod": "^3.24.1"
   },
   "devDependencies": {
@@ -27,6 +30,7 @@
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
+    "@types/three": "^0.186.0",
     "eslint": "^9.18.0",
     "eslint-config-next": "^16.3.4",
     "postcss": "^8.5.1",
