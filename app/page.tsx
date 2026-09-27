@@ -7,7 +7,6 @@ import { CtaBanner } from '@/components/sections/CtaBanner';
 import {
   ArrowLink,
   Button,
-  Card,
   Eyebrow,
   Paragraphs,
   Section,
@@ -125,45 +124,44 @@ export default function HomePage() {
       </Section>
 
       {/* ---- Two business pillars --------------------------------------- */}
-      <Section surface="ivory" labelledBy="pillars-heading">
-        <h2 id="pillars-heading" className="sr-only">
-          CER Solutions and CER Academy
-        </h2>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          <Card surface="white" className="flex flex-col p-8 md:p-10">
-            <Eyebrow>Advisory. Strategy. Implementation.</Eyebrow>
-            <h3 className="mt-4 text-h3">CER Solutions</h3>
-            <p className="mt-5 text-ink-700">
+      <section className="bg-forest-700 text-white on-dark" data-surface="dark">
+        <h2 className="sr-only" id="pillars-heading">CER Solutions and CER Academy</h2>
+        <div className="shell grid py-(--spacing-section) lg:grid-cols-2">
+          {/* Solutions */}
+          <div className="py-10 lg:border-r lg:border-line-invert lg:pr-12 lg:py-0">
+            <p className="eyebrow text-lime">Advisory · Strategy · Implementation</p>
+            <h3 className="mt-5 text-h2 text-white">CER Solutions</h3>
+            <p className="mt-5 max-w-[44ch] text-muted-invert">
               We help organisations measure, plan and act on ESG, carbon, climate, regulatory and
               sustainability requirements.
             </p>
-            <ul className="mt-7 grid flex-1 gap-2.5">
+            <ul className="mt-8 flex flex-col">
               {categories.map((category) => (
                 <li key={category.slug}>
                   <Link
                     href={`/solutions/${category.slug}/`}
-                    className="flex items-center justify-between gap-4 border-b border-line py-3 font-heading font-medium text-ink hover:text-lime-ink"
+                    className="flex items-center justify-between gap-4 border-b border-line-invert py-3.5 font-heading font-medium text-white/90 transition-colors hover:text-lime"
                   >
                     {category.title}
-                    <span aria-hidden="true">&rarr;</span>
+                    <span aria-hidden="true" className="text-lime/60">&rarr;</span>
                   </Link>
                 </li>
               ))}
             </ul>
-            <Button href="/solutions/" className="mt-8 self-start">
+            <Button href="/solutions/" variant="invert" className="mt-8">
               Explore CER Solutions
             </Button>
-          </Card>
+          </div>
 
-          <Card surface="dark" className="flex flex-col p-8 md:p-10">
-            <Eyebrow className="text-muted-invert">Knowledge. Skills. Certification.</Eyebrow>
-            <h3 className="mt-4 text-h3">CER Academy</h3>
-            <p className="mt-5 text-muted-invert">
+          {/* Academy */}
+          <div className="border-t border-line-invert pt-10 lg:border-t-0 lg:pl-12 lg:pt-0">
+            <p className="eyebrow text-lime">Knowledge · Skills · Certification</p>
+            <h3 className="mt-5 text-h2 text-white">CER Academy</h3>
+            <p className="mt-5 max-w-[44ch] text-muted-invert">
               We build sustainability capability across professionals, leadership teams and whole
               organisations.
             </p>
-            <ul className="mt-7 grid flex-1 gap-2.5">
+            <ul className="mt-8 flex flex-col">
               {[
                 { label: 'Professional courses', href: '/academy/courses/' },
                 { label: 'Corporate training', href: '/academy/corporate-training/' },
@@ -173,20 +171,20 @@ export default function HomePage() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="flex items-center justify-between gap-4 border-b border-line-invert py-3 font-heading font-medium text-white hover:text-lime"
+                    className="flex items-center justify-between gap-4 border-b border-line-invert py-3.5 font-heading font-medium text-white/90 transition-colors hover:text-lime"
                   >
                     {item.label}
-                    <span aria-hidden="true">&rarr;</span>
+                    <span aria-hidden="true" className="text-lime/60">&rarr;</span>
                   </Link>
                 </li>
               ))}
             </ul>
-            <Button href="/academy/" variant="invert" className="mt-8 self-start">
+            <Button href="/academy/" variant="invert" className="mt-8">
               Explore CER Academy
             </Button>
-          </Card>
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* ---- Four core capabilities -------------------------------------- */}
       <Section surface="white" labelledBy="capabilities-heading">
@@ -208,46 +206,56 @@ export default function HomePage() {
       </Section>
 
       {/* ---- Why CER ---------------------------------------------------- */}
-      <Section surface="ivory" labelledBy="why-heading">
-        <SectionHeader eyebrow="Why CER" title="Evidence, not adjectives" id="why-heading" />
+      <section className="bg-forest text-white on-dark" data-surface="dark">
+        <div className="shell grid gap-14 py-(--spacing-section) lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-20">
+          {/* Left: big statement */}
+          <div>
+            <p className="eyebrow text-lime" id="why-heading">Why CER</p>
+            <h2
+              aria-labelledby="why-heading"
+              className="mt-6 font-heading font-semibold text-white"
+              style={{ fontSize: 'clamp(2rem, 3.5vw, 3.25rem)', lineHeight: 1.12, letterSpacing: '-0.02em' }}
+            >
+              Different disciplines.<br />One sustainability strategy.
+            </h2>
+            <p className="mt-6 max-w-[42ch] text-muted-invert">
+              Carbon, ESG, risk, standards and finance don&rsquo;t arrive as separate problems. CER&rsquo;s
+              team spans all of them — so the strategy connects, rather than leaving gaps between advisers.
+            </p>
+            <ArrowLink href="/about/" className="mt-8" onDark>About CER</ArrowLink>
+          </div>
 
-        <div className="mt-8 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          {[
-            {
-              title: 'Singapore-based, regionally relevant',
-              body: 'CER operates from Singapore and works with organisations across Asia. Requirements arriving from Europe and from local regulators land differently in this region, and the advice reflects that.',
-            },
-            {
-              title: 'Multidisciplinary expertise',
-              body: 'Carbon, ESG, risk, standards and finance in one team. The experts behind the advice come from actuarial science, risk management, wealth management and business consultancy.',
-            },
-            {
-              title: 'Strategy through implementation',
-              body: 'CER does not stop at a report. Engagements run through to data collection processes, controls, documentation and internal handover.',
-            },
-            {
-              title: 'Capability building',
-              body: 'Consulting and Academy operate together, so an organisation can build the internal capability to run a programme rather than depending on an adviser indefinitely.',
-            },
-          ].map((item) => (
-            <div key={item.title}>
-              <h3 className="font-heading text-h4 font-semibold">{item.title}</h3>
-              <p className="mt-4 text-ink-700">{item.body}</p>
+          {/* Right: discipline grid converging to action */}
+          <div>
+            <div className="grid grid-cols-2 gap-px bg-line-invert sm:grid-cols-3">
+              {[
+                'ESG Strategy',
+                'Carbon Accounting',
+                'Climate Risk',
+                'Sustainable Finance',
+                'ISO Standards',
+                'Professional Training',
+              ].map((discipline) => (
+                <div key={discipline} className="bg-forest-700 px-5 py-4">
+                  <p className="font-heading text-sm font-semibold text-white/80">{discipline}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+            <div className="mt-px bg-lime px-5 py-4">
+              <p className="font-heading text-sm font-semibold text-forest">→ Measurable business action</p>
+            </div>
 
-        {/*
-          No headline metrics are shown here. CER has not published verified
-          figures for years in operation, client numbers, countries served or
-          emissions reduced, and inventing them would be the fastest way to lose
-          a sustainability director's trust. Add a MetricBlock row here once CER
-          confirms figures it can evidence. See docs/CONTENT-GUIDE.md.
-        */}
-      </Section>
+            {/*
+              No headline metrics shown. CER has not published verified figures
+              for years, client count or emissions reduced. Add MetricBlock here
+              once CER confirms figures it can evidence. (docs/CONTENT-GUIDE.md)
+            */}
+          </div>
+        </div>
+      </section>
 
       {/* ---- Methodology ------------------------------------------------- */}
-      <Methodology surface="sage" />
+      <Methodology />
 
       {/* ---- Industries -------------------------------------------------- */}
       <Section surface="white" labelledBy="industries-heading">
@@ -336,19 +344,35 @@ export default function HomePage() {
         </CardGrid>
       </Section>
 
-      {/* ---- Insights ----------------------------------------------------- */}
+      {/* ---- Insights — magazine layout --------------------------------- */}
       <Section surface="ivory" labelledBy="insights-heading">
-        <SectionHeader
-          eyebrow="Insights"
-          title="Latest thinking"
-          id="insights-heading"
-          action={<ArrowLink href="/insights/">View all insights</ArrowLink>}
-        />
-        <CardGrid columns={3} className="mt-8">
-          {articles.map((article) => (
-            <ArticleCard key={article.slug} article={article} />
-          ))}
-        </CardGrid>
+        <div className="flex items-baseline justify-between gap-8">
+          <div>
+            <p className="eyebrow text-muted">
+              <span className="text-lime-ink">//</span> Insights
+            </p>
+            <h2 id="insights-heading" className="mt-3 text-h2">Latest thinking</h2>
+          </div>
+          <ArrowLink href="/insights/" className="hidden shrink-0 sm:flex">View all insights</ArrowLink>
+        </div>
+
+        {articles.length > 0 && (
+          <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
+            {/* Featured article */}
+            <ArticleCard article={articles[0]!} />
+
+            {/* Supporting articles */}
+            {articles.length > 1 && (
+              <div className="flex flex-col gap-6">
+                {articles.slice(1).map((article) => (
+                  <ArticleCard key={article.slug} article={article} />
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        <ArrowLink href="/insights/" className="mt-8 sm:hidden">View all insights</ArrowLink>
       </Section>
 
       {/* ---- Final CTA ---------------------------------------------------- */}
