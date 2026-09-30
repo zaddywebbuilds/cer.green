@@ -31,17 +31,27 @@ import { formatDate } from '@/lib/utils';
 export const metadata: Metadata = buildMetadata({
   path: '/academy/',
   seo: {
-    title: 'CER Academy | ESG & Sustainability Training Singapore',
+    title: 'CER Academy | Compliance Training & Learning Platform Singapore',
     description:
-      'Professional ESG, carbon and sustainability training in Singapore. Courses, corporate programmes and executive sessions delivered by practising consultants.',
-    primaryKeyword: 'sustainability training Singapore',
-    secondaryKeywords: ['ESG training Singapore', 'ESG courses Singapore'],
+      'CER Academy delivers AI-powered compliance training for Singapore SMEs and NGOs — AML, PDPA, ESG, workplace safety and more. PSG grant-eligible LMS platform and professional programmes taught by practising consultants.',
+    primaryKeyword: 'compliance training Singapore',
+    secondaryKeywords: ['ESG training Singapore', 'sustainability training Singapore', 'PSG grant training Singapore'],
   },
 });
 
 const crumbs = buildCrumbs({ label: 'Academy', href: '/academy/' });
 
 const faqs = [
+  {
+    question: 'What is the CER Academy learning platform?',
+    answer:
+      'CER Academy operates an AI-powered learning management system (LMS) for compliance training. It is designed for Singapore SMEs and NGOs, and comes pre-loaded with core compliance modules covering AML, PDPA, ESG, workplace safety and more. Organisations can deploy it as a standalone platform or access it through co-branded partnerships such as ASME.',
+  },
+  {
+    question: 'Is the CER Academy platform PSG grant-eligible?',
+    answer:
+      'CER Academy is pursuing Productivity Solutions Grant (PSG) pre-approval, which allows qualifying Singapore SMEs to claim government subsidy on software adoption. Speak with us about current grant eligibility and how to structure your adoption accordingly.',
+  },
   {
     question: 'Who delivers CER Academy programmes?',
     answer:
@@ -56,6 +66,11 @@ const faqs = [
     question: 'Are programmes delivered online?',
     answer:
       'Most programmes are available in person in Singapore, as virtual live sessions, or in-house at your premises. The format is noted on each course page.',
+  },
+  {
+    question: "How do CER Academy’s ATO partnerships work?",
+    answer:
+      'CER Academy partners with established Approved Training Organisations (ATOs), ASME, and institutional bodies including the Civil Service College to deliver accredited programmes from day one. This means clients access recognised, grant-eligible training without waiting for standalone accreditation approvals.',
   },
   {
     question: 'How do I find dates and pricing?',
@@ -77,14 +92,14 @@ export default function AcademyPage() {
 
       <Section surface="dark" labelledBy="academy-h1">
         <Breadcrumbs crumbs={crumbs} onDark />
-        <Eyebrow className="text-lime">Knowledge. Skills. Certification.</Eyebrow>
-        <h1 id="academy-h1" className="mt-5 max-w-[20ch] text-display">
-          Build the sustainability capability your organisation needs.
+        <Eyebrow className="text-lime">Training · Platform · Partnerships</Eyebrow>
+        <h1 id="academy-h1" className="mt-5 max-w-[22ch] text-display">
+          Compliance training built for Singapore organisations.
         </h1>
         <p className="mt-7 max-w-[68ch] text-lead text-muted-invert">
-          CER Academy develops technical ESG, carbon and risk capability across professionals,
-          leadership teams and whole organisations — taught by the practitioners who deliver CER&rsquo;s
-          advisory work.
+          CER Academy combines an AI-powered compliance learning platform with professional
+          programmes taught by practising consultants — serving Singapore SMEs, NGOs and
+          institutions through established ATO and institutional partnerships.
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <Button href={cta.courses.href} variant="invert">
@@ -99,6 +114,140 @@ export default function AcademyPage() {
           </Button>
         </div>
       </Section>
+
+      {/* ── Platform overview ─────────────────────────────────────────────── */}
+      <section className="bg-forest-700 text-white on-dark" data-surface="dark">
+        <div className="shell py-(--spacing-section)">
+          <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-20 lg:items-start">
+            {/* Left: mission */}
+            <div>
+              <p className="eyebrow text-lime">The CER Academy Platform</p>
+              <h2
+                className="mt-6 font-heading font-semibold text-white"
+                style={{ fontSize: 'clamp(1.875rem, 1.3rem + 2.3vw, 3rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}
+              >
+                Why we built this — and who it&rsquo;s for.
+              </h2>
+              <p className="mt-6 max-w-[48ch] text-muted-invert">
+                Singapore SMEs and NGOs face expanding mandatory compliance requirements —
+                AML obligations, PDPA accountability, workplace safety standards, ESG
+                reporting. Meeting them demands more than an occasional workshop.
+              </p>
+              <p className="mt-4 max-w-[48ch] text-muted-invert">
+                CER Academy addresses this with an AI-powered learning management system,
+                pre-loaded compliance content, and the institutional partnerships to deliver
+                accredited training from day one — without the 6 to 12&ndash;month wait for
+                standalone ATO accreditation.
+              </p>
+            </div>
+
+            {/* Right: three audience/feature tiles */}
+            <div className="grid gap-px bg-line-invert sm:grid-cols-1">
+              {[
+                {
+                  label: 'For SMEs',
+                  body: 'Co-branded with ASME and built for Singapore mid-tier enterprises. PSG grant-eligible, so qualifying organisations can offset a significant share of software adoption costs against government subsidy.',
+                },
+                {
+                  label: 'For NGOs & Charities',
+                  body: 'Governance, fundraising and financial stewardship programmes aligned with MCCY requirements. Designed for charity board members, executive directors and compliance officers.',
+                },
+                {
+                  label: 'AI-Powered Learning',
+                  body: 'Role-based compliance path recommendations, a 24/7 compliance co-pilot for policy questions, and automated monitoring of ACRA, MAS and Commissioner of Charities regulatory updates.',
+                },
+              ].map((tile) => (
+                <div key={tile.label} className="bg-forest-700 px-6 py-7 border-b border-line-invert last:border-b-0">
+                  <p className="font-heading text-sm font-semibold uppercase tracking-[0.1em] text-lime">{tile.label}</p>
+                  <p className="mt-3 text-muted-invert">{tile.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Compliance modules ────────────────────────────────────────────── */}
+      <Section surface="white" labelledBy="academy-modules">
+        <SectionHeader
+          eyebrow="Coverage"
+          title="Core compliance modules"
+          id="academy-modules"
+          lead="Pre-loaded modules covering the obligations most Singapore organisations already face. Additional domain packs available for NGO governance, ISO standards and ESG reporting."
+        />
+        <div className="mt-12 grid grid-cols-2 gap-px bg-line sm:grid-cols-3 lg:grid-cols-4">
+          {[
+            { title: 'AML & Counter-Terrorism Financing', tag: 'MAS · FATF' },
+            { title: 'Anti-Bribery & Corruption', tag: 'CPIB · ISO 37001' },
+            { title: 'PDPA & Data Privacy', tag: 'PDPC' },
+            { title: 'Workplace Safety & Health', tag: 'MOM · WSH Act' },
+            { title: 'Workplace Harassment', tag: 'TAFEP' },
+            { title: 'ESG & Sustainability Reporting', tag: 'SGX · ISSB' },
+            { title: 'NGO Governance & Stewardship', tag: 'MCCY · Charities Act' },
+            { title: 'ISO Standards & Frameworks', tag: 'ISO 14001 · ISO 37001' },
+          ].map((mod) => (
+            <div key={mod.title} className="bg-white px-6 py-7">
+              <p className="font-heading text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-lime-ink">
+                {mod.tag}
+              </p>
+              <p className="mt-2 font-heading text-sm font-semibold text-ink leading-snug">
+                {mod.title}
+              </p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 text-sm text-muted">
+          Additional modules and AI-driven role recommendations configured per organisation.
+        </p>
+      </Section>
+
+      {/* ── Institutional partnerships ────────────────────────────────────── */}
+      <section className="bg-forest text-white on-dark" data-surface="dark">
+        <div className="shell py-(--spacing-section)">
+          <p className="eyebrow text-lime" id="academy-partners">Our approach</p>
+          <div className="mt-6 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:gap-20 lg:items-start">
+            <h2
+              className="font-heading font-semibold text-white"
+              style={{ fontSize: 'clamp(1.875rem, 1.3rem + 2.3vw, 2.75rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}
+            >
+              Partner-first. Accredited from day one.
+            </h2>
+            <div>
+              <p className="text-muted-invert">
+                Rather than waiting 6 to 12 months for standalone Approved Training Organisation
+                accreditation, CER Academy enters the market through established institutional
+                partnerships — delivering WSQ, MCCY-backed and CSC-aligned programmes immediately
+                while those channels are being built.
+              </p>
+              <ul className="mt-10 flex flex-col gap-px border-t border-line-invert">
+                {[
+                  {
+                    partner: 'ASME',
+                    desc: 'Co-branded LMS and SME capability modules reaching 6,000+ member companies across Singapore.',
+                  },
+                  {
+                    partner: 'Civil Service College',
+                    desc: 'Collaboration on public-sector-focused domains including environment, governance, risk and controls.',
+                  },
+                  {
+                    partner: 'MCCY-Backed Providers',
+                    desc: 'NGO governance and management programmes unlocking MCCY grants for Singapore charities and IPC organisations.',
+                  },
+                  {
+                    partner: 'Established ATOs',
+                    desc: 'WSQ-accredited business capability modules co-marketed and delivered through approved training partners.',
+                  },
+                ].map((item) => (
+                  <li key={item.partner} className="border-b border-line-invert py-6">
+                    <p className="font-heading font-semibold text-lime">{item.partner}</p>
+                    <p className="mt-2 text-sm text-muted-invert">{item.desc}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Course categories */}
       <Section surface="ivory" labelledBy="academy-categories">
@@ -183,7 +332,7 @@ export default function AcademyPage() {
       {/* Why CER Academy */}
       <Section surface="sage" labelledBy="academy-why">
         <SectionHeader eyebrow="Why CER Academy" title="Training from practice" id="academy-why" />
-        <div className="mt-12 grid gap-10 md:grid-cols-3">
+        <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {[
             {
               title: 'Taught by practising consultants',
@@ -196,6 +345,10 @@ export default function AcademyPage() {
             {
               title: 'Built for the region',
               body: 'Content reflects the requirements organisations in Singapore and across Asia are actually facing, including obligations arriving from overseas customers and regulators.',
+            },
+            {
+              title: 'Accredited from day one',
+              body: 'Delivered through established ATO, ASME and CSC partnerships, so clients access recognised training pathways immediately — without waiting on standalone accreditation timelines.',
             },
           ].map((item) => (
             <div key={item.title}>
