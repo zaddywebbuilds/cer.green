@@ -34,8 +34,7 @@ const CAPABILITY_IMAGES: Record<string, string> = {
   'esg-sustainability':
     'https://images.unsplash.com/photo-1484981138541-3d074aa97880?auto=format&fit=crop&w=800&q=80',
   'compliance-standards': `${BASE_PATH}/images/compliance-standards.webp`,
-  'sustainable-finance':
-    'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80',
+  'sustainable-finance': `${BASE_PATH}/images/sustainable-finance.webp`,
 };
 
 const INDUSTRY_IMAGES: Record<string, string> = {
