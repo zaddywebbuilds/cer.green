@@ -6,10 +6,13 @@ import { useRichMotion } from '@/lib/useRichMotion';
 /**
  * A methodology stage visual that is a video rather than a generated scene.
  *
- * The source is withheld until the stage approaches the viewport, for the same
- * reason the 3D scenes gate their import: these sit far below the fold, and an
- * autoplaying video attaches its download to first paint otherwise. The poster
- * stands in until then, so the slot is never empty and never shifts.
+ * The `video` is not rendered until the stage approaches the viewport, and
+ * not at all on a narrow screen or under reduced motion. Withholding the
+ * element rather than its `src` is what keeps the bytes unfetched, since an
+ * autoplaying element downloads regardless of `preload`. The poster holds the
+ * slot until then, so it is never empty and never shifts.
+ *
+ * AV1 first, H.264 second: the browser takes the first it can decode.
  *
  * The box is fixed to the clip's own aspect ratio and the fit is `contain`.
  * Both matter: the clips carry their own captions, some set close to the frame
@@ -19,12 +22,12 @@ import { useRichMotion } from '@/lib/useRichMotion';
  * against this dark section that is invisible.
  */
 export function StageVideo({
-  src,
+  stem,
   poster,
   width,
   height,
 }: {
-  src: string;
+  stem: string;
   poster: string;
   width: number;
   height: number;
@@ -39,17 +42,19 @@ export function StageVideo({
       style={{ aspectRatio: `${width} / ${height}` }}
       aria-hidden="true"
     >
-      {rich ? (
+      {rich && hasEntered ? (
         <video
-          {...(hasEntered ? { src } : {})}
           poster={poster}
           autoPlay
           loop
           muted
           playsInline
-          preload="none"
+          preload="auto"
           className="h-full w-full object-contain"
-        />
+        >
+          <source src={`${stem}.webm`} type='video/webm; codecs="av01.0.04M.08"' />
+          <source src={`${stem}.mp4`} type='video/mp4; codecs="avc1.640020"' />
+        </video>
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={poster} alt="" loading="lazy" className="h-full w-full object-contain" />

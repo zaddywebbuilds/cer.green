@@ -21,7 +21,7 @@ export function Hero() {
           a mount decision rather than a CSS one. */}
       <div className="relative aspect-[736/400] w-full lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[68%]">
         <HeroVideo
-          src={`${base}/video/hero.mp4`}
+          stem={`${base}/video/hero`}
           poster={`${base}/video/hero-poster.jpg`}
         />
         {/* Left edge melts into the dark panel so the two halves read as one */}

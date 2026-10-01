@@ -137,7 +137,7 @@ export function Methodology({
                 if (!video) return null;
                 return (
                   <StageVideo
-                    src={`${base}/video/${video.slug}.mp4`}
+                    stem={`${base}/video/${video.slug}`}
                     poster={`${base}/video/${video.slug}-poster.jpg`}
                     width={video.width}
                     height={video.height}
