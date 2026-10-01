@@ -136,7 +136,6 @@ See `.env.example`, which documents every variable. The ones that matter most:
 | `EMAIL_FROM` | Production | Verified sender address. |
 | `ENQUIRY_RECIPIENT` | Production | Where enquiries go. Server-only. |
 | `NEXT_PUBLIC_GA4_ID` / `NEXT_PUBLIC_GTM_ID` | Optional | Analytics. Loads only after consent. |
-| `NEXT_PUBLIC_PORTAL_URL` | Optional | Client Portal application URL. |
 
 `DEPLOY_ENV` is the single most important one. Getting it wrong on staging is
 how a staging site ends up in Google.
@@ -232,10 +231,11 @@ URLs, Open Graph objects or robots directives by hand.
 
 ### Indexation control
 
-Portal and account routes are blocked in four independent places: page
-metadata, an `X-Robots-Tag` response header, `robots.txt`, and exclusion from
-the sitemap. Meta tags are not access control — client documents must be served
-from behind authentication in the portal application, never from this site.
+Account routes are blocked in `robots.txt`, in page metadata and by exclusion
+from the sitemap. No such routes exist on this site: CER has confirmed the
+consultancy site carries no client login, so client material is never served
+from here at all. The rules stay in place because the old site exposed these
+paths and they must not become indexable again.
 
 ---
 

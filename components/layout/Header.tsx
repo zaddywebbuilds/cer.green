@@ -243,13 +243,6 @@ export function Header({ nav }: { nav: NavItem[] }) {
 
         <div className="hidden items-center gap-5 lg:flex">
           <Link
-            href="/portal/"
-            onClick={() => trackEvent('portal_click')}
-            className="font-heading text-[0.95rem] font-medium text-ink-700 hover:text-forest"
-          >
-            Client Portal
-          </Link>
-          <Link
             href={cta.consulting.href}
             onClick={() => trackEvent('consultation_cta_click', { location: 'header' })}
             className="inline-flex min-h-11 items-center rounded-[3px] bg-forest px-5 font-heading text-[0.95rem] font-semibold text-white hover:bg-forest-500"

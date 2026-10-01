@@ -35,7 +35,7 @@ const sections: LegalSection[] = [
   {
     heading: 'What this policy covers',
     body: [
-      'This policy covers personal data collected through this website. It does not cover data processed within a client engagement, which is governed by the agreement in place for that engagement, or data held in the Client Portal, which is subject to its own access controls and terms.',
+      'This policy covers personal data collected through this website. It does not cover data processed within a client engagement, which is governed by the agreement in place for that engagement.',
     ],
   },
   {
@@ -143,7 +143,7 @@ const sections: LegalSection[] = [
       'Form submissions are validated on the server and rate limited to prevent abuse.',
       'Security headers, including a Content Security Policy, are applied to every response.',
       'Enquiry destination addresses and service credentials are held server-side and are never exposed in the browser.',
-      'Client documents are held behind authentication in the Client Portal, never on a public URL.',
+      'Client project material is exchanged directly with your engagement lead, never published on this website.',
     ],
   },
   {

@@ -1,5 +1,25 @@
 # Portal and platform plan
 
+> **SUPERSEDED, 1 October 2026. Do not build from this document.**
+>
+> CER has confirmed the consultancy website carries no client login. It is an
+> information site: it explains what CER provides, and prospects then contact
+> CER directly, after which the engagement runs through an engagement letter
+> and the project itself. Clients never need the website for that work.
+>
+> The `cer-portal` WordPress plugin is therefore not being built, and
+> `portal.cer.green` on Hostinger is not being stood up for the consultancy.
+>
+> Authentication has not gone away, it has moved. It now belongs to **CER
+> Academy**, which is becoming an AI-powered LMS where learners sign in to
+> reach courses, slides, videos and training materials. That system is being
+> brought in rather than written from scratch, so the hosting and plugin
+> analysis below does not transfer to it either.
+>
+> This file is kept for the decision history and the threat analysis in the
+> security sections, both of which still apply to any system CER runs. See
+> `docs/ACADEMY-PLAN.md` for the live plan.
+
 Scope, hosting, security and roadmap for building CER's client portal as a
 custom WordPress plugin, replacing the paid plugins **WP User Frontend Pro**
 and **Ultimate Dashboard Pro**, and for the wider platform features that

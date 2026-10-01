@@ -20,7 +20,7 @@ import { isNoindexPath } from '@/lib/site';
  * new service appears without anyone remembering to add it.
  *
  * Three things are deliberately excluded:
- *   - Anything under a protected prefix (portal, account, API), filtered
+ *   - Anything under a protected prefix (account, API), filtered
  *     through `isNoindexPath` rather than by remembering to leave it out.
  *   - Filtered listing views such as `/insights/?category=esg`. They are
  *     canonicalised to the unfiltered page and would otherwise create an

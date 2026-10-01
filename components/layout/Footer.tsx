@@ -62,11 +62,6 @@ export function Footer() {
                     LinkedIn
                   </a>
                 </li>
-                <li>
-                  <Link href="/portal/" className="text-[0.95rem] text-muted-invert hover:text-white">
-                    Client Portal login
-                  </Link>
-                </li>
               </ul>
 
               <address className="mt-5 text-[0.95rem] not-italic text-muted-invert">

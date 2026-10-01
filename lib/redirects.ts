@@ -67,29 +67,34 @@ export const redirects: Redirect[] = [
      URL points at About rather than at an empty page. -------------------- */
   { source: '/testimonials', destination: '/about/', statusCode: 301 },
 
-  /* ---- Portal and account routes ----------------------------------------
-     These were indexable on the old site, which is the exposure this rebuild
-     closes. They now resolve to the portal gateway, which is noindex and
-     excluded from the sitemap. ------------------------------------------- */
-  { source: '/my-decarbonization-journey', destination: '/portal/', statusCode: 301 },
-  { source: '/dashboard', destination: '/portal/', statusCode: 301 },
-  { source: '/members', destination: '/portal/', statusCode: 301 },
-  { source: '/members-2', destination: '/portal/', statusCode: 301 },
-  { source: '/my-account', destination: '/portal/', statusCode: 301 },
-  { source: '/account', destination: '/portal/', statusCode: 301 },
-  { source: '/login', destination: '/portal/', statusCode: 301 },
-  { source: '/member-login', destination: '/portal/', statusCode: 301 },
-  { source: '/register', destination: '/portal/', statusCode: 301 },
-  { source: '/sign-up', destination: '/portal/', statusCode: 301 },
-  { source: '/registration', destination: '/portal/', statusCode: 301 },
-  { source: '/student-registration', destination: '/portal/', statusCode: 301 },
-  { source: '/instructor-registration', destination: '/portal/', statusCode: 301 },
-  { source: '/edit-profile', destination: '/portal/', statusCode: 301 },
-  { source: '/welcome', destination: '/portal/', statusCode: 301 },
-  { source: '/password-reset', destination: '/portal/', statusCode: 301 },
-  { source: '/lost-password', destination: '/portal/', statusCode: 301 },
-  { source: '/logout', destination: '/portal/', statusCode: 301 },
-  { source: '/member-logout', destination: '/portal/', statusCode: 301 },
+  /* ---- Old membership and account routes --------------------------------
+     The old site exposed these publicly, which is the exposure this rebuild
+     closes. CER has since confirmed the consultancy site carries no client
+     login at all, so there is no gateway to send them to.
+
+     The learner-facing ones point at the Academy, which is where any future
+     login will live once its LMS exists. The rest point at Contact, since
+     engagement matters are handled directly with the engagement lead. ---- */
+  { source: '/student-registration', destination: '/academy/', statusCode: 301 },
+  { source: '/instructor-registration', destination: '/academy/', statusCode: 301 },
+  { source: '/register', destination: '/academy/', statusCode: 301 },
+  { source: '/sign-up', destination: '/academy/', statusCode: 301 },
+  { source: '/registration', destination: '/academy/', statusCode: 301 },
+
+  { source: '/my-decarbonization-journey', destination: '/contact/', statusCode: 301 },
+  { source: '/dashboard', destination: '/contact/', statusCode: 301 },
+  { source: '/members', destination: '/contact/', statusCode: 301 },
+  { source: '/members-2', destination: '/contact/', statusCode: 301 },
+  { source: '/my-account', destination: '/contact/', statusCode: 301 },
+  { source: '/account', destination: '/contact/', statusCode: 301 },
+  { source: '/login', destination: '/contact/', statusCode: 301 },
+  { source: '/member-login', destination: '/contact/', statusCode: 301 },
+  { source: '/edit-profile', destination: '/contact/', statusCode: 301 },
+  { source: '/welcome', destination: '/contact/', statusCode: 301 },
+  { source: '/password-reset', destination: '/contact/', statusCode: 301 },
+  { source: '/lost-password', destination: '/contact/', statusCode: 301 },
+  { source: '/logout', destination: '/contact/', statusCode: 301 },
+  { source: '/member-logout', destination: '/contact/', statusCode: 301 },
   { source: '/member-tos-page', destination: '/terms/', statusCode: 301 },
 
   /* ---- Commerce routes --------------------------------------------------

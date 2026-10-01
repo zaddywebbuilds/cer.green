@@ -52,7 +52,7 @@ const sections: LegalSection[] = [
     list: [
       'Use the site for any unlawful purpose, or in a way that breaches these terms.',
       'Submit false information through any form on the site, or submit an enquiry on behalf of someone who has not asked you to.',
-      'Attempt to gain unauthorised access to the site, the Client Portal, or any server or system connected to them.',
+      'Attempt to gain unauthorised access to the site, or to any server or system connected to it.',
       'Introduce malicious code, or attempt to interfere with the operation or availability of the site.',
       'Scrape, harvest or systematically extract content from the site without our written permission.',
       'Use automated systems to submit forms, or otherwise circumvent the site\'s abuse controls.',
@@ -77,13 +77,6 @@ const sections: LegalSection[] = [
     heading: 'Links to other sites',
     body: [
       'This site links to external websites, including partner organisations and regulators. We do not control those sites and are not responsible for their content, availability or privacy practices. A link is not an endorsement.',
-    ],
-  },
-  {
-    heading: 'The Client Portal',
-    body: [
-      'The Client Portal is a separate secure application available to clients with an active engagement. Access is subject to its own terms and to the agreement covering that engagement.',
-      'You are responsible for keeping portal credentials confidential and for activity carried out under them. CER will never ask you for your password. If you believe your credentials have been compromised, contact us immediately.',
     ],
   },
   {

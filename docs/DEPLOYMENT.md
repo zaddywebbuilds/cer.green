@@ -36,7 +36,6 @@ Set these under **Settings > Secrets and variables > Actions > Variables** in th
 | `DEPLOY_TARGET` | `staging` or `production` |
 | `NEXT_PUBLIC_SITE_URL` | `https://www.cer.green` (production) |
 | `NEXT_PUBLIC_GA4_ID` | Google Analytics 4 measurement ID (optional) |
-| `NEXT_PUBLIC_PORTAL_URL` | URL of the client portal, e.g. `https://portal.cer.green` |
 
 ## GitHub repository secrets
 

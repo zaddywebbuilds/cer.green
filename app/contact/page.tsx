@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-import Link from 'next/link';
 
 import { JsonLd } from '@/components/layout/JsonLd';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
@@ -141,15 +140,9 @@ export default function ContactPage() {
             <Card surface="sage">
               <h2 className="eyebrow text-lime-ink">Existing clients</h2>
               <p className="mt-4 text-ink-700">
-                If you are an existing client with an active engagement, the Client Portal is the
-                fastest route.
+                If you have an active engagement, contact your engagement lead directly. They remain
+                your first point of contact for anything relating to current project work.
               </p>
-              <Link
-                href="/portal/"
-                className="mt-5 inline-flex font-heading text-[0.95rem] font-semibold text-forest underline underline-offset-4 hover:text-lime-ink"
-              >
-                Go to the Client Portal
-              </Link>
             </Card>
 
             <Card surface="outline">

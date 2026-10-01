@@ -30,8 +30,8 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
         disallow: [
-          // Authenticated and account areas.
-          '/portal/',
+          // Account areas. No such routes exist on this site, but the old one
+          // exposed them, so they stay disallowed defensively.
           '/login/',
           '/account/',
           '/dashboard/',

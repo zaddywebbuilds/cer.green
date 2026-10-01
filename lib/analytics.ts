@@ -26,7 +26,6 @@ export type AnalyticsEvent =
   | 'article_view'
   | 'article_75_percent_scroll'
   | 'newsletter_signup'
-  | 'portal_click'
   | 'phone_click'
   | 'email_click'
   | 'solutions_cta_click'

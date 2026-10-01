@@ -59,7 +59,7 @@ export function buildMetadata({
   const canonical = seo.canonical ? absoluteUrl(seo.canonical) : absoluteUrl(path);
 
   // A path under a protected prefix is noindex regardless of what the document
-  // says, so a CMS field can never accidentally expose a portal route.
+  // says, so a CMS field can never accidentally expose a private route.
   const noindex = seo.noindex || isNoindexPath(path);
   const nofollow = seo.nofollow || isNoindexPath(path);
 

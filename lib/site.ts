@@ -128,7 +128,6 @@ export const cta = {
  * `app/robots.ts`, the sitemap builder, and per-route metadata.
  */
 export const noindexPrefixes = [
-  '/portal',
   '/login',
   '/account',
   '/dashboard',

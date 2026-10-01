@@ -60,7 +60,7 @@ export const seo = defineType({
       type: 'boolean',
       initialValue: false,
       description:
-        'Excludes the page from search results and the sitemap. Portal and account routes are always excluded regardless of this setting.',
+        'Excludes the page from search results and the sitemap. Account routes are always excluded regardless of this setting.',
     }),
     defineField({
       name: 'nofollow',

@@ -43,8 +43,7 @@ plus author archives and Elementor template routes.
 | Control | Where |
 | --- | --- |
 | Workflow, upload and WordPress URLs return **410 Gone** | `middleware.ts` + `lib/redirects.ts` |
-| Portal routes are noindex in page metadata | `lib/seo.ts` |
-| `X-Robots-Tag: noindex` header on `/portal/*` | `next.config.ts` |
+| Account routes are noindex in page metadata | `lib/seo.ts` |
 | Disallowed in robots.txt | `app/robots.ts` |
 | Excluded from the sitemap | `app/sitemap.ts` |
 | Staging noindex site-wide | `middleware.ts` via `DEPLOY_ENV` |
@@ -142,9 +141,11 @@ preserved, republish it as an insight and repoint the redirect at it.
 its own page and repoint that redirect. It currently goes to the terms page,
 which is a placeholder decision.
 
-### Portal and account
+### Old membership and account routes
 
-All redirect to `/portal/`, which is noindex and excluded from the sitemap:
+The consultancy site carries no client login, so there is no gateway to send
+these to. The learner-facing ones redirect to `/academy/`, the rest to
+`/contact/`:
 
 `/my-decarbonization-journey/` · `/dashboard/` · `/members/` · `/members-2/` ·
 `/my-account/` · `/account/` · `/login/` · `/member-login/` · `/register/` ·
@@ -192,7 +193,7 @@ Everything factual was preserved. Structure and wording were rebuilt.
   sector content; the rest are not published until CER can evidence the
   capability.
 - **Testimonials** — none approved.
-- **Course workflow and upload screens** — belong in the authenticated portal.
+- **Course workflow and upload screens** — belong in the Academy LMS.
 
 ---
 
@@ -228,5 +229,5 @@ Everything factual was preserved. Structure and wording were rebuilt.
 - Watch Coverage for the old workflow URLs dropping out.
 - Watch for 404 spikes — anything unexpected needs a redirect adding.
 - Monitor Core Web Vitals as field data accumulates.
-- Confirm no `/course-step/`, `/wp-content/` or portal URL remains indexed.
+- Confirm no `/course-step/`, `/wp-content/` or old account URL remains indexed.
 - Track branded versus non-branded query mix as the new service pages mature.

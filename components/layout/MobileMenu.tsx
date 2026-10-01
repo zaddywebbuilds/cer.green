@@ -159,15 +159,6 @@ export function MobileMenu({
               </li>
             ),
           )}
-          <li>
-            <Link
-              href="/portal/"
-              onClick={() => trackEvent('portal_click')}
-              className="flex min-h-14 items-center font-heading text-h4 font-semibold"
-            >
-              Client Portal
-            </Link>
-          </li>
         </ul>
 
         <div className="mt-8 flex flex-col gap-3">

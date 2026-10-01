@@ -71,13 +71,12 @@ for the consulting form:
 - [ ] Canonical URLs use https and consistent trailing slashes.
 - [ ] `/sitemap.xml` loads. Count the URLs — should match the 61 indexable
       routes.
-- [ ] `/robots.txt` loads. `Allow: /` is present. `Disallow: /portal/` is
-      present. `Sitemap:` line references the correct domain.
+- [ ] `/robots.txt` loads. `Allow: /` is present. `Disallow: /login/`,
+      `/account/` and `/dashboard/` are present. `Sitemap:` line references
+      the correct domain.
 - [ ] Google Search Console — submit sitemap, request indexing of homepage,
       `/solutions/`, `/academy/`, top service pages.
 - [ ] No indexable page returns a noindex meta tag (inspect source on a few).
-- [ ] `/portal/` has `<meta name="robots" content="noindex, nofollow">` in
-      source.
 - [ ] JSON-LD is valid on homepage, a service page, a course page and an
       article. Paste source into https://validator.schema.org.
 - [ ] Breadcrumbs render correctly on a service, course and article page.
