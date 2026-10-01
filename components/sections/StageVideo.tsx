@@ -1,6 +1,7 @@
 'use client';
 
 import { useInView } from '@/lib/useInView';
+import { useRichMotion } from '@/lib/useRichMotion';
 
 /**
  * A methodology stage visual that is a video rather than a generated scene.
@@ -29,6 +30,7 @@ export function StageVideo({
   height: number;
 }) {
   const { ref, hasEntered } = useInView<HTMLDivElement>();
+  const rich = useRichMotion();
 
   return (
     <div
@@ -37,16 +39,21 @@ export function StageVideo({
       style={{ aspectRatio: `${width} / ${height}` }}
       aria-hidden="true"
     >
-      <video
-        {...(hasEntered ? { src } : {})}
-        poster={poster}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="none"
-        className="h-full w-full object-contain"
-      />
+      {rich ? (
+        <video
+          {...(hasEntered ? { src } : {})}
+          poster={poster}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="none"
+          className="h-full w-full object-contain"
+        />
+      ) : (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={poster} alt="" loading="lazy" className="h-full w-full object-contain" />
+      )}
     </div>
   );
 }

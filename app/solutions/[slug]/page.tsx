@@ -24,6 +24,7 @@ import {
   ExpertCard,
   IndustryCard,
   SolutionCard,
+  solutionImage,
 } from '@/components/ui/cards';
 import {
   getArticlesBySolution,
@@ -182,6 +183,7 @@ function ServiceView({ slug }: { slug: string }) {
   const experts = getExpertsBySlugs(solution.expertSlugs);
   const caseStudies = getCaseStudiesBySolution(slug);
   const articles = getArticlesBySolution(slug).slice(0, 3);
+  const heroImage = solutionImage(slug);
 
   const crumbs = buildCrumbs(
     { label: 'Solutions', href: '/solutions/' },
@@ -200,25 +202,43 @@ function ServiceView({ slug }: { slug: string }) {
       />
 
       <Section surface="dark" labelledBy="service-h1">
-        <Breadcrumbs crumbs={crumbs} onDark />
-        <Eyebrow className="text-lime">{category.title}</Eyebrow>
-        <h1 id="service-h1" className="mt-5 max-w-[18ch] text-display">
-          {solution.title}
-        </h1>
-        <p className="mt-7 max-w-[62ch] text-lead">{solution.heroStatement}</p>
-        <p className="mt-5 max-w-[68ch] text-muted-invert">{solution.summary}</p>
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <Button href={cta.discuss.href} variant="invert">
-            {cta.discuss.label}
-          </Button>
-          {experts.length ? (
-            <Button
-              href={`/about/experts/${experts[0]!.slug}/`}
-              variant="secondary"
-              className="border-white/40 text-white hover:border-white hover:bg-white hover:text-forest"
-            >
-              Speak with an expert
-            </Button>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:items-center lg:gap-16">
+          <div>
+            <Breadcrumbs crumbs={crumbs} onDark />
+            <Eyebrow className="text-lime">{category.title}</Eyebrow>
+            <h1 id="service-h1" className="mt-5 max-w-[18ch] text-display">
+              {solution.title}
+            </h1>
+            <p className="mt-7 max-w-[62ch] text-lead">{solution.heroStatement}</p>
+            <p className="mt-5 max-w-[68ch] text-muted-invert">{solution.summary}</p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Button href={cta.discuss.href} variant="invert">
+                {cta.discuss.label}
+              </Button>
+              {experts.length ? (
+                <Button
+                  href={`/about/experts/${experts[0]!.slug}/`}
+                  variant="secondary"
+                  className="border-white/40 text-white hover:border-white hover:bg-white hover:text-forest"
+                >
+                  Speak with an expert
+                </Button>
+              ) : null}
+            </div>
+          </div>
+
+          {/* The service photograph, where one has been supplied. Decorative:
+              the heading and summary beside it already carry the meaning. */}
+          {heroImage ? (
+            <div className="overflow-hidden rounded-(--radius-card) ring-1 ring-white/10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={heroImage}
+                alt=""
+                aria-hidden="true"
+                className="aspect-[20/9] w-full object-cover sm:aspect-[21/9] lg:aspect-[4/3]"
+              />
+            </div>
           ) : null}
         </div>
       </Section>

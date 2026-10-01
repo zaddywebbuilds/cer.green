@@ -65,7 +65,32 @@ const ARTICLE_IMAGES: Record<string, string> = {
  * photographs are in place, this map becomes the only source and
  * `components/solutions/visuals` can be deleted outright.
  */
-const SOLUTION_IMAGES: Record<string, string> = {};
+const SOLUTION_IMAGES: Record<string, string> = {
+  'carbon-accounting': `${BASE_PATH}/images/solutions/carbon-accounting.webp`,
+  'ghg-inventory': `${BASE_PATH}/images/solutions/ghg-inventory.webp`,
+  'scope-1-2-3': `${BASE_PATH}/images/solutions/scope-1-2-3.webp`,
+  'iso-14064': `${BASE_PATH}/images/solutions/iso-14064.webp`,
+  'decarbonisation': `${BASE_PATH}/images/solutions/decarbonisation.webp`,
+  'life-cycle-assessment': `${BASE_PATH}/images/solutions/life-cycle-assessment.webp`,
+  'esg-strategy': `${BASE_PATH}/images/solutions/esg-strategy.webp`,
+  'sustainability-reporting': `${BASE_PATH}/images/solutions/sustainability-reporting.webp`,
+  'materiality-assessment': `${BASE_PATH}/images/solutions/materiality-assessment.webp`,
+  'esg-data-kpis': `${BASE_PATH}/images/solutions/esg-data-kpis.webp`,
+  'esg-risk-management': `${BASE_PATH}/images/solutions/esg-risk-management.webp`,
+  'sustainable-procurement': `${BASE_PATH}/images/solutions/sustainable-procurement.webp`,
+  'iso-advisory': `${BASE_PATH}/images/solutions/iso-advisory.webp`,
+  'cbam-readiness': `${BASE_PATH}/images/solutions/cbam-readiness.webp`,
+  'assurance-readiness': `${BASE_PATH}/images/solutions/assurance-readiness.webp`,
+  'governance-controls': `${BASE_PATH}/images/solutions/governance-controls.webp`,
+  'green-finance': `${BASE_PATH}/images/solutions/green-finance.webp`,
+  'climate-risk': `${BASE_PATH}/images/solutions/climate-risk.webp`,
+  'financed-emissions': `${BASE_PATH}/images/solutions/financed-emissions.webp`,
+};
+
+/** The photograph for a service, where one has been supplied. */
+export function solutionImage(slug: string): string | undefined {
+  return SOLUTION_IMAGES[slug];
+}
 
 /**
  * Course photos are keyed by category, so every course in a category shares
