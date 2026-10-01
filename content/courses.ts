@@ -841,6 +841,151 @@ export const courses: Course[] = [
     status: 'published',
     registration: 'enquire',
   },
+  {
+    slug: 'sustainable-export-practices-and-compliance',
+    title: 'Sustainable Export Practices and Compliance for Thai Exporters',
+    category: 'esg-sustainability',
+    outcome:
+      'Integrate sustainability, carbon management and CBAM compliance into your export strategy.',
+    summary:
+      'A practical programme for Thai exporters covering sustainable procurement, product carbon footprint, the EU Carbon Border Adjustment Mechanism, ESG supply chain requirements and social responsibility — with reference to Thai TGO initiatives.',
+    description: [
+      'International buyers, multinational supply chains and the European regulatory agenda are all placing sustainability and carbon-related requirements on Thai exporters. This programme gives exporters a working understanding of what those requirements are and what responding to them involves.',
+      'The course covers sustainable procurement under ISO 20400, product carbon footprint and embedded emissions, the EU Carbon Border Adjustment Mechanism (CBAM) and its documentation requirements, ESG expectations from international customers, and the role of the Thailand Greenhouse Gas Management Organization (TGO).',
+      'Participants leave with a Sustainable Export Action Plan that identifies the sustainability, carbon and supply chain priorities most relevant to their own business.',
+    ],
+    duration: '1 day',
+    formats: ['In person', 'Virtual live', 'In-house'],
+    location: 'Thailand',
+    upcoming: [],
+    whoShouldAttend: [
+      'Thai exporters and manufacturers supplying international markets',
+      'Export and international business managers',
+      'SME owners and senior management',
+      'Sustainability and ESG professionals',
+      'Procurement and supply chain professionals',
+      'Compliance and risk officers',
+      'Finance and operations professionals involved in export activities',
+      'Companies supplying multinational corporations and global supply chains',
+    ],
+    learningOutcomes: [
+      'Understand the principles of ISO 20400 Sustainable Procurement and their relevance to international supply chains',
+      'Explain the EU Carbon Border Adjustment Mechanism (CBAM) and its implications for Thai exporters',
+      'Understand the importance of carbon footprint and embedded emissions data for export products',
+      'Recognise the role of TGO and relevant Thai carbon footprint initiatives',
+      'Identify key ESG and sustainability requirements from international customers and supply chains',
+      'Apply relevant UN Sustainable Development Goals (SDGs) to export business activities',
+      'Identify key social responsibility and ethical sourcing considerations in export operations',
+      'Develop practical strategies to integrate sustainability, carbon management and compliance into export planning',
+    ],
+    modules: [
+      {
+        title: 'Module 1: Sustainability and the Changing Export Environment',
+        points: [
+          'Global sustainability trends affecting international trade',
+          'ESG expectations from international markets',
+          'Sustainability requirements in global supply chains',
+          'Implications for Thai exporters',
+        ],
+      },
+      {
+        title: 'Module 2: ISO 20400 Sustainable Procurement',
+        points: [
+          'Principles of sustainable procurement',
+          'Sustainable supplier selection and assessment',
+          'Responsible sourcing and supply chain management',
+        ],
+      },
+      {
+        title: 'Module 3: Carbon Management and Product Carbon Footprint',
+        points: [
+          'Greenhouse gas emissions and carbon management',
+          'Product Carbon Footprint',
+          'Embedded emissions',
+          'Carbon data collection and management',
+          'Thai carbon footprint initiatives and TGO',
+        ],
+      },
+      {
+        title: 'Module 4: EU Carbon Border Adjustment Mechanism (CBAM)',
+        points: [
+          'CBAM overview and scope',
+          'Implications for Thai exporters',
+          'Embedded emissions and reporting requirements',
+          'CBAM readiness and documentation',
+        ],
+      },
+      {
+        title: 'Module 5: Sustainable Supply Chains and International Customer Requirements',
+        points: [
+          'ESG requirements from international buyers',
+          'Supplier sustainability assessments',
+          'Traceability and supply chain transparency',
+          'Sustainability information and documentation',
+        ],
+      },
+      {
+        title: 'Module 6: SDGs and Social Responsibility',
+        points: [
+          'SDGs and export business',
+          'Labour and human rights considerations',
+          'Ethical sourcing',
+          'Responsible supplier management',
+        ],
+      },
+      {
+        title: 'Module 7: Integrating Sustainability into Export Strategy',
+        points: [
+          'ESG risk and opportunity identification',
+          'Carbon reduction strategies',
+          'Sustainable procurement',
+          'Sustainability data and reporting',
+          'Developing a sustainable export strategy',
+        ],
+      },
+      {
+        title: 'Module 8: Action Planning and Course Summary',
+        points: [
+          'Sustainability and export compliance checklist',
+          'CBAM readiness',
+          'Priority sustainability actions',
+          'Sustainable Export Action Plan',
+          'Q&A and discussion',
+        ],
+      },
+    ],
+    instructorSlugs: ['raymond-cheung'],
+    certification: certificationTbc,
+    corporateAvailable: true,
+    relatedCourses: ['sustainable-procurement', 'carbon-literacy-for-professionals', 'esg-essentials'],
+    relatedSolutions: ['sustainable-procurement', 'carbon-accounting', 'esg-strategy'],
+    faqs: [
+      {
+        question: 'Is this course available in Thai?',
+        answer:
+          'Delivery language is confirmed at the time of booking. The course has been designed for Thai exporters and can be tailored to the specific sectors and markets most relevant to participants.',
+      },
+      {
+        question: 'Do participants need prior sustainability or carbon knowledge?',
+        answer:
+          'No prior background is assumed. The programme is designed to build understanding from the ground up while remaining practical and export-focused throughout.',
+      },
+      {
+        question: 'What does the Sustainable Export Action Plan involve?',
+        answer:
+          'Participants develop a plan identifying the key sustainability requirements, carbon-related considerations, supply chain priorities and practical actions relevant to their own company\'s export activities. It is a working output, not a case study.',
+      },
+    ],
+    seo: {
+      title: 'CBAM and Sustainable Export Compliance Training for Thai Exporters',
+      description:
+        'One-day training for Thai exporters on CBAM, sustainable procurement, product carbon footprint, ESG supply chain requirements and TGO carbon initiatives.',
+      primaryKeyword: 'CBAM training Thailand',
+      secondaryKeywords: ['sustainable export compliance Thailand', 'CBAM Thai exporters', 'ESG supply chain training Thailand'],
+    },
+    status: 'published',
+    registration: 'enquire',
+  },
 ];
 
 export const courseBySlug = Object.fromEntries(courses.map((c) => [c.slug, c]));

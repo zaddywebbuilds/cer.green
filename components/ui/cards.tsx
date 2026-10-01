@@ -74,6 +74,7 @@ const COURSE_IMAGES: Record<string, string> = {
 const COURSE_IMAGES_BY_SLUG: Record<string, string> = {
   'esg-essentials': `${BASE_PATH}/images/course-esg-essentials.webp`,
   'carbon-literacy-for-professionals': `${BASE_PATH}/images/course-carbon-literacy.webp`,
+  'iso-14064-ghg-emission-awareness': `${BASE_PATH}/images/courses/iso-14064-hero.webp`,
 };
 
 const DEFAULT_IMAGE =
