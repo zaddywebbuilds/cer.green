@@ -57,6 +57,17 @@ const ARTICLE_IMAGES: Record<string, string> = {
 };
 
 /**
+ * Photography for a service, added one slug at a time as each image is
+ * produced. A listed slug renders its photograph; anything not yet listed
+ * falls back to its diagram.
+ *
+ * The diagrams are scaffolding, not the destination. Once all nineteen
+ * photographs are in place, this map becomes the only source and
+ * `components/solutions/visuals` can be deleted outright.
+ */
+const SOLUTION_IMAGES: Record<string, string> = {};
+
+/**
  * Course photos are keyed by category, so every course in a category shares
  * one. This overrides that per course, for programmes CER has photographed
  * rather than represented by their subject area.
@@ -134,25 +145,41 @@ export function CapabilityCard({
 }
 
 /**
- * Service card, led by a diagram of the work itself.
+ * Service card, led by a photograph of the work itself.
  *
- * The visual is decorative in the accessibility sense and carries no
- * information the text does not, so it is hidden from assistive technology
- * and the title and summary remain the only source of meaning.
+ * The media slot is a fixed ratio box that its contents fill and crop to.
+ * A photograph fills it today and a muted loop can fill it later without the
+ * card changing shape, so motion is an added element rather than a rebuild.
+ *
+ * Whatever sits in the slot is decorative in the accessibility sense: it
+ * carries nothing the text does not, so it stays hidden from assistive
+ * technology and the title and summary remain the only source of meaning.
  */
 export function SolutionCard({ solution }: { solution: Solution }) {
-  const visual = hasSolutionVisual(solution.slug);
+  const photo = SOLUTION_IMAGES[solution.slug];
+  const hasMedia = Boolean(photo) || hasSolutionVisual(solution.slug);
   return (
     <article
       className={cn(
-        'sv-card flex flex-col overflow-hidden rounded-(--radius-card) border border-line bg-white',
+        'sv-card group flex flex-col overflow-hidden rounded-(--radius-card) border border-line bg-white',
         'transition-[border-color,box-shadow,transform] duration-300 ease-out',
         'hover:-translate-y-0.5 hover:border-forest/40 hover:shadow-[0_16px_34px_-20px_rgba(18,60,50,0.45)]',
       )}
     >
-      {visual ? (
-        <div className="aspect-[20/9] w-full overflow-hidden bg-forest-700">
-          <SolutionVisual slug={solution.slug} />
+      {hasMedia ? (
+        <div className="relative aspect-[20/9] w-full overflow-hidden bg-forest-700">
+          {photo ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={photo}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          ) : (
+            <SolutionVisual slug={solution.slug} />
+          )}
         </div>
       ) : null}
       <div className="h-1.5 w-full bg-lime" />
