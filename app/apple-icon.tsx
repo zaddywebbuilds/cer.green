@@ -2,12 +2,6 @@ import { ImageResponse } from 'next/og';
 
 export const dynamic = 'force-static';
 
-/**
- * Apple touch icon.
- *
- * Generated as a PNG at build time. iOS does not accept SVG for the home
- * screen icon, and generating it avoids committing a binary asset.
- */
 export const size = { width: 180, height: 180 };
 export const contentType = 'image/png';
 
@@ -21,17 +15,33 @@ export default function AppleIcon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '14px',
           background: '#123C32',
+          borderRadius: 90,
         }}
       >
-        <div style={{ width: 26, height: 26, borderRadius: 13, background: '#C4DE6B' }} />
         <div
-          style={{ width: 26, height: 26, borderRadius: 13, background: '#F6F4EE', opacity: 0.85 }}
-        />
-        <div
-          style={{ width: 26, height: 26, borderRadius: 13, background: '#F6F4EE', opacity: 0.55 }}
-        />
+          style={{
+            width: 158,
+            height: 158,
+            borderRadius: 79,
+            border: '5px solid #C9A84C',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <span
+            style={{
+              fontFamily: 'Georgia, serif',
+              fontSize: 54,
+              fontWeight: 700,
+              color: '#C4DE6B',
+              letterSpacing: '-2px',
+            }}
+          >
+            CER
+          </span>
+        </div>
       </div>
     ),
     size,
