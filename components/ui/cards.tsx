@@ -46,7 +46,7 @@ const INDUSTRY_IMAGES: Record<string, string> = {
 
 const ARTICLE_IMAGES: Record<string, string> = {
   'singapore-climate-reporting-what-applies-and-when':
-    'https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&w=800&q=80',
+    `${BASE_PATH}/images/article-singapore-climate-reporting.webp`,
   'scope-3-where-to-start':
     'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
   'cbam-what-asian-exporters-need':
