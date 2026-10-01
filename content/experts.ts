@@ -64,6 +64,12 @@ export const experts: Expert[] = [
     slug: 'chan-ee-chong',
     name: 'Chan Ee Chong',
     role: 'Lead Consultant',
+    photo: {
+      src: '/images/experts/chan-ee-chong.webp',
+      alt: 'Chan Ee Chong, Lead Consultant at CER.',
+      width: 400,
+      height: 400,
+    },
     shortBio:
       'Over twenty years in wealth management and business consultancy, with ESG project experience across South-East Asia.',
     longBio: [
