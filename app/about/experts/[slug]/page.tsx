@@ -27,6 +27,8 @@ import { breadcrumbSchema, jsonLd, personSchema } from '@/lib/schema';
 import { cta } from '@/lib/site';
 import { initials } from '@/lib/utils';
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 type Params = { params: Promise<{ slug: string }> };
 
 export const dynamicParams = false;
@@ -68,14 +70,28 @@ export default async function ExpertPage({ params }: Params) {
       <Section surface="dark" labelledBy="expert-h1">
         <Breadcrumbs crumbs={crumbs} onDark />
         <div className="flex flex-col gap-8 sm:flex-row sm:items-center">
-          {/* No photograph is published until CER supplies a real professional
-              image. A monogram is used rather than an AI-generated headshot. */}
-          <span
-            aria-hidden="true"
-            className="grid h-24 w-24 shrink-0 place-items-center rounded-full bg-forest-500 font-heading text-h3 font-semibold text-lime"
-          >
-            {initials(expert.name)}
-          </span>
+          {expert.photo ? (
+            /* The cutout has no background of its own, so the circle carries a
+               light fill: against this dark section a dark suit would otherwise
+               dissolve into it. */
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={`${BASE_PATH}${expert.photo.src}`}
+              alt={expert.photo.alt}
+              width={96}
+              height={96}
+              className="h-24 w-24 shrink-0 rounded-full bg-sage object-cover ring-2 ring-lime/40"
+            />
+          ) : (
+            /* A monogram stands in where CER has not supplied a real
+               professional photograph. Never an AI-generated headshot. */
+            <span
+              aria-hidden="true"
+              className="grid h-24 w-24 shrink-0 place-items-center rounded-full bg-forest-500 font-heading text-h3 font-semibold text-lime"
+            >
+              {initials(expert.name)}
+            </span>
+          )}
           <div>
             <Eyebrow className="text-lime">{expert.role}</Eyebrow>
             <h1 id="expert-h1" className="mt-4 text-display">
