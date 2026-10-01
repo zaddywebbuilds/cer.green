@@ -236,7 +236,7 @@ function ServiceView({ slug }: { slug: string }) {
                 src={heroImage}
                 alt=""
                 aria-hidden="true"
-                className="aspect-[20/9] w-full object-cover sm:aspect-[21/9] lg:aspect-[4/3]"
+                className="aspect-[20/9] w-full object-cover"
               />
             </div>
           ) : null}
