@@ -31,8 +31,7 @@ const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
 const CAPABILITY_IMAGES: Record<string, string> = {
   'carbon-climate': `${BASE_PATH}/images/carbon-climate.webp`,
-  'esg-sustainability':
-    'https://images.unsplash.com/photo-1484981138541-3d074aa97880?auto=format&fit=crop&w=800&q=80',
+  'esg-sustainability': `${BASE_PATH}/images/esg-sustainability.webp`,
   'compliance-standards': `${BASE_PATH}/images/compliance-standards.webp`,
   'sustainable-finance': `${BASE_PATH}/images/sustainable-finance.webp`,
 };
