@@ -26,9 +26,11 @@ import { readingTime } from '@/lib/content';
 
 // ── Curated Unsplash image maps ─────────────────────────────────────────────
 
+/** Local assets need the base path; the remote ones below already resolve. */
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 const CAPABILITY_IMAGES: Record<string, string> = {
-  'carbon-climate':
-    'https://images.unsplash.com/photo-1611270629569-8b357cb88da9?auto=format&fit=crop&w=800&q=80',
+  'carbon-climate': `${BASE_PATH}/images/carbon-climate.webp`,
   'esg-sustainability':
     'https://images.unsplash.com/photo-1484981138541-3d074aa97880?auto=format&fit=crop&w=800&q=80',
   'compliance-standards':
