@@ -38,8 +38,7 @@ const CAPABILITY_IMAGES: Record<string, string> = {
 
 const INDUSTRY_IMAGES: Record<string, string> = {
   'financial-services': `${BASE_PATH}/images/industry-financial-services.webp`,
-  'manufacturing-supply-chain':
-    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+  'manufacturing-supply-chain': `${BASE_PATH}/images/industry-manufacturing-supply-chain.webp`,
   'energy-infrastructure':
     'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80',
   technology:
