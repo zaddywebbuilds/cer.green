@@ -106,12 +106,12 @@ const sections: LegalSection[] = [
       {
         term: 'Hosting provider',
         detail:
-          'Serves this website and processes server logs. [VERIFY WITH CER: name the hosting provider once the production environment is confirmed.]',
+          'Hostinger. Serves this website and processes server logs. Hostinger is based in Lithuania and operates data centres globally.',
       },
       {
-        term: 'Email service provider',
+        term: 'Form submission service',
         detail:
-          'Delivers enquiry notifications to us and acknowledgement emails to you. [VERIFY WITH CER: name the email provider once the production account is confirmed.]',
+          'Web3Forms. Receives form submissions and delivers enquiry notifications to us. Web3Forms is operated by Rivetech Inc.',
       },
       {
         term: 'Analytics provider',
