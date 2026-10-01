@@ -43,11 +43,8 @@ export const metadata: Metadata = {
   creator: site.legalName,
   publisher: site.legalName,
   formatDetection: { telephone: false, address: false, email: false },
-  // The apple touch icon comes from `app/apple-icon.tsx` via the file
-  // convention, so only the SVG favicon is declared here.
-  icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
-  },
+  // Both icons come from `app/icon.png` and `app/apple-icon.png` via the file
+  // convention, so nothing needs declaring here.
 };
 
 export const viewport: Viewport = {

@@ -55,7 +55,9 @@ export function organisationSchema(): Json {
     description: site.positioning,
     logo: clean({
       '@type': 'ImageObject',
-      url: absoluteUrl('/brand/cer-logo.svg'),
+      url: absoluteUrl('/brand/cer-logo.jpg'),
+      width: 500,
+      height: 200,
     }),
     email: site.email,
     telephone: site.phone,
