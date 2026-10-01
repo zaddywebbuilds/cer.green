@@ -192,11 +192,10 @@ export interface Expert {
 }
 
 export type PartnerRelationship =
-  | 'Strategic Partner'
-  | 'Training Partner'
-  | 'Technology Partner'
+  | 'Assurance Partner'
   | 'Project Partner'
-  | 'Academic Partner';
+  | 'Academic & Training Partner'
+  | 'Technology Partner';
 
 export interface Partner {
   name: string;
