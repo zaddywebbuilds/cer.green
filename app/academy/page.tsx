@@ -33,7 +33,7 @@ export const metadata: Metadata = buildMetadata({
   seo: {
     title: 'CER Academy | Compliance Training & Learning Platform Singapore',
     description:
-      'CER Academy delivers AI-powered compliance training for Singapore SMEs and NGOs — AML, PDPA, ESG, workplace safety and more. PSG grant-eligible LMS platform and professional programmes taught by practising consultants.',
+      'CER Academy delivers AI-powered compliance training for Singapore SMEs and NGOs: AML, PDPA, ESG, workplace safety and more. PSG grant-eligible LMS platform and professional programmes taught by practising consultants.',
     primaryKeyword: 'compliance training Singapore',
     secondaryKeywords: ['ESG training Singapore', 'sustainability training Singapore', 'PSG grant training Singapore'],
   },
@@ -55,7 +55,7 @@ const faqs = [
   {
     question: 'Who delivers CER Academy programmes?',
     answer:
-      'Programmes are delivered by CER practitioners — the same people who run advisory engagements. That is deliberate: the material comes from work being done rather than from a curriculum written in isolation.',
+      'Programmes are delivered by CER practitioners, the same people who run advisory engagements. That is deliberate: the material comes from work being done rather than from a curriculum written in isolation.',
   },
   {
     question: 'Can a course be delivered for our team only?',
@@ -98,7 +98,7 @@ export default function AcademyPage() {
         </h1>
         <p className="mt-7 max-w-[68ch] text-lead text-muted-invert">
           CER Academy combines an AI-powered compliance learning platform with professional
-          programmes taught by practising consultants — serving Singapore SMEs, NGOs and
+          programmes taught by practising consultants, serving Singapore SMEs, NGOs and
           institutions through established ATO and institutional partnerships.
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -126,17 +126,17 @@ export default function AcademyPage() {
                 className="mt-6 font-heading font-semibold text-white"
                 style={{ fontSize: 'clamp(1.875rem, 1.3rem + 2.3vw, 3rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}
               >
-                Why we built this — and who it&rsquo;s for.
+                Why we built this, and who it&rsquo;s for.
               </h2>
               <p className="mt-6 max-w-[48ch] text-muted-invert">
-                Singapore SMEs and NGOs face expanding mandatory compliance requirements —
+                Singapore SMEs and NGOs face expanding mandatory compliance requirements,
                 AML obligations, PDPA accountability, workplace safety standards, ESG
                 reporting. Meeting them demands more than an occasional workshop.
               </p>
               <p className="mt-4 max-w-[48ch] text-muted-invert">
                 CER Academy addresses this with an AI-powered learning management system,
                 pre-loaded compliance content, and the institutional partnerships to deliver
-                accredited training from day one — without the 6 to 12&ndash;month wait for
+                accredited training from day one, without the 6 to 12-month wait for
                 standalone ATO accreditation.
               </p>
             </div>
@@ -216,7 +216,7 @@ export default function AcademyPage() {
               <p className="text-muted-invert">
                 Rather than waiting 6 to 12 months for standalone Approved Training Organisation
                 accreditation, CER Academy enters the market through established institutional
-                partnerships — delivering WSQ, MCCY-backed and CSC-aligned programmes immediately
+                partnerships, delivering WSQ, MCCY-backed and CSC-aligned programmes immediately
                 while those channels are being built.
               </p>
               <ul className="mt-10 flex flex-col gap-px border-t border-line-invert">
@@ -340,7 +340,7 @@ export default function AcademyPage() {
             },
             {
               title: 'Technical where it needs to be',
-              body: 'Programmes go into methodology — boundaries, emission factors, attribution, evidence — because that is where organisations actually get stuck.',
+              body: 'Programmes go into methodology (boundaries, emission factors, attribution, evidence) because that is where organisations actually get stuck.',
             },
             {
               title: 'Built for the region',
@@ -348,7 +348,7 @@ export default function AcademyPage() {
             },
             {
               title: 'Accredited from day one',
-              body: 'Delivered through established ATO, ASME and CSC partnerships, so clients access recognised training pathways immediately — without waiting on standalone accreditation timelines.',
+              body: 'Delivered through established ATO, ASME and CSC partnerships, so clients access recognised training pathways immediately, without waiting on standalone accreditation timelines.',
             },
           ].map((item) => (
             <div key={item.title}>
@@ -461,7 +461,7 @@ export default function AcademyPage() {
 
       <CtaBanner
         heading="Which capability are you trying to build?"
-        body="Tell us who needs to be trained, on what, and by when. We will recommend a programme — or tell you if a different one fits better."
+        body="Tell us who needs to be trained, on what, and by when. We will recommend a programme, or tell you if a different one fits better."
         primary={{ label: cta.corporateTraining.label, href: cta.corporateTraining.href }}
         secondary={{ label: 'Browse courses', href: '/academy/courses/' }}
       />

@@ -44,7 +44,7 @@ export default function CustomTrainingPage() {
           Custom programmes
         </h1>
         <p className="mt-7 max-w-[68ch] text-lead text-muted-invert">
-          Where no existing programme fits the requirement, CER Academy builds one — from a single
+          Where no existing programme fits the requirement, CER Academy builds one, from a single
           targeted session to a multi-module capability programme delivered over months.
         </p>
         <div className="mt-9">
@@ -64,7 +64,7 @@ export default function CustomTrainingPage() {
           {[
             {
               title: 'The requirement spans several programmes',
-              body: 'A team needs the carbon measurement content, part of the reporting material and the supplier data section — but not three full courses. We build the combination.',
+              body: 'A team needs the carbon measurement content, part of the reporting material and the supplier data section, but not three full courses. We build the combination.',
             },
             {
               title: 'The audience is mixed',
@@ -76,7 +76,7 @@ export default function CustomTrainingPage() {
             },
             {
               title: 'Training follows an engagement',
-              body: 'CER has built a process — an inventory, a risk framework, a procurement approach — and the organisation now needs to be able to run it without us.',
+              body: 'CER has built a process (an inventory, a risk framework, a procurement approach) and the organisation now needs to be able to run it without us.',
             },
           ].map((item) => (
             <Card key={item.title} surface="white" as="article">
@@ -97,7 +97,7 @@ export default function CustomTrainingPage() {
             <TickList
               className="mt-7"
               items={[
-                'Capability gap assessment — what people can do now against what they need to do',
+                'Capability gap assessment: what people can do now against what they need to do',
                 'Learning objective definition, written as demonstrable outcomes',
                 'Module design, reusing existing CER material where it fits',
                 'Development of new content where it does not',

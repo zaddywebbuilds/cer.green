@@ -69,7 +69,7 @@ export default function CaseStudiesPage() {
               <p>
                 CER works under confidentiality on most engagements. A case study is published only
                 where the client has approved what is said about them and where any figure quoted
-                has actually been measured — not estimated, and not rounded up.
+                has actually been measured, not estimated, and not rounded up.
               </p>
               <p>
                 We would rather show nothing here than publish results we cannot stand behind. If
