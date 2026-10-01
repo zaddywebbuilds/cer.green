@@ -42,8 +42,7 @@ const INDUSTRY_IMAGES: Record<string, string> = {
   'energy-infrastructure': `${BASE_PATH}/images/industry-energy-infrastructure.webp`,
   technology:
     'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
-  healthcare:
-    'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+  healthcare: `${BASE_PATH}/images/industry-healthcare.webp`,
 };
 
 const ARTICLE_IMAGES: Record<string, string> = {
