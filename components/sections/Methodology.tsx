@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { site } from '@/lib/site';
 import { StageSceneLoader } from '@/components/3d/StageSceneLoader';
+import { StageVideo } from '@/components/sections/StageVideo';
 import type { StageType } from '@/components/3d/StageScene';
 
 const STAGE_3D: StageType[] = ['crystalise', 'economise', 'revitalise'];
@@ -121,8 +122,17 @@ export function Methodology({
                 index > 0 ? 'md:pl-10 lg:pl-16' : '',
               )}
             >
-              {/* 3D stage illustration */}
-              <StageSceneLoader stage={STAGE_3D[index + 1]!} />
+              {/* Economise carries its own filmed visual; the rest are generated */}
+              {stage.name === 'Economise' ? (
+                <StageVideo
+                  src={`${base}/video/economise.mp4`}
+                  poster={`${base}/video/economise-poster.jpg`}
+                  width={752}
+                  height={416}
+                />
+              ) : (
+                <StageSceneLoader stage={STAGE_3D[index + 1]!} />
+              )}
 
               {/* Ghost number */}
               <p
