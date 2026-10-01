@@ -52,7 +52,7 @@ const ARTICLE_IMAGES: Record<string, string> = {
   'cbam-what-asian-exporters-need':
     `${BASE_PATH}/images/article-cbam-asian-exporters.webp`,
   'what-assurance-providers-actually-test':
-    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
+    `${BASE_PATH}/images/article-what-assurance-providers-test.webp`,
 };
 
 /**
