@@ -21,6 +21,7 @@ import type {
   SolutionCategory,
 } from '@/types/content';
 import { ArrowLink } from '@/components/ui/primitives';
+import { SolutionVisual, hasSolutionVisual } from '@/components/solutions/visuals';
 import { cn, formatDate, initials } from '@/lib/utils';
 import { readingTime } from '@/lib/content';
 
@@ -132,15 +133,28 @@ export function CapabilityCard({
   );
 }
 
-/** White card with a lime accent strip for individual service pages. */
+/**
+ * Service card, led by a diagram of the work itself.
+ *
+ * The visual is decorative in the accessibility sense and carries no
+ * information the text does not, so it is hidden from assistive technology
+ * and the title and summary remain the only source of meaning.
+ */
 export function SolutionCard({ solution }: { solution: Solution }) {
+  const visual = hasSolutionVisual(solution.slug);
   return (
     <article
       className={cn(
-        'flex flex-col overflow-hidden rounded-(--radius-card) border border-line bg-white',
-        CARD_HOVER,
+        'sv-card flex flex-col overflow-hidden rounded-(--radius-card) border border-line bg-white',
+        'transition-[border-color,box-shadow,transform] duration-300 ease-out',
+        'hover:-translate-y-0.5 hover:border-forest/40 hover:shadow-[0_16px_34px_-20px_rgba(18,60,50,0.45)]',
       )}
     >
+      {visual ? (
+        <div className="aspect-[20/9] w-full overflow-hidden bg-forest-700">
+          <SolutionVisual slug={solution.slug} />
+        </div>
+      ) : null}
       <div className="h-1.5 w-full bg-lime" />
       <div className="flex flex-1 flex-col p-7 md:p-8">
         <h3 className="text-h4">
