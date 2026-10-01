@@ -50,7 +50,7 @@ const ARTICLE_IMAGES: Record<string, string> = {
   'scope-3-where-to-start':
     `${BASE_PATH}/images/article-scope-3-where-to-start.webp`,
   'cbam-what-asian-exporters-need':
-    'https://images.unsplash.com/photo-1624969862293-b749659ccc4e?auto=format&fit=crop&w=800&q=80',
+    `${BASE_PATH}/images/article-cbam-asian-exporters.webp`,
   'what-assurance-providers-actually-test':
     'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
 };
