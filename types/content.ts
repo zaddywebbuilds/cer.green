@@ -148,8 +148,14 @@ export interface Course {
   /**
    * Certification statement. Must describe exactly what a participant
    * receives. Never implies external accreditation that does not exist.
+   *
+   * Optional, and left unset for now. CER issues either a Certificate of
+   * Participation or a Certificate of Completion, but which applies depends on
+   * the delivery partner, and TÜV SÜD is only one of several. Until a course's
+   * award is settled, the page says that certification is confirmed on enquiry
+   * rather than naming one.
    */
-  certification: string;
+  certification?: string;
   /** Available as a private in-house programme. */
   corporateAvailable: boolean;
   relatedCourses?: string[];

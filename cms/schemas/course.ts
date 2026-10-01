@@ -124,7 +124,7 @@ export const course = defineType({
       rows: 3,
       group: 'delivery',
       description:
-        'Describe exactly what is awarded. Never imply accreditation or a partner-issued certificate that has not been confirmed in writing. If uncertain, leave this empty rather than guessing.',
+        'Optional. Describe exactly what is awarded. Never imply accreditation or a partner-issued certificate that has not been confirmed in writing. The award depends on the delivery partner, so leave this empty unless it is settled for this course: the page then tells the reader to confirm on enquiry, which is better than naming the wrong certificate.',
     }),
     defineField({
       name: 'corporateAvailable',

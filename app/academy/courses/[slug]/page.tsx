@@ -209,18 +209,20 @@ export default async function CoursePage({ params }: Params) {
             <Eyebrow className="mb-4">Certification</Eyebrow>
             <h2 className="text-h3">What participants receive</h2>
             {/*
-              Certification wording is unresolved for every programme. CER
-              delivers training in collaboration with TÜV SÜD Academy Singapore,
-              and precisely what a participant receives is not established in
-              CER's published material. Claiming it would be inventing an
-              accreditation, so the marker stays until CER confirms. In
-              production this renders nothing rather than a false claim.
+              CER issues either a Certificate of Participation or a Certificate
+              of Completion, but which one applies depends on the delivery
+              partner, and TÜV SÜD Academy Singapore is only one of several. So
+              a course states its award only once CER has settled it. Where it
+              has not, the card points the reader at the enquiry rather than
+              naming a certificate the partner may not issue.
             */}
             <Card surface="outline" className="mt-7">
-              <p className="text-ink-700">
-                <Verify value={course.certification} />
-              </p>
-              <p className="mt-4 text-sm text-muted">
+              {course.certification ? (
+                <p className="text-ink-700">
+                  <Verify value={course.certification} />
+                </p>
+              ) : null}
+              <p className={course.certification ? 'mt-4 text-sm text-muted' : 'text-ink-700'}>
                 For confirmation of what this programme awards, please ask when you enquire.
               </p>
             </Card>

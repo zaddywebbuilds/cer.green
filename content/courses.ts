@@ -1,5 +1,4 @@
 import type { Course, CourseCategory } from '@/types/content';
-import { needsVerification } from '@/lib/site';
 
 /**
  * CER Academy courses.
@@ -50,17 +49,6 @@ export const courseCategories: CourseCategory[] = [
       'Programmes on ESG risk, enterprise risk management and decision-making under uncertainty.',
   },
 ];
-
-/**
- * CER confirmed on 1 October 2026 that certificates are worded either
- * "Certificate of Participation" or "Certificate of Completion". Which of the
- * two each course issues is still open, as is the TÜV SÜD question, so this
- * stays a marker: naming the wrong one advertises an award the learner does
- * not receive, which matters more than usual for a training provider.
- */
-const certificationTbc = needsVerification(
-  'whether this course issues a Certificate of Participation or a Certificate of Completion, and whether TÜV SÜD Academy Singapore co-certification applies',
-);
 
 export const courses: Course[] = [
   {
@@ -137,7 +125,6 @@ export const courses: Course[] = [
       },
     ],
     instructorSlugs: ['raymond-cheung'],
-    certification: certificationTbc,
     corporateAvailable: true,
     relatedCourses: ['carbon-literacy-for-professionals', 'esg-risk-management'],
     relatedSolutions: ['esg-strategy', 'sustainability-reporting'],
@@ -231,7 +218,6 @@ export const courses: Course[] = [
       },
     ],
     instructorSlugs: ['raymond-cheung'],
-    certification: certificationTbc,
     corporateAvailable: true,
     relatedCourses: ['iso-14064-ghg-emission-awareness', 'life-cycle-assessment'],
     relatedSolutions: ['carbon-accounting', 'scope-1-2-3', 'decarbonisation'],
@@ -324,7 +310,6 @@ export const courses: Course[] = [
       },
     ],
     instructorSlugs: ['raymond-cheung'],
-    certification: certificationTbc,
     corporateAvailable: true,
     relatedCourses: ['carbon-literacy-for-professionals', 'life-cycle-assessment'],
     relatedSolutions: ['iso-14064', 'ghg-inventory', 'assurance-readiness'],
@@ -418,7 +403,6 @@ export const courses: Course[] = [
       },
     ],
     instructorSlugs: ['raymond-cheung'],
-    certification: certificationTbc,
     corporateAvailable: true,
     relatedCourses: ['carbon-literacy-for-professionals', 'sustainable-procurement'],
     relatedSolutions: ['life-cycle-assessment', 'scope-1-2-3'],
@@ -512,7 +496,6 @@ export const courses: Course[] = [
       },
     ],
     instructorSlugs: ['chan-ee-chong'],
-    certification: certificationTbc,
     corporateAvailable: true,
     relatedCourses: ['esg-risk-management', 'esg-essentials'],
     relatedSolutions: ['green-finance', 'financed-emissions', 'climate-risk'],
@@ -592,7 +575,6 @@ export const courses: Course[] = [
       },
     ],
     instructorSlugs: ['raymond-cheung'],
-    certification: certificationTbc,
     corporateAvailable: true,
     relatedCourses: ['risk-intelligence-for-decision-makers', 'esg-essentials'],
     relatedSolutions: ['esg-risk-management', 'climate-risk', 'governance-controls'],
@@ -680,7 +662,6 @@ export const courses: Course[] = [
       },
     ],
     instructorSlugs: ['chan-ee-chong'],
-    certification: certificationTbc,
     corporateAvailable: true,
     relatedCourses: ['life-cycle-assessment', 'esg-essentials'],
     relatedSolutions: ['sustainable-procurement', 'scope-1-2-3'],
@@ -761,7 +742,6 @@ export const courses: Course[] = [
       },
     ],
     instructorSlugs: ['chan-ee-chong'],
-    certification: certificationTbc,
     corporateAvailable: true,
     relatedCourses: ['esg-essentials', 'esg-risk-management'],
     relatedSolutions: ['esg-strategy', 'governance-controls'],
@@ -841,7 +821,6 @@ export const courses: Course[] = [
       },
     ],
     instructorSlugs: ['raymond-cheung'],
-    certification: certificationTbc,
     corporateAvailable: true,
     relatedCourses: ['esg-risk-management'],
     relatedSolutions: ['esg-risk-management', 'governance-controls'],
