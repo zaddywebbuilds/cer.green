@@ -67,8 +67,7 @@ const COURSE_IMAGES_BY_SLUG: Record<string, string> = {
   'sustainable-export-practices-and-compliance': `${BASE_PATH}/images/course-cbam-export.webp`,
 };
 
-const DEFAULT_IMAGE =
-  'https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?auto=format&fit=crop&w=800&q=80';
+const DEFAULT_IMAGE = `${BASE_PATH}/images/cer-default.webp`;
 
 // ── Shared helpers ───────────────────────────────────────────────────────────
 
