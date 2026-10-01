@@ -7,13 +7,13 @@ import { cta, site } from '@/lib/site';
  * Homepage hero.
  *
  * Deep forest-900 background for maximum authority. Discipline tags establish
- * the practice areas immediately. The emissions-pathway chart is inline SVG —
+ * the practice areas immediately. The emissions-pathway chart is inline SVG,
  * zero request overhead, honest labelling, looks like a consulting deliverable.
  */
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-forest-900 text-white on-dark" data-surface="dark">
-      {/* 3D environment — decorative, behind all content */}
+      {/* 3D environment, decorative, behind all content */}
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         <HeroSceneLoader />
       </div>
@@ -47,7 +47,7 @@ export function Hero() {
 
             <p className="mt-8 max-w-[52ch] text-lead text-muted-invert">
               CER helps organisations across Asia turn complex ESG, carbon and climate requirements
-              into measurable business action — from initial assessment to full implementation.
+              into measurable business action, from initial assessment to full implementation.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -93,7 +93,7 @@ export function Hero() {
 }
 
 /**
- * Illustrative emissions pathway chart. Inline SVG — no request, no LCP
+ * Illustrative emissions pathway chart. Inline SVG, no request, no LCP
  * penalty. Explicitly labelled as illustrative so it cannot be read as
  * a real client result or a forward-looking statement.
  */

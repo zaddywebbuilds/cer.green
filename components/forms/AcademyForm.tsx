@@ -57,7 +57,7 @@ export function AcademyForm({
         tabIndex={-1}
         className="rounded-(--radius-card) border border-line bg-white p-8"
       >
-        <h3 className="text-h3">Thank you — your training enquiry has been sent.</h3>
+        <h3 className="text-h3">Thank you. Your training enquiry has been sent.</h3>
         <p className="mt-4 max-w-[60ch] text-ink-700">
           CER Academy will come back to you with available dates, delivery formats and, where
           relevant, options for running the programme in-house.
@@ -82,7 +82,7 @@ export function AcademyForm({
       ) : null}
 
       <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? ''} />
-      <input type="hidden" name="subject" value="New Academy enquiry — CER" />
+      <input type="hidden" name="subject" value="New Academy enquiry (CER)" />
       <Honeypot />
 
       <TextField label="Name" name="name" autoComplete="name" required error={errors.name} />

@@ -188,7 +188,7 @@ export const course = defineType({
     select: { title: 'title', duration: 'duration', status: 'status' },
     prepare: ({ title, duration, status }) => ({
       title,
-      subtitle: `${duration ?? ''}${status === 'draft' ? ' — DRAFT' : ''}`,
+      subtitle: `${duration ?? ''}${status === 'draft' ? ', DRAFT' : ''}`,
     }),
   },
 });
