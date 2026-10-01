@@ -1,6 +1,6 @@
 'use client';
 
-import { useInView } from '@/components/3d/useInView';
+import { useInView } from '@/lib/useInView';
 
 /**
  * A methodology stage visual that is a video rather than a generated scene.

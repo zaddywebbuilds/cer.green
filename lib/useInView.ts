@@ -11,22 +11,20 @@ const OBSERVER_GRACE_MS = 1200;
  * Two separate flags, because they do different jobs:
  *
  *   `hasEntered` latches true the first time the element comes near and never
- *   resets. The loaders gate their dynamic import on it, so the three.js chunk
- *   is not fetched until a scene is actually approaching -- the three
- *   methodology scenes sit far below the fold and used to download and
- *   initialise WebGL on first paint.
+ *   resets. Callers gate an expensive fetch on it, so nothing heavy is pulled
+ *   until it is actually approaching -- the methodology stage videos sit far
+ *   below the fold and would otherwise attach several megabytes to first paint.
  *
- *   `isVisible` tracks the current state. The scenes feed it to the R3F frame
- *   loop so a canvas scrolled out of view stops rendering frames nobody sees.
+ *   `isVisible` tracks the current state, for callers that want to stop work
+ *   while the element is off screen.
  *
  * The grace timer matters more than it looks. IntersectionObserver can exist and
  * still never deliver a callback -- headless renderers, some embedded webviews
  * and screenshot pipelines all do this, and it was reproducible in the preview
  * pane during development. Without a fallback the gate never opens and the
- * decorative layer silently disappears, which is a worse outcome than loading it
- * eagerly. So if nothing has been reported by the time the timer fires, the
- * scene renders anyway: this degrades to the old always-on behaviour rather than
- * to a blank page.
+ * gated content silently disappears, which is a worse outcome than loading it
+ * eagerly. So if nothing has been reported by the time the timer fires, it
+ * loads anyway: this degrades to always-on rather than to a blank slot.
  */
 export function useInView<T extends HTMLElement>(rootMargin = '200px') {
   const ref = useRef<T>(null);
