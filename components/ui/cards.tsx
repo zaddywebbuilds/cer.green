@@ -55,17 +55,6 @@ const ARTICLE_IMAGES: Record<string, string> = {
     'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
 };
 
-const COURSE_IMAGES: Record<string, string> = {
-  'esg-sustainability':
-    'https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=800&q=80',
-  'carbon-climate':
-    'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80',
-  'sustainable-finance':
-    'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80',
-  'risk-governance':
-    'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80',
-};
-
 /**
  * Course photos are keyed by category, so every course in a category shares
  * one. This overrides that per course, for programmes CER has photographed
@@ -175,8 +164,7 @@ export function SolutionCard({ solution }: { solution: Solution }) {
 /** Course card with a category-matched photo header. */
 export function CourseCard({ course }: { course: Course }) {
   const scheduled = course.upcoming.filter((d) => d.status === 'scheduled');
-  const img =
-    COURSE_IMAGES_BY_SLUG[course.slug] ?? COURSE_IMAGES[course.category] ?? DEFAULT_IMAGE;
+  const img = COURSE_IMAGES_BY_SLUG[course.slug] ?? DEFAULT_IMAGE;
   return (
     <article
       className={cn(
