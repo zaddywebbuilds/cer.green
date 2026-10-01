@@ -62,7 +62,7 @@ export default function WhoWeArePage() {
             items={[
               'Organisations across Asia are being asked for things they were not previously asked for: emissions figures with an audit trail, climate risk assessed inside the risk framework, supplier data that can be passed on to a customer, financing structures whose sustainability terms will withstand challenge.',
               'These requests arrive separately, from different parties, on different timetables. Each assumes measurement and governance that frequently does not exist yet.',
-              'CER exists to close that gap. We work on what an organisation is actually being asked for, establish what it would genuinely take to answer it, and then build that — the measurement, the process, the documentation and the internal ownership.',
+              'CER exists to close that gap. We work on what an organisation is actually being asked for, establish what it would genuinely take to answer it, and then build that: the measurement, the process, the documentation and the internal ownership.',
               'Where an organisation would be better served building the capability internally, CER Academy delivers the same technical material as training rather than as a retainer.',
             ]}
           />
@@ -105,7 +105,7 @@ export default function WhoWeArePage() {
             },
             {
               title: 'We do not verify our own work',
-              body: 'Preparing an inventory and independently verifying it are separate roles, and no adviser should hold both. We prepare organisations for verification and assurance, and support them through it — the assurance provider is separately appointed.',
+              body: 'Preparing an inventory and independently verifying it are separate roles, and no adviser should hold both. We prepare organisations for verification and assurance, and support them through it, the assurance provider is separately appointed.',
             },
             {
               title: 'We do not publish figures we cannot evidence',
@@ -170,7 +170,7 @@ export default function WhoWeArePage() {
 
       <CtaBanner
         heading="Start with the requirement, not the service"
-        body="Tell us what is being asked of your organisation. We will tell you what answering it involves — including where the answer is simpler than you expect."
+        body="Tell us what is being asked of your organisation. We will tell you what answering it involves, including where the answer is simpler than you expect."
         primary={{ label: cta.consulting.label, href: cta.consulting.href }}
         secondary={{ label: 'Meet the experts', href: '/about/experts/' }}
       />

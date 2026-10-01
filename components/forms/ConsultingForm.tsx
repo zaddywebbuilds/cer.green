@@ -35,7 +35,7 @@ export function ConsultingForm({ defaultArea }: { defaultArea?: string }) {
         tabIndex={-1}
         className="rounded-(--radius-card) border border-line bg-white p-8"
       >
-        <h3 className="text-h3">Thank you — your enquiry has been sent.</h3>
+        <h3 className="text-h3">Thank you. Your enquiry has been sent.</h3>
         <p className="mt-4 max-w-[60ch] text-ink-700">
           A member of the CER team will respond shortly. We have sent an acknowledgement to the
           email address you provided.
@@ -60,7 +60,7 @@ export function ConsultingForm({ defaultArea }: { defaultArea?: string }) {
       ) : null}
 
       <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? ''} />
-      <input type="hidden" name="subject" value="New consulting enquiry — CER" />
+      <input type="hidden" name="subject" value="New consulting enquiry (CER)" />
       <Honeypot />
 
       <div className="grid gap-6 sm:grid-cols-2">
@@ -140,7 +140,7 @@ export function ConsultingForm({ defaultArea }: { defaultArea?: string }) {
         name="message"
         required
         error={errors.message}
-        hint="Tell us what you are working through — the requirement, the deadline, and where you are now."
+        hint="Tell us what you are working through: the requirement, the deadline, and where you are now."
       />
 
       <ConsentField name="consent" error={errors.consent}>

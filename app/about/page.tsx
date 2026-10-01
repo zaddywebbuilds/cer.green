@@ -54,7 +54,7 @@ export default function AboutPage() {
             <h3 className="mt-4 text-h3">CER Solutions</h3>
             <p className="mt-5 text-ink-700">
               Advisory across carbon and climate, ESG and sustainability, compliance and standards,
-              and sustainable and green finance — from measurement through to implementation.
+              and sustainable and green finance, from measurement through to implementation.
             </p>
             <ArrowLink href="/solutions/" className="mt-6">
               Explore CER Solutions

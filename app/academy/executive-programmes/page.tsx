@@ -52,7 +52,7 @@ export default function ExecutiveProgrammesPage() {
         </h1>
         <p className="mt-7 max-w-[68ch] text-lead text-muted-invert">
           Short, senior sessions on what climate and ESG requirements mean for oversight,
-          accountability and decision-making — pitched at the level a board actually operates at
+          accountability and decision-making, pitched at the level a board actually operates at
           rather than at technical method.
         </p>
         <div className="mt-9">

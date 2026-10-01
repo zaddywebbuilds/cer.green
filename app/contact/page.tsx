@@ -51,7 +51,7 @@ export default function ContactPage() {
           Start a conversation
         </h1>
         <p className="mt-7 max-w-[68ch] text-lead text-muted-invert">
-          Tell us what you are working through — the requirement, who is asking for it, and when it
+          Tell us what you are working through: the requirement, who is asking for it, and when it
           is needed. That is usually enough for us to say whether we can help and what it would
           involve.
         </p>

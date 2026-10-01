@@ -58,7 +58,7 @@ export default function SolutionsPage() {
         </h1>
         <p className="mt-7 max-w-[68ch] text-lead text-muted-invert">
           CER works across four capability areas. Each addresses a distinct set of obligations, and
-          most engagements draw on more than one — because measurement, reporting, risk and
+          most engagements draw on more than one, because measurement, reporting, risk and
           financing are rarely separable in practice.
         </p>
       </Section>
@@ -152,7 +152,7 @@ export default function SolutionsPage() {
 
       <CtaBanner
         heading="Which of these applies to you?"
-        body="Tell us what you are working through and we will tell you which capability fits — including where the answer is that you do not need us yet."
+        body="Tell us what you are working through and we will tell you which capability fits, including where the answer is that you do not need us yet."
         primary={{ label: cta.discuss.label, href: cta.discuss.href }}
         secondary={{ label: 'Explore CER Academy', href: '/academy/' }}
       />

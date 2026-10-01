@@ -162,7 +162,7 @@ export const solution = defineType({
     select: { title: 'title', subtitle: 'category.title', status: 'status' },
     prepare: ({ title, subtitle, status }) => ({
       title,
-      subtitle: `${subtitle ?? 'No category'}${status === 'draft' ? ' — DRAFT' : ''}`,
+      subtitle: `${subtitle ?? 'No category'}${status === 'draft' ? ', DRAFT' : ''}`,
     }),
   },
 });

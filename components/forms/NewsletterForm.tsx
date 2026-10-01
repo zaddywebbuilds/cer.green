@@ -62,12 +62,12 @@ export function NewsletterForm() {
 
       {status === 'success' ? (
         <p role="status" className="text-sm text-lime">
-          Thank you — please check your inbox to confirm your subscription.
+          Thank you. Please check your inbox to confirm your subscription.
         </p>
       ) : (
         <form onSubmit={onSubmit} noValidate className="flex flex-col gap-3">
           <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? ''} />
-          <input type="hidden" name="subject" value="New newsletter signup — CER" />
+          <input type="hidden" name="subject" value="New newsletter signup (CER)" />
           <Honeypot />
           <div className="flex flex-col gap-3 sm:flex-row">
             <div className="flex-1">

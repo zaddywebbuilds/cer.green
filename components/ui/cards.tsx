@@ -1,8 +1,8 @@
 /**
- * Content cards — editorial visual treatment.
+ * Content cards, editorial visual treatment.
  *
  * CapabilityCard and IndustryCard: full-bleed photography with dark gradient
- * overlay and white text — magazine / annual-report aesthetic.
+ * overlay and white text, magazine / annual-report aesthetic.
  *
  * ArticleCard and CourseCard: photo header with structured body below.
  *
@@ -79,7 +79,7 @@ const DEFAULT_IMAGE =
 
 const CARD_HOVER = 'transition-colors duration-200 hover:border-forest/40';
 
-/** Pill badge overlaid on a photo — e.g. duration, category. */
+/** Pill badge overlaid on a photo, e.g. duration, category. */
 function PhotoBadge({ children }: { children: React.ReactNode }) {
   return (
     <span className="absolute bottom-3 left-3 rounded-[2px] bg-forest-900/85 px-2.5 py-1 font-heading text-xs font-semibold uppercase tracking-wider text-lime backdrop-blur-sm">
@@ -101,7 +101,7 @@ export function CapabilityCard({
   const img = CAPABILITY_IMAGES[category.slug] ?? DEFAULT_IMAGE;
   return (
     <article className="group flex flex-col overflow-hidden rounded-(--radius-card)">
-      {/* Photo — full surface, clearly visible */}
+      {/* Photo, full surface, clearly visible */}
       <div className="relative aspect-[4/3] overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -117,7 +117,7 @@ export function CapabilityCard({
           </span>
         ) : null}
       </div>
-      {/* Content — solid dark forest, crisp edge against photo */}
+      {/* Content, solid dark forest, crisp edge against photo */}
       <div className="flex flex-1 flex-col bg-forest p-6">
         <h3 className="text-h4 font-semibold text-white">
           <Link
@@ -320,7 +320,7 @@ export function IndustryCard({ industry }: { industry: Industry }) {
   const img = INDUSTRY_IMAGES[industry.slug] ?? DEFAULT_IMAGE;
   return (
     <article className="group flex flex-col overflow-hidden rounded-(--radius-card)">
-      {/* Photo — full surface, clearly visible */}
+      {/* Photo, full surface, clearly visible */}
       <div className="relative aspect-[4/3] overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -331,7 +331,7 @@ export function IndustryCard({ industry }: { industry: Industry }) {
           loading="lazy"
         />
       </div>
-      {/* Content — solid dark forest */}
+      {/* Content, solid dark forest */}
       <div className="flex flex-1 flex-col bg-forest p-6">
         <h3 className="text-h4 font-semibold text-white">
           <Link
