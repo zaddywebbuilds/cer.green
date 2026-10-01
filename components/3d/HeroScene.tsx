@@ -1,20 +1,11 @@
 'use client';
 
-import { useRef, useMemo, useEffect, useState } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { useRef, useMemo } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-function usePrefersReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReduced(mq.matches);
-    const onChange = (e: MediaQueryListEvent) => setReduced(e.matches);
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
-  }, []);
-  return reduced;
-}
+import { usePrefersReducedMotion } from './usePrefersReducedMotion';
+import { useWebGL } from './useWebGL';
 
 function Crystal({ reduced }: { reduced: boolean }) {
   const outerRef = useRef<THREE.Mesh>(null!);
@@ -89,15 +80,31 @@ function FloatingShards({ reduced }: { reduced: boolean }) {
   );
 }
 
+/**
+ * Seeded PRNG. The scatter needs to look random, not be random -- a fixed seed
+ * keeps the field identical on every load and keeps the geometry a pure
+ * function of `count`.
+ */
+function mulberry32(seed: number) {
+  return () => {
+    seed |= 0;
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 function Particles({ count, reduced }: { count: number; reduced: boolean }) {
   const pointsRef = useRef<THREE.Points>(null!);
 
   const positions = useMemo(() => {
+    const random = mulberry32(0x5e3d);
     const arr = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      arr[i * 3]     = (Math.random() - 0.5) * 24;
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 13;
-      arr[i * 3 + 2] = (Math.random() - 0.5) * 9 - 2;
+      arr[i * 3]     = (random() - 0.5) * 24;
+      arr[i * 3 + 1] = (random() - 0.5) * 13;
+      arr[i * 3 + 2] = (random() - 0.5) * 9 - 2;
     }
     return arr;
   }, [count]);
@@ -118,11 +125,13 @@ function Particles({ count, reduced }: { count: number; reduced: boolean }) {
 }
 
 function CameraParallax({ reduced }: { reduced: boolean }) {
-  const { camera, mouse } = useThree();
-  useFrame(() => {
+  // Camera and pointer are read from the per-frame state rather than captured
+  // from useThree, so nothing owned by render is mutated here.
+  useFrame((state) => {
     if (reduced) return;
-    camera.position.x += (mouse.x * 0.9 - camera.position.x) * 0.012;
-    camera.position.y += (mouse.y * 0.45 - camera.position.y) * 0.012;
+    const { camera, pointer } = state;
+    camera.position.x += (pointer.x * 0.9 - camera.position.x) * 0.012;
+    camera.position.y += (pointer.y * 0.45 - camera.position.y) * 0.012;
     camera.lookAt(0, 0, 0);
   });
   return null;
@@ -148,25 +157,21 @@ function Scene() {
   );
 }
 
-export function HeroScene() {
-  const [webgl, setWebGL] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    try {
-      const c = document.createElement('canvas');
-      const ctx = c.getContext('webgl2') || c.getContext('webgl');
-      setWebGL(!!ctx);
-    } catch {
-      setWebGL(false);
-    }
-  }, []);
+export function HeroScene({ active = true }: { active?: boolean }) {
+  const webgl = useWebGL();
+  const reduced = usePrefersReducedMotion();
 
   if (!webgl) return null;
+
+  // Holds a single frame under reduced motion, and stops entirely once the
+  // hero is scrolled past.
+  const frameloop = reduced ? 'demand' : active ? 'always' : 'never';
 
   return (
     <Canvas
       camera={{ position: [0, 0, 8], fov: 40 }}
       dpr={[1, 1.5]}
+      frameloop={frameloop}
       style={{ width: '100%', height: '100%' }}
     >
       <Scene />

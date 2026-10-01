@@ -1,22 +1,13 @@
 'use client';
 
-import { useRef, useMemo, useEffect, useState } from 'react';
+import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-export type StageType = 'crystalise' | 'economise' | 'revitalise';
+import { usePrefersReducedMotion } from './usePrefersReducedMotion';
+import { useWebGL } from './useWebGL';
 
-function usePrefersReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReduced(mq.matches);
-    const onChange = (e: MediaQueryListEvent) => setReduced(e.matches);
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
-  }, []);
-  return reduced;
-}
+export type StageType = 'crystalise' | 'economise' | 'revitalise';
 
 // ── Crystalise — dual-shell rotating gem ────────────────────────────────────
 
@@ -152,35 +143,31 @@ function Lights() {
 
 // ── Public component ─────────────────────────────────────────────────────────
 
-export function StageScene({ stage }: { stage: StageType }) {
+export function StageScene({ stage, active = true }: { stage: StageType; active?: boolean }) {
   const reduced = usePrefersReducedMotion();
-  const [webgl, setWebGL] = useState<boolean | null>(null);
+  const webgl = useWebGL();
 
-  useEffect(() => {
-    try {
-      const c = document.createElement('canvas');
-      const ctx = c.getContext('webgl2') || c.getContext('webgl');
-      setWebGL(!!ctx);
-    } catch {
-      setWebGL(false);
-    }
-  }, []);
+  if (!webgl) return null;
+
+  /*
+   * `never` stops the render loop outright. Reduced motion renders one frame
+   * and then holds it -- the geometry is still there, it just does not move --
+   * and scrolling the scene out of view stops it rendering frames nobody sees.
+   */
+  const frameloop = reduced ? 'demand' : active ? 'always' : 'never';
 
   return (
-    <div style={{ height: '180px' }} aria-hidden="true">
-      {webgl === true && (
-        <Canvas
-          camera={{ position: [0, 0, 4.2], fov: 42 }}
-          dpr={[1, 1.5]}
-          gl={{ alpha: true }}
-          style={{ height: '100%' }}
-        >
-          <Lights />
-          {stage === 'crystalise' && <CrystalStage reduced={reduced} />}
-          {stage === 'economise' && <EconomiseStage reduced={reduced} />}
-          {stage === 'revitalise' && <RevitaliseStage reduced={reduced} />}
-        </Canvas>
-      )}
-    </div>
+    <Canvas
+      camera={{ position: [0, 0, 4.2], fov: 42 }}
+      dpr={[1, 1.5]}
+      gl={{ alpha: true }}
+      frameloop={frameloop}
+      style={{ height: '100%' }}
+    >
+      <Lights />
+      {stage === 'crystalise' && <CrystalStage reduced={reduced} />}
+      {stage === 'economise' && <EconomiseStage reduced={reduced} />}
+      {stage === 'revitalise' && <RevitaliseStage reduced={reduced} />}
+    </Canvas>
   );
 }

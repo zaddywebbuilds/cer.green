@@ -349,7 +349,7 @@ export default function HomePage() {
         <div className="flex items-baseline justify-between gap-8">
           <div>
             <p className="eyebrow text-muted">
-              <span className="text-lime-ink">//</span> Insights
+              <span className="text-lime-ink">{'//'}</span> Insights
             </p>
             <h2 id="insights-heading" className="mt-3 text-h2">Latest thinking</h2>
           </div>
