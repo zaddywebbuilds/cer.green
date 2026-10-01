@@ -14,6 +14,28 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+# Where this build is going. Three things must agree or the deploy is broken in a
+# way that is hard to see: the base path assets load from, the absolute URL
+# canonical tags point at, and whether robots.txt allows crawling.
+#
+#   staging     -> zaddywebbuilds.github.io/cer.green/
+#                  Served from a subdirectory, so basePath is set. Canonicals
+#                  point at the staging host and robots.txt disallows everything,
+#                  because www.cer.green still serves the old WordPress site --
+#                  pointing canonicals there while this build is crawlable would
+#                  tell Google the real version of every page is a different site.
+#
+#   production  -> www.cer.green
+#                  Served from the domain root, so basePath MUST be empty. The
+#                  CNAME file is written only here; shipping it while DNS still
+#                  points at WordPress makes GitHub Pages redirect the staging
+#                  URL to a domain that is not serving this site.
+#
+# To cut over: point DNS (CNAME www -> zaddywebbuilds.github.io), then set the
+# repository variable DEPLOY_TARGET to `production` and re-run this workflow.
+env:
+  DEPLOY_TARGET: ${{ vars.DEPLOY_TARGET || 'staging' }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,13 +49,34 @@ jobs:
 
       - run: npm ci
 
+      - name: Resolve deploy target
+        id: target
+        run: |
+          if [ "$DEPLOY_TARGET" = "production" ]; then
+            echo "site_url=https://www.cer.green"            >> "$GITHUB_OUTPUT"
+            echo "base_path="                                 >> "$GITHUB_OUTPUT"
+            echo "deploy_env=production"                      >> "$GITHUB_OUTPUT"
+            echo "custom_domain=www.cer.green"                >> "$GITHUB_OUTPUT"
+          else
+            echo "site_url=https://zaddywebbuilds.github.io/cer.green" >> "$GITHUB_OUTPUT"
+            echo "base_path=/cer.green"                       >> "$GITHUB_OUTPUT"
+            echo "deploy_env=staging"                         >> "$GITHUB_OUTPUT"
+            echo "custom_domain="                             >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build
         run: npm run build
         env:
-          NEXT_PUBLIC_SITE_URL: https://www.cer.green
-          NEXT_PUBLIC_BASE_PATH: /cer.green
-          DEPLOY_ENV: production
+          NEXT_PUBLIC_SITE_URL: ${{ steps.target.outputs.site_url }}
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.target.outputs.base_path }}
+          DEPLOY_ENV: ${{ steps.target.outputs.deploy_env }}
           NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.WEB3FORMS_KEY }}
+
+      # Written here rather than committed to public/, so a staging build can
+      # never ship a custom domain that DNS is not ready for.
+      - name: Write CNAME
+        if: steps.target.outputs.custom_domain != ''
+        run: echo "${{ steps.target.outputs.custom_domain }}" > out/CNAME
 
       - uses: actions/upload-pages-artifact@v3
         with:
