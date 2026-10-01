@@ -68,6 +68,15 @@ const COURSE_IMAGES: Record<string, string> = {
     'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80',
 };
 
+/**
+ * Course photos are keyed by category, so every course in a category shares
+ * one. This overrides that for a single course, where CER has supplied a photo
+ * of that programme rather than of its subject area.
+ */
+const COURSE_IMAGES_BY_SLUG: Record<string, string> = {
+  'esg-essentials': `${BASE_PATH}/images/course-esg-essentials.webp`,
+};
+
 const DEFAULT_IMAGE =
   'https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?auto=format&fit=crop&w=800&q=80';
 
@@ -165,7 +174,8 @@ export function SolutionCard({ solution }: { solution: Solution }) {
 /** Course card with a category-matched photo header. */
 export function CourseCard({ course }: { course: Course }) {
   const scheduled = course.upcoming.filter((d) => d.status === 'scheduled');
-  const img = COURSE_IMAGES[course.category] ?? DEFAULT_IMAGE;
+  const img =
+    COURSE_IMAGES_BY_SLUG[course.slug] ?? COURSE_IMAGES[course.category] ?? DEFAULT_IMAGE;
   return (
     <article
       className={cn(
