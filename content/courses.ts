@@ -955,7 +955,6 @@ export const courses: Course[] = [
       },
     ],
     instructorSlugs: ['raymond-cheung'],
-    certification: certificationTbc,
     corporateAvailable: true,
     relatedCourses: ['sustainable-procurement', 'carbon-literacy-for-professionals', 'esg-essentials'],
     relatedSolutions: ['sustainable-procurement', 'carbon-accounting', 'esg-strategy'],
