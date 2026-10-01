@@ -10,9 +10,12 @@ import { useInView } from '@/components/3d/useInView';
  * autoplaying video attaches its download to first paint otherwise. The poster
  * stands in until then, so the slot is never empty and never shifts.
  *
- * The box is fixed to the clip's own aspect ratio, which makes object-cover a
- * no-op: the frame is shown whole. That matters here because the motion carries
- * its own captions, and any crop would cut them.
+ * The box is fixed to the clip's own aspect ratio and the fit is `contain`.
+ * Both matter: the clips carry their own captions, some set close to the frame
+ * edge, so nothing may be trimmed. `cover` would be a no-op at a matching ratio
+ * in theory, but sub-pixel rounding can still shave an edge, and a shaved edge
+ * here clips a letter. `contain` cannot crop at all. It can only letterbox, and
+ * against this dark section that is invisible.
  */
 export function StageVideo({
   src,
@@ -30,7 +33,7 @@ export function StageVideo({
   return (
     <div
       ref={ref}
-      className="overflow-hidden rounded-(--radius-card)"
+      className="overflow-hidden rounded-(--radius-card) bg-forest-900"
       style={{ aspectRatio: `${width} / ${height}` }}
       aria-hidden="true"
     >
@@ -42,7 +45,7 @@ export function StageVideo({
         muted
         playsInline
         preload="none"
-        className="h-full w-full object-cover"
+        className="h-full w-full object-contain"
       />
     </div>
   );

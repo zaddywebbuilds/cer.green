@@ -1,11 +1,17 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { site } from '@/lib/site';
-import { StageSceneLoader } from '@/components/3d/StageSceneLoader';
 import { StageVideo } from '@/components/sections/StageVideo';
-import type { StageType } from '@/components/3d/StageScene';
 
-const STAGE_3D: StageType[] = ['crystalise', 'economise', 'revitalise'];
+/**
+ * Filmed visuals for the stages that have one, keyed by stage name. Both clips
+ * share these dimensions, so the two stages in the lower row line up and
+ * neither is cropped.
+ */
+const STAGE_VIDEOS: Record<string, { slug: string; width: number; height: number }> = {
+  Economise: { slug: 'economise', width: 752, height: 416 },
+  Revitalise: { slug: 'revitalise', width: 752, height: 416 },
+};
 
 /**
  * Crystalise -> Economise -> Revitalise, the signature CER experience.
@@ -119,20 +125,25 @@ export function Methodology({
                 index < laterStages.length - 1
                   ? 'border-b border-line-invert md:border-b-0 md:border-r md:border-line-invert'
                   : '',
-                index > 0 ? 'md:pl-10 lg:pl-16' : '',
+                // Padded symmetrically so both columns are the same width. The
+                // visuals share one aspect ratio, so equal width is what makes
+                // the two stages line up rather than one sitting lower.
+                index > 0 ? 'md:pl-10 lg:pl-16' : 'md:pr-10 lg:pr-16',
               )}
             >
-              {/* Economise carries its own filmed visual; the rest are generated */}
-              {stage.name === 'Economise' ? (
-                <StageVideo
-                  src={`${base}/video/economise.mp4`}
-                  poster={`${base}/video/economise-poster.jpg`}
-                  width={752}
-                  height={416}
-                />
-              ) : (
-                <StageSceneLoader stage={STAGE_3D[index + 1]!} />
-              )}
+              {/* Each of these stages carries its own filmed visual */}
+              {(() => {
+                const video = STAGE_VIDEOS[stage.name];
+                if (!video) return null;
+                return (
+                  <StageVideo
+                    src={`${base}/video/${video.slug}.mp4`}
+                    poster={`${base}/video/${video.slug}-poster.jpg`}
+                    width={video.width}
+                    height={video.height}
+                  />
+                );
+              })()}
 
               {/* Ghost number */}
               <p
