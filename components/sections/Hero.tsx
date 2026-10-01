@@ -7,106 +7,106 @@ export function Hero() {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-forest-900 text-white"
+      className="relative overflow-hidden bg-forest-900 text-white"
       data-surface="dark"
     >
-      {/* Video: full-bleed, contained so the full scene is always visible */}
-      <video
-        src={`${base}/video/hero.mp4`}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 h-full w-full object-contain"
-        aria-hidden="true"
-      />
+      {/* Hero region. The practice-area bar sits outside it, so the video only
+          has to span the text block and stays close to its native 736x400
+          ratio rather than being scaled up to fill a tall box. */}
+      <div className="relative">
 
-      {/* Dark gradient from left so text is legible over the video */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+      {/* Video. In normal flow on mobile, pinned to the right half on desktop. */}
+      <div className="relative aspect-[736/400] w-full lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[54%]">
+        <video
+          src={`${base}/video/hero.mp4`}
+          poster={`${base}/video/hero-poster.jpg`}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-full w-full object-cover"
+          aria-hidden="true"
+        />
+        {/* Left edge melts into the dark panel so the two halves read as one */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-0 hidden w-48 bg-gradient-to-r from-forest-900 via-forest-900/70 to-transparent lg:block"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-forest-900/45 via-transparent to-forest-900/25 lg:block"
+        />
+      </div>
 
-      {/* Content wrapper sized to the video's native aspect ratio so we never crop it */}
-      <div className="relative z-10 flex flex-col" style={{ aspectRatio: '736 / 400', minHeight: '480px' }}>
+      {/* Content, left column */}
+      <div className="shell relative z-10">
+        <div className="flex flex-col justify-center py-12 lg:min-h-[420px] lg:w-[44%]">
 
-        {/* Top tagline */}
-        <div className="shell pt-6 sm:pt-8">
           <p className="font-heading text-[10px] font-semibold uppercase leading-relaxed tracking-[0.22em] text-white/55">
             Sustainability Intelligence
             <br />
             for a Brighter Tomorrow
           </p>
-        </div>
 
-        {/* Main content: left half */}
-        <div className="flex flex-1 items-center">
-          <div className="shell w-full lg:max-w-[50%] xl:max-w-[44%]">
+          <h1
+            className="mt-6 font-heading font-semibold leading-[0.98] tracking-[-0.03em]"
+            style={{ fontSize: 'clamp(1.9rem, 3.4vw, 3rem)' }}
+          >
+            Sustainability,
+            <br />
+            <em className="not-italic text-lime">measured.</em>
+            <br />
+            Strategy,
+            <br />
+            implemented.
+          </h1>
 
-            {/* Discipline tags */}
-            <div className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2">
-              {['ESG', 'Carbon', 'Climate', 'Sustainable Finance'].map((label, i) => (
-                <span key={label} className="flex items-center gap-4">
-                  {i > 0 && <span aria-hidden="true" className="text-white/20">·</span>}
-                  <span className="font-heading text-xs font-semibold uppercase tracking-[0.16em] text-lime/80">
-                    {label}
-                  </span>
-                </span>
-              ))}
-            </div>
+          <p className="mt-4 max-w-[40ch] text-[0.95rem] leading-[1.6] text-white/70">
+            CER helps organisations across Asia turn complex ESG, carbon and climate requirements
+            into measurable business action, from assessment to implementation.
+          </p>
 
-            <h1 className="font-heading font-semibold leading-[0.95] tracking-[-0.03em] text-[clamp(2rem,5vw,4rem)]">
-              Sustainability,
-              <br />
-              <em className="not-italic text-lime">measured.</em>
-              <br />
-              Strategy,
-              <br />
-              implemented.
-            </h1>
-
-            <p className="mt-5 max-w-[44ch] text-[1rem] leading-[1.65] text-white/70">
-              CER helps organisations across Asia turn complex ESG, carbon and climate requirements
-              into measurable business action, from initial assessment to full implementation.
-            </p>
-
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Button href={cta.consulting.href} variant="invert">
-                {cta.consulting.label}
-              </Button>
-              <Button
-                href={cta.solutions.href}
-                variant="secondary"
-                className="border-white/35 text-white hover:border-white hover:bg-white hover:text-forest-900"
-              >
-                {cta.solutions.label}
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="border-t border-white/15">
-          <div className="shell flex flex-wrap items-center justify-between gap-x-8 gap-y-3 py-4">
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              {PRACTICE_AREAS.map((area) => (
-                <Link
-                  key={area.label}
-                  href={area.href}
-                  className="group flex items-center gap-2 opacity-55 transition-opacity hover:opacity-100"
-                >
-                  <area.Icon className="h-4 w-4 flex-shrink-0 text-lime" />
-                  <span className="font-heading text-[9px] font-semibold uppercase leading-tight tracking-[0.18em] text-white">
-                    {area.label}
-                  </span>
-                </Link>
-              ))}
-            </div>
-            <Link
-              href="/about/"
-              className="font-heading text-xs font-semibold text-lime transition-colors hover:text-white"
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <Button href={cta.consulting.href} variant="invert">
+              {cta.consulting.label}
+            </Button>
+            <Button
+              href={cta.solutions.href}
+              variant="secondary"
+              className="border-white/35 text-white hover:border-white hover:bg-white hover:text-forest-900"
             >
-              About CER &rarr;
-            </Link>
+              {cta.solutions.label}
+            </Button>
           </div>
+
+        </div>
+      </div>
+
+      </div>
+
+      {/* Practice areas, full-width bar beneath the video region */}
+      <div className="relative z-10 border-t border-white/15 bg-forest-900">
+        <div className="shell flex flex-wrap items-center justify-between gap-x-8 gap-y-3 py-4">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            {PRACTICE_AREAS.map((area) => (
+              <Link
+                key={area.label}
+                href={area.href}
+                className="group flex items-center gap-2 opacity-60 transition-opacity hover:opacity-100"
+              >
+                <area.Icon className="h-4 w-4 flex-shrink-0 text-lime" />
+                <span className="font-heading text-[9px] font-semibold uppercase leading-tight tracking-[0.18em] text-white">
+                  {area.label}
+                </span>
+              </Link>
+            ))}
+          </div>
+          <Link
+            href="/about/"
+            className="font-heading text-xs font-semibold text-lime transition-colors hover:text-white"
+          >
+            About CER &rarr;
+          </Link>
         </div>
       </div>
     </section>
