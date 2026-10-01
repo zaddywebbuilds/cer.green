@@ -43,7 +43,7 @@ export default function IndustriesPage() {
         <p className="mt-5 max-w-[68ch] text-muted-invert">
           {/* Honest scoping, rather than a page per sector for search purposes. */}
           The sectors below are those where CER has demonstrable capability. We do not publish a
-          page for every industry. A page that says nothing specific about a sector is not
+          page for every industry — a page that says nothing specific about a sector is not
           evidence of experience in it.
         </p>
       </Section>

@@ -273,7 +273,7 @@ export default async function ArticlePage({ params }: Params) {
         secondary={{ label: 'Explore our solutions', href: '/solutions/' }}
       />
 
-      {/* A short, honest note on currency, this matters on regulatory content. */}
+      {/* A short, honest note on currency — this matters on regulatory content. */}
       <Section surface="white" size="sm">
         <p className="max-w-[80ch] text-sm text-muted">
           This article is general information, not advice for a specific organisation. Regulatory

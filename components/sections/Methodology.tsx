@@ -6,7 +6,7 @@ import type { StageType } from '@/components/3d/StageScene';
 const STAGE_3D: StageType[] = ['crystalise', 'economise', 'revitalise'];
 
 /**
- * Crystalise → Economise → Revitalise, the signature CER experience.
+ * Crystalise → Economise → Revitalise — the signature CER experience.
  *
  * Always dark (forest-900) regardless of the surface prop, so it creates
  * a deliberate rhythm break on any page it appears on. Ghost numbers at
@@ -54,7 +54,7 @@ export function Methodology({
               {/* 3D stage illustration */}
               <StageSceneLoader stage={STAGE_3D[index]!} />
 
-              {/* Ghost number, design element, not readable content */}
+              {/* Ghost number — design element, not readable content */}
               <p
                 aria-hidden="true"
                 className="font-heading font-bold leading-none text-white/[0.06]"
@@ -63,7 +63,7 @@ export function Methodology({
                 {stage.number}
               </p>
 
-              {/* Stage name, dominant, in emerald */}
+              {/* Stage name — dominant, in emerald */}
               <h3
                 className="font-heading font-semibold text-lime"
                 style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', marginTop: '-0.3em', lineHeight: 1.1 }}

@@ -40,7 +40,7 @@ export default function InsightsPage() {
         </h1>
         <p className="mt-7 max-w-[68ch] text-lead text-muted-invert">
           Practical analysis of the carbon, ESG and sustainability requirements organisations in
-          Asia are actually working through, written by the people delivering the engagements.
+          Asia are actually working through — written by the people delivering the engagements.
         </p>
       </Section>
 

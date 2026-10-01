@@ -38,7 +38,7 @@ const process = [
   {
     number: '01',
     title: 'Understand requirements',
-    body: 'We establish who needs to be trained, what they need to be able to do afterwards, and what is driving the requirement: a reporting deadline, a customer request, a capability gap identified in an engagement.',
+    body: 'We establish who needs to be trained, what they need to be able to do afterwards, and what is driving the requirement — a reporting deadline, a customer request, a capability gap identified in an engagement.',
   },
   {
     number: '02',
@@ -53,7 +53,7 @@ const process = [
   {
     number: '04',
     title: 'Evaluate outcomes',
-    body: 'We review what participants can now do against what the programme set out to achieve, and identify what remains, which sometimes points to advisory support rather than more training.',
+    body: 'We review what participants can now do against what the programme set out to achieve, and identify what remains — which sometimes points to advisory support rather than more training.',
   },
 ];
 
@@ -66,7 +66,7 @@ const faqs = [
   {
     question: 'Can you combine material from different programmes?',
     answer:
-      'Yes. Many organisations need part of one programme and part of another: a carbon measurement grounding for a finance team, for example, with the procurement material for their category managers. We build the combination rather than running both in full.',
+      'Yes. Many organisations need part of one programme and part of another — a carbon measurement grounding for a finance team, for example, with the procurement material for their category managers. We build the combination rather than running both in full.',
   },
   {
     question: 'Can training use our own data?',
@@ -99,7 +99,7 @@ export default function CorporateTrainingPage() {
           Corporate training built around your organisation.
         </h1>
         <p className="mt-7 max-w-[68ch] text-lead text-muted-invert">
-          Private programmes for teams that need to be able to do something specific: produce a
+          Private programmes for teams that need to be able to do something specific — produce a
           greenhouse gas inventory, run an ESG risk process, respond to a customer requirement, or
           brief a board.
         </p>

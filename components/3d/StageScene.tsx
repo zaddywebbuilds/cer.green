@@ -9,7 +9,7 @@ import { useWebGL } from './useWebGL';
 
 export type StageType = 'crystalise' | 'economise' | 'revitalise';
 
-// ── Crystalise, dual-shell rotating gem ────────────────────────────────────
+// ── Crystalise — dual-shell rotating gem ────────────────────────────────────
 
 function CrystalStage({ reduced }: { reduced: boolean }) {
   const outerRef = useRef<THREE.Mesh>(null!);
@@ -46,7 +46,7 @@ function CrystalStage({ reduced }: { reduced: boolean }) {
   );
 }
 
-// ── Economise, illuminated network graph ───────────────────────────────────
+// ── Economise — illuminated network graph ───────────────────────────────────
 
 const ECON_NODES: [number, number, number][] = [
   [0, 0, 0],      [1.1, 0.65, 0],   [-1.0, 0.6, 0.2],
@@ -101,7 +101,7 @@ function EconomiseStage({ reduced }: { reduced: boolean }) {
   );
 }
 
-// ── Revitalise, animated topographic terrain ────────────────────────────────
+// ── Revitalise — animated topographic terrain ────────────────────────────────
 
 function RevitaliseStage({ reduced }: { reduced: boolean }) {
   const meshRef = useRef<THREE.Mesh>(null!);

@@ -31,7 +31,7 @@ export const testimonial = defineType({
     select: { title: 'name', subtitle: 'organisation', approved: 'approved' },
     prepare: ({ title, subtitle, approved }) => ({
       title,
-      subtitle: `${subtitle}${approved ? '' : ', NOT APPROVED, hidden'}`,
+      subtitle: `${subtitle}${approved ? '' : ' — NOT APPROVED, hidden'}`,
     }),
   },
 });

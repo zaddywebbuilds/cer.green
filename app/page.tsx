@@ -220,7 +220,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-6 max-w-[42ch] text-muted-invert">
               Carbon, ESG, risk, standards and finance don&rsquo;t arrive as separate problems. CER&rsquo;s
-              team spans all of them, so the strategy connects, rather than leaving gaps between advisers.
+              team spans all of them — so the strategy connects, rather than leaving gaps between advisers.
             </p>
             <ArrowLink href="/about/" className="mt-8" onDark>About CER</ArrowLink>
           </div>
@@ -294,7 +294,7 @@ export default function HomePage() {
       ) : process.env.NODE_ENV !== 'production' ? (
         <Section surface="ivory" size="sm">
           <div className="rounded-(--radius-card) border-2 border-dashed border-[#c9a227] bg-[#fdf8e8] p-8">
-            <p className="eyebrow text-[#7a5c00]">Editor note, not shown in production</p>
+            <p className="eyebrow text-[#7a5c00]">Editor note — not shown in production</p>
             <h2 className="mt-3 text-h3">Case studies section is ready and empty</h2>
             <p className="mt-4 max-w-[70ch] text-ink-700">
               The case study system is fully built: listing page, detail template, schema, cards
@@ -327,7 +327,7 @@ export default function HomePage() {
           eyebrow="CER Academy"
           title="Build sustainability capability inside your organisation"
           id="academy-heading"
-          lead="Professional courses, corporate training, executive programmes and custom workshops, delivered by the same practitioners who run CER's advisory engagements."
+          lead="Professional courses, corporate training, executive programmes and custom workshops — delivered by the same practitioners who run CER's advisory engagements."
           action={
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button href={cta.academy.href}>{cta.academy.label}</Button>
@@ -344,7 +344,7 @@ export default function HomePage() {
         </CardGrid>
       </Section>
 
-      {/* ---- Insights, magazine layout --------------------------------- */}
+      {/* ---- Insights — magazine layout --------------------------------- */}
       <Section surface="ivory" labelledBy="insights-heading">
         <div className="flex items-baseline justify-between gap-8">
           <div>

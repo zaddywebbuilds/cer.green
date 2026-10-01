@@ -10,7 +10,7 @@
      muted      on ivory    6.4:1     white   on forest  12.2:1
      sage-muted on forest   6.2:1     emerald on forest  ~9.0:1
      emerald-ink on ivory   ~7.5:1
-   Accent emerald is never used for body text on light surfaces,
+   Accent emerald is never used for body text on light surfaces —
    `emerald-ink` is the accessible equivalent for that case.
    ========================================================================== */
 
@@ -24,14 +24,14 @@
   --color-ink: #161a18;
   --color-ink-700: #2a312e;
 
-  /* Clean near-white, replaces warm ivory for a crisper, more authoritative feel */
+  /* Clean near-white — replaces warm ivory for a crisper, more authoritative feel */
   --color-ivory: #f7f9f8;
   --color-ivory-dark: #edf2ef;
 
   --color-sage: #dce7df;
   --color-sage-dark: #c3d5c8;
 
-  /* Accent, clean emerald-mint replacing yellow-green lime.
+  /* Accent — clean emerald-mint replacing yellow-green lime.
      Reads as precision and credibility rather than eco-branding. */
   --color-lime: #34d399;
   --color-lime-ink: #065f46;
@@ -161,7 +161,7 @@
   text-transform: uppercase;
 }
 
-/* Editorial body copy, 55-75 character measure. */
+/* Editorial body copy — 55–75 character measure. */
 @utility prose-cer {
   max-width: var(--container-prose);
 
@@ -209,7 +209,7 @@
 }
 
 /* ==========================================================================
-   Motion, subtle reveal only, and fully disabled under reduced-motion.
+   Motion — subtle reveal only, and fully disabled under reduced-motion.
    ========================================================================== */
 
 @utility reveal {

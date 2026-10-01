@@ -21,7 +21,7 @@ export function Logo({
     <Link
       href={href}
       className={cn('inline-flex items-center gap-2.5 rounded-[2px]', className)}
-      aria-label="CER home"
+      aria-label="CER — home"
     >
       <svg
         width="34"

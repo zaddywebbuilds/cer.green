@@ -296,7 +296,7 @@ function ServiceView({ slug }: { slug: string }) {
             </p>
             <p>
               Engagements run through to implementation: the data collection process, the
-              documentation, the controls and the internal handover, so that the second cycle is
+              documentation, the controls and the internal handover — so that the second cycle is
               cheaper than the first and can be run without us.
             </p>
             <p>
@@ -322,7 +322,7 @@ function ServiceView({ slug }: { slug: string }) {
         </Section>
       ) : null}
 
-      {/* Case study, only when one has been approved for publication. */}
+      {/* Case study — only when one has been approved for publication. */}
       {caseStudies.length ? (
         <Section surface="white" labelledBy="service-cases">
           <SectionHeader eyebrow="In practice" title="Related work" id="service-cases" />

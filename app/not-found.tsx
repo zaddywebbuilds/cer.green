@@ -71,7 +71,7 @@ export default function NotFound() {
         </div>
 
         <p className="mt-12 text-ink-700">
-          If you followed a link to get here, we would like to fix it,{' '}
+          If you followed a link to get here, we would like to fix it —{' '}
           <Link href="/contact/" className="text-forest underline underline-offset-4">
             let us know where it was
           </Link>

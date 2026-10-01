@@ -94,7 +94,7 @@ export default async function CoursePage({ params }: Params) {
             </div>
           </div>
 
-          {/* Key facts. Only what CER has confirmed, no invented price or date. */}
+          {/* Key facts. Only what CER has confirmed — no invented price or date. */}
           <Card surface="dark" className="border-line-invert">
             <h2 className="eyebrow text-lime">Course details</h2>
             <dl className="mt-5 flex flex-col divide-y divide-line-invert">

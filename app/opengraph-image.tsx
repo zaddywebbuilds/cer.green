@@ -13,7 +13,7 @@ export const dynamic = 'force-static';
  *
  * A page can override this by setting `seo.ogImage`.
  */
-export const alt = `${site.name}: ${site.descriptor}`;
+export const alt = `${site.name} — ${site.descriptor}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
