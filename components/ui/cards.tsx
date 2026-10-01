@@ -40,8 +40,7 @@ const INDUSTRY_IMAGES: Record<string, string> = {
   'financial-services': `${BASE_PATH}/images/industry-financial-services.webp`,
   'manufacturing-supply-chain': `${BASE_PATH}/images/industry-manufacturing-supply-chain.webp`,
   'energy-infrastructure': `${BASE_PATH}/images/industry-energy-infrastructure.webp`,
-  technology:
-    'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+  technology: `${BASE_PATH}/images/industry-technology.webp`,
   healthcare: `${BASE_PATH}/images/industry-healthcare.webp`,
 };
 
@@ -65,15 +64,6 @@ const COURSE_IMAGES: Record<string, string> = {
     'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80',
   'risk-governance':
     'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80',
-};
-
-/**
- * Course photos are keyed by category, so every course in a category shares
- * one. This overrides that for a single course, where CER has supplied a photo
- * of that programme rather than of its subject area.
- */
-const COURSE_IMAGES_BY_SLUG: Record<string, string> = {
-  'esg-essentials': `${BASE_PATH}/images/course-esg-essentials.webp`,
 };
 
 const DEFAULT_IMAGE =
@@ -173,8 +163,7 @@ export function SolutionCard({ solution }: { solution: Solution }) {
 /** Course card with a category-matched photo header. */
 export function CourseCard({ course }: { course: Course }) {
   const scheduled = course.upcoming.filter((d) => d.status === 'scheduled');
-  const img =
-    COURSE_IMAGES_BY_SLUG[course.slug] ?? COURSE_IMAGES[course.category] ?? DEFAULT_IMAGE;
+  const img = COURSE_IMAGES[course.category] ?? DEFAULT_IMAGE;
   return (
     <article
       className={cn(
