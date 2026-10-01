@@ -19,6 +19,7 @@ export function Methodology({
   surface?: string;
   compact?: boolean;
 }) {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
   const { stages } = site.methodology;
   const [crystalise, ...laterStages] = stages;
 
@@ -68,7 +69,7 @@ export function Methodology({
               {/* Mobile image: between summary and activity pills */}
               <div className="mt-8 overflow-hidden rounded-(--radius-card) lg:hidden">
                 <Image
-                  src="/images/crystalise.webp"
+                  src={`${base}/images/crystalise.webp`}
                   alt="Crystalise stage: five assessment panels covering Baseline Assessment, Data and Evidence Review, Stakeholder Analysis, Gap Assessment and Regulatory Mapping, with a central display showing the clear baseline output."
                   width={1200}
                   height={800}
@@ -94,7 +95,7 @@ export function Methodology({
             <div className="hidden lg:block">
               <div className="overflow-hidden rounded-(--radius-card)">
                 <Image
-                  src="/images/crystalise.webp"
+                  src={`${base}/images/crystalise.webp`}
                   alt="Crystalise stage: five assessment panels covering Baseline Assessment, Data and Evidence Review, Stakeholder Analysis, Gap Assessment and Regulatory Mapping, with a central display showing the clear baseline output."
                   width={1200}
                   height={800}

@@ -52,6 +52,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function HomePage() {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
   const categories = getSolutionCategories();
   const industries = getIndustries().slice(0, 6);
   const experts = getExperts();
@@ -230,7 +231,7 @@ export default function HomePage() {
               {/* Image: mobile only, stacks after intro and before service items */}
               <div className="mt-10 overflow-hidden rounded-(--radius-card) lg:hidden">
                 <Image
-                  src="/images/why-cer.webp"
+                  src={`${base}/images/why-cer.webp`}
                   alt="Four practice areas: ESG and Sustainability, Carbon and Climate, Compliance and Standards, Sustainable and Green Finance, converging at Singapore Gardens by the Bay at sunset."
                   width={1200}
                   height={675}
@@ -269,7 +270,7 @@ export default function HomePage() {
             <div className="hidden lg:block">
               <div className="overflow-hidden rounded-(--radius-card)">
                 <Image
-                  src="/images/why-cer.webp"
+                  src={`${base}/images/why-cer.webp`}
                   alt="Four practice areas: ESG and Sustainability, Carbon and Climate, Compliance and Standards, Sustainable and Green Finance, converging at Singapore Gardens by the Bay at sunset."
                   width={1200}
                   height={675}
