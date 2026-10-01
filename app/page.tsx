@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { Hero } from '@/components/sections/Hero';
@@ -207,49 +208,78 @@ export default function HomePage() {
 
       {/* ---- Why CER ---------------------------------------------------- */}
       <section className="bg-forest text-white on-dark" data-surface="dark">
-        <div className="shell grid gap-14 py-(--spacing-section) lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-20">
-          {/* Left: big statement */}
-          <div>
-            <p className="eyebrow text-lime" id="why-heading">Why CER</p>
-            <h2
-              aria-labelledby="why-heading"
-              className="mt-6 font-heading font-semibold text-white"
-              style={{ fontSize: 'clamp(2rem, 3.5vw, 3.25rem)', lineHeight: 1.12, letterSpacing: '-0.02em' }}
-            >
-              Different disciplines.<br />One sustainability strategy.
-            </h2>
-            <p className="mt-6 max-w-[42ch] text-muted-invert">
-              Carbon, ESG, risk, standards and finance don&rsquo;t arrive as separate problems. CER&rsquo;s
-              team spans all of them, so the strategy connects, rather than leaving gaps between advisers.
-            </p>
-            <ArrowLink href="/about/" className="mt-8" onDark>About CER</ArrowLink>
-          </div>
+        <div className="shell py-(--spacing-section)">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-start lg:gap-20">
 
-          {/* Right: discipline grid converging to action */}
-          <div>
-            <div className="grid grid-cols-2 gap-px bg-line-invert sm:grid-cols-3">
-              {[
-                'ESG Strategy',
-                'Carbon Accounting',
-                'Climate Risk',
-                'Sustainable Finance',
-                'ISO Standards',
-                'Professional Training',
-              ].map((discipline) => (
-                <div key={discipline} className="bg-forest-700 px-5 py-4">
-                  <p className="font-heading text-sm font-semibold text-white/80">{discipline}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-px bg-lime px-5 py-4">
-              <p className="font-heading text-sm font-semibold text-forest">→ Measurable business action</p>
+            {/* Left: statement + service disciplines */}
+            <div>
+              <p className="eyebrow text-lime" id="why-heading">Why CER</p>
+              <h2
+                aria-labelledby="why-heading"
+                className="mt-6 font-heading font-semibold text-white"
+                style={{ fontSize: 'clamp(2rem, 3.5vw, 3.25rem)', lineHeight: 1.12, letterSpacing: '-0.02em' }}
+              >
+                Different disciplines.<br />One sustainability strategy.
+              </h2>
+              <p className="mt-6 max-w-[42ch] text-muted-invert">
+                Carbon, ESG, risk, standards and finance don&rsquo;t arrive as separate problems. CER&rsquo;s
+                team spans all of them, so the strategy connects, rather than leaving gaps between advisers.
+              </p>
+              <ArrowLink href="/about/" className="mt-8" onDark>About CER</ArrowLink>
+
+              {/* Image: mobile only, stacks after intro and before service items */}
+              <div className="mt-10 overflow-hidden rounded-(--radius-card) lg:hidden">
+                <Image
+                  src="/images/why-cer.webp"
+                  alt="Four practice areas: ESG and Sustainability, Carbon and Climate, Compliance and Standards, Sustainable and Green Finance, converging at Singapore Gardens by the Bay at sunset."
+                  width={1200}
+                  height={675}
+                  className="w-full object-cover"
+                  unoptimized
+                />
+              </div>
+
+              {/* Service discipline text items */}
+              <div className="mt-10 grid grid-cols-2 gap-px bg-line-invert sm:grid-cols-3">
+                {[
+                  { label: 'ESG Strategy', href: '/solutions/esg-sustainability/' },
+                  { label: 'Carbon Accounting', href: '/solutions/carbon-climate/' },
+                  { label: 'Climate Risk', href: '/solutions/carbon-climate/' },
+                  { label: 'Sustainable Finance', href: '/solutions/sustainable-finance/' },
+                  { label: 'ISO Standards', href: '/solutions/compliance-standards/' },
+                  { label: 'Professional Training', href: '/academy/' },
+                ].map(({ label, href }) => (
+                  <Link
+                    key={label}
+                    href={href}
+                    className="group bg-forest-700 px-5 py-4 transition-colors hover:bg-forest-500"
+                  >
+                    <p className="font-heading text-sm font-semibold text-white/80 transition-colors group-hover:text-white">
+                      {label}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-px bg-lime px-5 py-4">
+                <p className="font-heading text-sm font-semibold text-forest">→ Measurable business action</p>
+              </div>
             </div>
 
-            {/*
-              No headline metrics shown. CER has not published verified figures
-              for years, client count or emissions reduced. Add MetricBlock here
-              once CER confirms figures it can evidence. (docs/CONTENT-GUIDE.md)
-            */}
+            {/* Right: image, desktop only, large and prominent */}
+            <div className="hidden lg:block">
+              <div className="overflow-hidden rounded-(--radius-card)">
+                <Image
+                  src="/images/why-cer.webp"
+                  alt="Four practice areas: ESG and Sustainability, Carbon and Climate, Compliance and Standards, Sustainable and Green Finance, converging at Singapore Gardens by the Bay at sunset."
+                  width={1200}
+                  height={675}
+                  className="w-full object-cover"
+                  unoptimized
+                  priority
+                />
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
