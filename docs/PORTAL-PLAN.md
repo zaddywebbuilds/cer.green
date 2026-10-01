@@ -1,10 +1,11 @@
-# Client portal — build plan
+# Portal and platform plan
 
-Scope, hosting and commercial plan for building CER's client portal as a custom
-WordPress plugin, replacing the paid plugins **WP User Frontend Pro** and
-**Ultimate Dashboard Pro**.
+Scope, hosting, security and roadmap for building CER's client portal as a
+custom WordPress plugin — replacing the paid plugins **WP User Frontend Pro**
+and **Ultimate Dashboard Pro** — and for the wider platform features that
+install then makes possible.
 
-Written 1 October 2026. Part 9 is the client-facing summary — everything before
+Written 1 October 2026. Part 11 is the client-facing summary; everything before
 it is internal.
 
 ---
@@ -46,9 +47,40 @@ already expects exactly this — it is a signpost pointing at
 Business tiers host multiple sites and subdomains on one plan, so the portal
 should fit inside the plan CER already pays for.
 
+That install is also the backend for everything in §8 — see
+*The architecture that makes the rest possible*.
+
 ---
 
-## 2. Verify on the Hostinger plan before quoting
+## 2. Critical path — launch before features
+
+Read this before planning any feature work.
+
+**The new site is not live.** `robots.txt` is `Disallow: /`, `DEPLOY_TARGET` is
+`staging`, and `www.cer.green` still serves the old WordPress site. Six content
+markers block the production build — `scripts/check-content.mjs` fails the
+build while any remain:
+
+| Marker | Where |
+| --- | --- |
+| Business telephone number | `lib/site.ts` |
+| Street address | `lib/site.ts` |
+| Postal code | `lib/site.ts` |
+| UEN / company registration number | `lib/site.ts` |
+| LinkedIn URL for Chan Ee Chong | `content/experts.ts` |
+| Certification wording | `content/courses.ts` |
+
+Meanwhile the three things Raymond said he wants visitors to find — the course
+list, what CER does in ESG, and partnership opportunities — are **already built
+and sitting unpublished.**
+
+So the sequence is: get those six items from CER, cut over (§7), *then* build.
+A feature roadmap queued behind a site that is blocked on a phone number and a
+UEN is a roadmap that delivers nothing.
+
+---
+
+## 3. Verify on the Hostinger plan before quoting
 
 If any of these are missing, a one-tier upgrade is the entire infrastructure
 cost of the project. Quote the **renewal** price, not the promotional one.
@@ -58,13 +90,14 @@ cost of the project. Quote the **renewal** price, not the promotional one.
 - [ ] **Daily** backups, retained offsite (not weekly)
 - [ ] Staging environment — plugin updates must never be tested on live
 - [ ] Real system cron available (do not rely on `wp-cron`)
-- [ ] LiteSpeed cache rules are editable (see §5 — this one is critical)
+- [ ] LiteSpeed cache rules are editable (see §6 — this one is critical)
 - [ ] Free SSL on the subdomain
+- [ ] CORS headers settable, for the static site calling the REST API (§8)
 - [ ] Object cache / Redis — nice to have, not required at this scale
 
 ---
 
-## 3. Scope — what CER actually needs
+## 4. Portal scope — what CER actually needs
 
 The original brief was written as a feature-for-feature replacement of two
 commercial plugins. That is far more than CER needs. Cut to this:
@@ -92,7 +125,7 @@ The portal is not useful below this line.
 | Documents | Per-engagement document delivery — download, with access enforced server-side |
 | Uploads | Client uploads a document to an engagement; staff notified |
 | Staff side | Minimal `wp-admin`: create engagement, assign clients, upload documents |
-| Email | Transactional mail over external SMTP (§5) |
+| Email | Transactional mail over external SMTP (§6) |
 | Audit | Log of who accessed which document, and when |
 
 ### Phase 2 — after Phase 1 is live and used
@@ -100,6 +133,7 @@ The portal is not useful below this line.
 - Branded `wp-admin` dashboard for CER staff (the Ultimate Dashboard Pro part)
 - Branded WP login page for staff
 - Admin menu restriction per role
+- Project progress tracker — engagement stages, outstanding items
 - Notification preferences
 - Bulk document upload
 
@@ -107,7 +141,6 @@ The portal is not useful below this line.
 
 - Client-to-staff messaging
 - E-signature or document approval
-- Engagement status / milestone tracking
 - SSO
 
 ### Explicitly out of scope
@@ -116,7 +149,7 @@ Name these in the quote so they cannot arrive later as assumptions:
 
 - A form builder — the public site already handles forms via Web3Forms
 - Payments, subscriptions, memberships, invoicing
-- A course or learning platform — see §7, this belongs to CER Academy
+- A course or learning platform — see §9, this belongs to CER Academy
 - Public user profiles or social features
 - Multi-language
 
@@ -134,7 +167,7 @@ access checks membership on every request.
 
 ---
 
-## 4. Build it on WordPress core
+## 5. Build it on WordPress core
 
 No paid plugins, and no free plugin where core already suffices.
 
@@ -150,7 +183,7 @@ No paid plugins, and no free plugin where core already suffices.
 
 ---
 
-## 5. Security — non-negotiable
+## 6. Security — non-negotiable
 
 The portal holds confidential client ESG documentation and personal data. Each
 item below is a requirement, not a preference.
@@ -186,18 +219,19 @@ means LiteSpeed:
 | Item | Requirement |
 | --- | --- |
 | Indexing | `noindex` the entire portal install, plus `Disallow: /` in its own `robots.txt` |
-| Old pages | Unpublish the old marketing pages on that install — see §6 step 3 |
+| Old pages | Unpublish the old marketing pages on that install — see §7 step 3 |
 | 2FA | Required for `administrator` and `cer_staff` |
 | Login | Rate limiting and lockout on failed attempts |
 | Every action | Capability check **and** nonce. `is_user_logged_in()` alone is not authorisation |
 | Uploads | File-type allowlist, size cap, MIME sniffing — not extension trust |
 | Email | External SMTP (Postmark, SES, Brevo, Resend). Shared-host `mail()` will land password resets in spam |
+| REST API | Lock CORS to `https://www.cer.green`. Rate-limit public endpoints. Never expose user data on a public route |
 | PDPA | Data minimisation, stated retention period, consent record, export and delete path |
 | Secrets | Outside the webroot, never committed |
 
 ---
 
-## 6. Cutover sequence
+## 7. Cutover sequence
 
 Order matters. Done wrong, two sites compete in Google or the portal dies.
 
@@ -217,28 +251,141 @@ Order matters. Done wrong, two sites compete in Google or the portal dies.
 6. **Set `NEXT_PUBLIC_PORTAL_URL`** to `https://portal.cer.green` so the portal
    page links to the real thing.
 
+Before step 3, archive a copy of the old site's own material — in particular
+`cer.green/wp-content/uploads/2025/04/CER-WEBSITE-REVAMP.pdf`, CER's own revamp
+specification, which may already state what Raymond expects of the portal and
+dashboard. Read it against this plan before quoting.
+
 ---
 
-## 7. Risks
+## 8. Platform roadmap — beyond the portal
+
+A 17-feature list was proposed for turning the site from a brochure into
+something that does work for visitors. The triage below is what survives
+contact with this codebase, CER's liability position, and §2.
+
+### The architecture that makes the rest possible
+
+Most of those features need a server, and the marketing site does not have one.
+The portal install is the answer — it becomes the backend for the static site:
+
+```
+cer.green          -> GitHub Pages (static, free, fast)
+       | fetch()
+portal.cer.green   -> WordPress REST API
+                      - client portal + document vault
+                      - assessment submissions + lead store
+                      - admin dashboard CER staff already know
+                      - certificate verification (later)
+```
+
+One install, one bill, no new hosting. The marketing site stays static and
+free; only the dynamic calls go out. **The portal work is therefore the
+foundation for the lead-generation work, not a separate project** — which is
+how it should be presented commercially (§10).
+
+For the assessment specifically there is a cheaper path still: score **in the
+browser** (the logic is not secret), generate the PDF **client-side**
+(`jsPDF` / `pdf-lib`), and POST only the lead to WordPress. No server needed
+for the hard part.
+
+### Already built — do not pay twice
+
+| Proposed | Reality in this repo |
+| --- | --- |
+| Course finder | `components/sections/CoursesFilter.tsx` — category filtering exists |
+| Knowledge centre | `app/insights/` + `InsightsFilter.tsx` exist. The upgrade is *content* and topic clusters, not code |
+| Case-study explorer | `content/case-studies.ts` + cards exist. Adding a filter is hours |
+| Expert matching | `content/experts.ts` — expertise tags already structured for it |
+| Partner verification | `content/partners.ts` — nine partners with relationship types already modelled |
+| Project dashboard, document vault | Already §4 Phase 1/2 |
+
+The content layer for the recommendation features already exists, which is why
+several of them are days rather than weeks.
+
+Note `components/ui/Verify.tsx` is **not** certificate verification — it is the
+unverified-content placeholder component.
+
+### Triage
+
+| Feature | Call |
+| --- | --- |
+| **ESG Readiness Assessment** | ✅ Build. The single highest-value addition |
+| **PDF report generator** | ✅ Build with the assessment — it is what makes it a lead magnet |
+| **Consultation qualification** (replaces the plain contact form) | ✅ Build. Best return per hour on the list |
+| **ESG service finder** | ✅ Build. Data exists |
+| **Expert matching** | ✅ Build. Data exists, cheap |
+| **Partner verification pages** | ✅ Cheap trust signal |
+| ESG maturity benchmark | 🔁 Fold into the assessment. Two scores from one questionnaire confuses buyers |
+| Knowledge centre | 🔁 Mostly exists — this is a content programme, not a build |
+| Case-study explorer | 🔁 Mostly exists — small addition |
+| Project dashboard | 📋 Portal Phase 2 |
+| Document vault | 📋 Portal Phase 1 |
+| Course finder | 🎓 Academy's — and partly built |
+| Certificate verification | 🎓 Academy's. Good idea; needs a certificate system first |
+| Carbon footprint estimator | ⚠️ Conditional — see below |
+| Regulatory requirements checker | ❌ Not as a tool |
+| "Ask CER" AI assistant | ❌ Defer |
+| Sustainability ROI calculator | ❌ Don't |
+
+### Why the rejections are specific to CER
+
+Disclaimers do not fix these. **CER's product is accuracy** — a sustainability
+consultancy that publishes materially wrong numbers damages the thing it sells.
+
+- **Carbon estimator** — CER sells *verified GHG inventories*. A free
+  calculator off by 2–3× undermines the paid service and hands prospects a
+  number they will anchor on. Buildable, but only with properly sourced factors
+  (GHG Protocol, Singapore's grid emission factor) and a named maintenance
+  owner. Not a weekend feature.
+- **Regulatory checker** — professional liability, not a feature. Singapore's
+  climate-disclosure requirements and IFRS S1/S2 adoption are actively moving.
+  A stale checker telling an SME it has no obligation is the worst possible
+  failure for a compliance advisor. Build it as **maintained content** instead:
+  same SEO benefit, feeds the knowledge centre, no liability tool.
+- **ROI calculator** — invented payback periods shown to CFOs. Worst
+  risk-to-reward on the list.
+- **AI assistant** — hallucination risk for a compliance advisor, recurring API
+  cost, and it partly cannibalises the consultation that *is* the conversion
+  event. Revisit once the assessment is producing leads.
+
+### Sequence
+
+1. **Launch** — the six content items in §2, then cutover (§7). Days.
+2. **Portal Phase 1** (§4) — also the backend for everything below.
+3. **Assessment + PDF report** — the change from brochure to lead engine.
+4. **Consultation qualification, service finder, expert matching, partner
+   pages** — cheap, data already exists.
+5. **Knowledge centre and case-study explorer** as an ongoing content
+   programme.
+6. **Academy features** — only after the boundary in §9 is settled.
+7. Revisit the carbon estimator, regulatory content and AI assistant with real
+   maintenance commitments attached.
+
+---
+
+## 9. Risks
 
 | Risk | Mitigation |
 | --- | --- |
 | **Academy LMS overlap** | CER Academy is planned as a multi-tenant LMS with its own accounts and dashboards. Building portal auth now risks building it twice. Keep `cer-portal` scoped to *consulting engagements* and confirm the Academy boundary with Raymond before Phase 2 |
-| Cache leak between clients | §5. Test with two real accounts before launch |
-| Scope creep from the original brief | §3 "out of scope", written into the quote |
+| Cache leak between clients | §6. Test with two real accounts before launch |
+| Scope creep | §4 "out of scope" and §8 triage, both written into the quote |
+| Launch blocked indefinitely | §2. Six content items are the critical path; chase them first |
 | Email deliverability | External SMTP from day one |
-| Shared-hosting limits | Verify §2 before quoting |
+| Shared-hosting limits | Verify §3 before quoting |
+| Published numbers being wrong | §8. No calculator ships without sourced factors and an owner |
 | Bus factor | Documentation and handover are a priced deliverable, not a favour |
 | Maintenance drift | Retainer, or an explicit written handover of responsibility |
 
 The Academy risk is the significant one. Raymond's own plan has the Academy
 becoming a separate company with a separate partner, and its LMS covers user
 accounts, role-based paths and dashboards. Confirm that boundary before
-building anything in Phase 2.
+building anything in Phase 2 or anything Academy-shaped in §8.
 
 ---
 
-## 8. Commercial
+## 10. Commercial
 
 ### What to charge for
 
@@ -270,6 +417,10 @@ Not *"stop paying yearly."* Instead:
 That is true, it is better for CER, and it converts a one-off build into
 recurring revenue.
 
+Present the portal as **infrastructure, not a feature**: per §8 it is also what
+makes the lead-generation work possible. One install, one bill, every later
+feature built on it.
+
 ### Payback
 
 The licences are individually modest, so the case is not "cheaper next year."
@@ -278,7 +429,7 @@ about price at all — they are ownership, fit, and vendor risk.
 
 ---
 
-## 9. For Raymond
+## 11. For Raymond
 
 > **The portal, in plain terms**
 >
@@ -305,6 +456,13 @@ about price at all — they are ownership, fit, and vendor risk.
 >    noticing a seam.
 > 6. **The data stays CER's** — standard WordPress user records, fully portable.
 >
+> **It is also the foundation, not just a portal.** The same install is what
+> lets the website start working for CER rather than only describing it — an
+> ESG readiness assessment that scores a visitor's organisation, produces a
+> branded CER report, and delivers a qualified lead with the answers already
+> attached. That is built on this, so it is one piece of infrastructure, not two
+> projects.
+>
 > **Said plainly:** the build costs more upfront than one year of plugin
 > licences, and pays back around year two. Maintenance does not disappear — it
 > moves from the plugin vendor to us, which is what the retainer covers.
@@ -313,23 +471,30 @@ about price at all — they are ownership, fit, and vendor risk.
 >
 > CER also gets documentation and a full handover, so it is never dependent on
 > one person.
+>
+> **The one thing needed first:** the new website is finished but cannot launch
+> until CER confirms six details — telephone number, street address, postal
+> code, UEN, one expert's LinkedIn URL, and the certification wording on
+> courses.
 
 ---
 
-## 10. Open questions
+## 12. Open questions
 
 For Raymond:
 
-1. Who are the portal's users — existing clients only, or prospects too?
-2. Roughly how many, and how many CER staff need admin access?
-3. What documents actually move through it, and in which direction?
-4. Any retention or confidentiality obligation in client contracts?
-5. **Where does CER Academy's LMS end and the portal begin?** (§7)
+1. The six content items in §2 — these block launch.
+2. Who are the portal's users — existing clients only, or prospects too?
+3. Roughly how many, and how many CER staff need admin access?
+4. What documents actually move through it, and in which direction?
+5. Any retention or confidentiality obligation in client contracts?
+6. **Where does CER Academy's LMS end and the portal begin?** (§9)
+7. Does `CER-WEBSITE-REVAMP.pdf` (§7) still describe what he wants?
 
 For the Hostinger account:
 
-6. Which plan, and does it satisfy §2?
-7. Is the WordPress install clean enough to build on, or is a fresh install on
+8. Which plan, and does it satisfy §3?
+9. Is the WordPress install clean enough to build on, or is a fresh install on
    the subdomain safer?
 
 ---
@@ -340,3 +505,4 @@ For the Hostinger account:
 - `docs/MIGRATION.md` — old WordPress URL inventory
 - `.github/workflows/deploy.yml` — staging/production targets and the cutover
 - `lib/redirects.ts` — legacy path redirects
+- `docs/CONTENT-GUIDE.md` — how the CER team edits content
