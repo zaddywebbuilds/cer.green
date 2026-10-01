@@ -7,16 +7,23 @@ import { needsVerification } from '@/lib/site';
  * Every biography, qualification and credential below is taken from CER's own
  * published expert profiles. Nothing has been added, inferred or embellished.
  *
- * PHOTOGRAPHS: no `photo` is set. The expert card and profile fall back to a
- * typographic monogram. Real professional photographs must be supplied by CER
- * before launch -- AI-generated headshots are not used on this site under any
- * circumstances. See docs/CONTENT-GUIDE.md.
+ * PHOTOGRAPHS: set `photo` only where CER has supplied a real professional
+ * photograph of that person. Everyone else falls back to a typographic
+ * monogram, which is the intended state rather than a gap to be filled --
+ * AI-generated headshots are not used on this site under any circumstances.
+ * See docs/CONTENT-GUIDE.md.
  */
 export const experts: Expert[] = [
   {
     slug: 'raymond-cheung',
     name: 'Raymond Cheung',
     role: 'Advisor & Lead Trainer',
+    photo: {
+      src: '/images/experts/raymond-cheung.webp',
+      alt: 'Raymond Cheung, Advisor and Lead Trainer at CER.',
+      width: 640,
+      height: 640,
+    },
     shortBio:
       'Over twenty years in actuarial science and risk management, working across ESG, sustainability and ESG investment.',
     longBio: [

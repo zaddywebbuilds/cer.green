@@ -273,7 +273,7 @@ export function ExpertCard({ expert }: { expert: Expert }) {
         {expert.photo ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={expert.photo.src}
+            src={`${BASE_PATH}${expert.photo.src}`}
             alt={expert.photo.alt}
             width={80}
             height={80}
