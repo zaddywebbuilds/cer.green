@@ -16,7 +16,7 @@ export function Hero() {
       <div className="relative">
 
       {/* Video. In normal flow on mobile, pinned to the right half on desktop. */}
-      <div className="relative aspect-[736/400] w-full lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[54%]">
+      <div className="relative aspect-[736/400] w-full lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[68%]">
         <video
           src={`${base}/video/hero.mp4`}
           poster={`${base}/video/hero-poster.jpg`}
@@ -30,7 +30,7 @@ export function Hero() {
         {/* Left edge melts into the dark panel so the two halves read as one */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 left-0 hidden w-48 bg-gradient-to-r from-forest-900 via-forest-900/70 to-transparent lg:block"
+          className="pointer-events-none absolute inset-y-0 left-0 hidden w-32 bg-gradient-to-r from-forest-900 via-forest-900/45 to-transparent lg:block"
         />
         <div
           aria-hidden="true"
@@ -40,7 +40,7 @@ export function Hero() {
 
       {/* Content, left column */}
       <div className="shell relative z-10">
-        <div className="flex flex-col justify-center py-12 lg:min-h-[420px] lg:w-[44%]">
+        <div className="flex flex-col justify-center py-12 lg:min-h-[420px] lg:w-[38%]">
 
           <p className="font-heading text-[10px] font-semibold uppercase leading-relaxed tracking-[0.22em] text-white/55">
             Sustainability Intelligence
