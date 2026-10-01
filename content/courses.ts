@@ -51,8 +51,15 @@ export const courseCategories: CourseCategory[] = [
   },
 ];
 
+/**
+ * CER confirmed on 1 October 2026 that certificates are worded either
+ * "Certificate of Participation" or "Certificate of Completion". Which of the
+ * two each course issues is still open, as is the TÜV SÜD question, so this
+ * stays a marker: naming the wrong one advertises an award the learner does
+ * not receive, which matters more than usual for a training provider.
+ */
 const certificationTbc = needsVerification(
-  'certificate wording for this course, and whether TÜV SÜD Academy Singapore co-certification applies',
+  'whether this course issues a Certificate of Participation or a Certificate of Completion, and whether TÜV SÜD Academy Singapore co-certification applies',
 );
 
 export const courses: Course[] = [

@@ -129,11 +129,10 @@ const sections: LegalSection[] = [
   {
     heading: 'How long we keep it',
     body: [
-      'Enquiry correspondence is kept for as long as needed to respond and to maintain a record of the business relationship, then deleted or anonymised.',
+      'Our standard retention period is five years. Enquiry correspondence and engagement records are kept for that period, measured from our last dealing with you, and are then deleted or anonymised.',
       'Newsletter subscriptions are kept until you unsubscribe.',
       'Server logs are kept for a short period for security purposes.',
-      'Where an enquiry leads to an engagement, retention is governed by the agreement for that engagement.',
-      '[VERIFY WITH CER: confirm specific retention periods for each category, in line with CER internal policy.]',
+      'Where an enquiry leads to an engagement, retention is governed by the agreement for that engagement, and by the periods that the law requires us to keep business and accounting records.',
     ],
   },
   {

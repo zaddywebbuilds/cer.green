@@ -33,8 +33,11 @@ const sections: LegalSection[] = [
     heading: 'Company information',
     rows: [
       { term: 'Legal name', detail: site.legalName },
-      { term: 'Registered address', detail: '[VERIFY WITH CER: registered business address]' },
-      { term: 'Registration number (UEN)', detail: '[VERIFY WITH CER: UEN]' },
+      {
+        term: 'Registered address',
+        detail: `${site.address.street}, ${site.address.locality} ${site.address.postalCode}`,
+      },
+      { term: 'Registration number (UEN)', detail: site.uen },
       { term: 'Contact', detail: site.email },
     ],
   },

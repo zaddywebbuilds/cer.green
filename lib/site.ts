@@ -43,22 +43,18 @@ export const site = {
   email: 'enquiry@cer.green',
   linkedin: 'https://www.linkedin.com/company/cer-consultancy',
 
-  /**
-   * Not published on the current CER website. These must be supplied before
-   * launch -- a B2B advisory site needs a verifiable business address, and
-   * organisation schema is stronger with one.
-   */
-  phone: needsVerification('business telephone number'),
+  /** Supplied by CER, 1 October 2026. Carried into the organisation schema. */
+  phone: '+65 8814 1051',
   address: {
-    street: needsVerification('street address'),
+    street: '139 Cecil Street, #03-12 YSY Building',
     locality: 'Singapore',
     region: '',
-    postalCode: needsVerification('postal code'),
+    postalCode: '069539',
     country: 'SG',
     countryName: 'Singapore',
   },
-  /** Unique Entity Number. Required on the legal pages once confirmed. */
-  uen: needsVerification('UEN / company registration number'),
+  /** Unique Entity Number. Shown on the legal pages. */
+  uen: '202310993R',
 
   /** The CER methodology. Verified from CER's published material. */
   methodology: {

@@ -1,5 +1,4 @@
 import type { Expert } from '@/types/content';
-import { needsVerification } from '@/lib/site';
 
 /**
  * CER experts.
@@ -85,7 +84,7 @@ export const experts: Expert[] = [
       'Bachelor of Business Administration, Finance major, National University of Singapore',
     ],
     credentials: ['Over 20 years in wealth management and business consultancy'],
-    linkedin: needsVerification('LinkedIn profile URL for Chan Ee Chong'),
+    linkedin: 'https://www.linkedin.com/in/ee-chong-chan',
     courseSlugs: ['green-finance-in-action', 'sustainable-procurement', 'esg-building-a-sustainable-brand-identity'],
     solutionSlugs: ['green-finance', 'esg-strategy', 'sustainable-procurement', 'materiality-assessment'],
     seo: {
