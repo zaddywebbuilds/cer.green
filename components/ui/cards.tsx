@@ -48,7 +48,7 @@ const ARTICLE_IMAGES: Record<string, string> = {
   'singapore-climate-reporting-what-applies-and-when':
     `${BASE_PATH}/images/article-singapore-climate-reporting.webp`,
   'scope-3-where-to-start':
-    'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+    `${BASE_PATH}/images/article-scope-3-where-to-start.webp`,
   'cbam-what-asian-exporters-need':
     'https://images.unsplash.com/photo-1624969862293-b749659ccc4e?auto=format&fit=crop&w=800&q=80',
   'what-assurance-providers-actually-test':
