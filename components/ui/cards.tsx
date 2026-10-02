@@ -21,7 +21,6 @@ import type {
   SolutionCategory,
 } from '@/types/content';
 import { ArrowLink } from '@/components/ui/primitives';
-import { SolutionVisual, hasSolutionVisual } from '@/components/solutions/visuals';
 import { cn, formatDate, initials } from '@/lib/utils';
 import { readingTime } from '@/lib/content';
 
@@ -182,29 +181,24 @@ export function CapabilityCard({
  */
 export function SolutionCard({ solution }: { solution: Solution }) {
   const photo = SOLUTION_IMAGES[solution.slug];
-  const hasMedia = Boolean(photo) || hasSolutionVisual(solution.slug);
   return (
     <article
       className={cn(
-        'sv-card group flex flex-col overflow-hidden rounded-(--radius-card) border border-line bg-white',
+        'group flex flex-col overflow-hidden rounded-(--radius-card) border border-line bg-white',
         'transition-[border-color,box-shadow,transform] duration-300 ease-out',
         'hover:-translate-y-0.5 hover:border-forest/40 hover:shadow-[0_16px_34px_-20px_rgba(18,60,50,0.45)]',
       )}
     >
-      {hasMedia ? (
+      {photo ? (
         <div className="relative aspect-[20/9] w-full overflow-hidden bg-forest-700">
-          {photo ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={photo}
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-          ) : (
-            <SolutionVisual slug={solution.slug} />
-          )}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={photo}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
         </div>
       ) : null}
       <div className="h-1.5 w-full bg-lime" />
