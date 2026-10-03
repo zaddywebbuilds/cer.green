@@ -16,7 +16,7 @@ export const metadata: Metadata = buildMetadata({
   seo: {
     title: 'About CER | Sustainability Advisory Singapore',
     description:
-      'CER is a Singapore-based sustainability advisory and capability-building organisation working with businesses, financial institutions and public bodies across Asia.',
+      'CER is a Singapore sustainability advisory and capability-building organisation, working with businesses, financial institutions and public bodies in Asia.',
     primaryKeyword: 'about CER Consultancy',
   },
 });

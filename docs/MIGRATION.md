@@ -42,11 +42,11 @@ plus author archives and Elementor template routes.
 
 | Control | Where |
 | --- | --- |
-| Workflow, upload and WordPress URLs return **410 Gone** | `middleware.ts` + `lib/redirects.ts` |
+| Workflow, upload and WordPress URLs retired | `app/[...legacy]/page.tsx` + `lib/redirects.ts` (noindex page; a static host cannot return 410) |
 | Account routes are noindex in page metadata | `lib/seo.ts` |
 | Disallowed in robots.txt | `app/robots.ts` |
 | Excluded from the sitemap | `app/sitemap.ts` |
-| Staging noindex site-wide | `middleware.ts` via `DEPLOY_ENV` |
+| Staging noindex site-wide | `app/robots.ts` via `DEPLOY_ENV` |
 
 410 is used rather than 404 or a redirect: it tells Google the resource is
 permanently gone and is actioned faster, and redirecting a workflow URL would

@@ -41,7 +41,7 @@ export const metadata: Metadata = buildMetadata({
   seo: {
     title: `${site.name} | ESG, Carbon & Sustainability Consultancy Singapore`,
     description:
-      'CER turns sustainability, ESG and carbon requirements into measurable business action. Singapore-based advisory and professional training for organisations across Asia.',
+      'CER turns sustainability, ESG and carbon requirements into measurable business action. Singapore advisory and training for organisations across Asia.',
     primaryKeyword: 'ESG consultancy Singapore',
     secondaryKeywords: [
       'sustainability consultant Singapore',

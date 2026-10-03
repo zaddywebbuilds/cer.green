@@ -23,7 +23,7 @@ export const metadata: Metadata = buildMetadata({
   seo: {
     title: 'Corporate Sustainability Training Singapore',
     description:
-      'Private in-house ESG, carbon and sustainability training for organisations in Singapore and across Asia. Programmes built around your team, data and requirements.',
+      'Private in-house ESG, carbon and sustainability training for organisations in Singapore and Asia. Programmes built around your team, data and requirements.',
     primaryKeyword: 'corporate sustainability training Singapore',
     secondaryKeywords: ['in-house ESG training Singapore', 'corporate ESG training Asia'],
   },
