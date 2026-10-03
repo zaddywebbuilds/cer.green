@@ -93,10 +93,10 @@ export function solutionImage(slug: string): string | undefined {
  * so a gap here is visible as repetition on the Academy listing rather than as
  * a missing image.
  *
- * The four course-* files cropped from `images/solutions` are the same
- * photograph as the matching service, which is deliberate: the course and the
- * service cover the same subject, so sharing the frame reads as consistency.
- * Two courses are still unlisted and need photographs of their own.
+ * Four of these are cropped from `images/solutions` and are the same photograph
+ * as the matching service, which is deliberate: the course and the service
+ * cover the same subject, so sharing the frame reads as consistency. The rest
+ * are their own photographs. Every course is listed, so nothing falls back.
  */
 const COURSE_IMAGES_BY_SLUG: Record<string, string> = {
   'esg-essentials': `${BASE_PATH}/images/course-esg-essentials.webp`,
@@ -107,6 +107,8 @@ const COURSE_IMAGES_BY_SLUG: Record<string, string> = {
   'green-finance-in-action': `${BASE_PATH}/images/course-green-finance-in-action.webp`,
   'esg-risk-management': `${BASE_PATH}/images/course-esg-risk-management.webp`,
   'sustainable-procurement': `${BASE_PATH}/images/course-sustainable-procurement.webp`,
+  'esg-building-a-sustainable-brand-identity': `${BASE_PATH}/images/course-esg-building-a-sustainable-brand-identity.webp`,
+  'risk-intelligence-for-decision-makers': `${BASE_PATH}/images/course-risk-intelligence-for-decision-makers.webp`,
 };
 
 const DEFAULT_IMAGE = `${BASE_PATH}/images/cer-default.webp`;
