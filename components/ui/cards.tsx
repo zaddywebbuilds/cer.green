@@ -88,15 +88,25 @@ export function solutionImage(slug: string): string | undefined {
 }
 
 /**
- * Course photos are keyed by category, so every course in a category shares
- * one. This overrides that per course, for programmes CER has photographed
- * rather than represented by their subject area.
+ * One photograph per course. Anything not listed falls back to DEFAULT_IMAGE,
+ * and every course that falls back shows the same picture as every other one,
+ * so a gap here is visible as repetition on the Academy listing rather than as
+ * a missing image.
+ *
+ * The four course-* files cropped from `images/solutions` are the same
+ * photograph as the matching service, which is deliberate: the course and the
+ * service cover the same subject, so sharing the frame reads as consistency.
+ * Two courses are still unlisted and need photographs of their own.
  */
 const COURSE_IMAGES_BY_SLUG: Record<string, string> = {
   'esg-essentials': `${BASE_PATH}/images/course-esg-essentials.webp`,
   'carbon-literacy-for-professionals': `${BASE_PATH}/images/course-carbon-literacy.webp`,
   'iso-14064-ghg-emission-awareness': `${BASE_PATH}/images/courses/iso-14064-hero.webp`,
   'sustainable-export-practices-and-compliance': `${BASE_PATH}/images/course-cbam-export.webp`,
+  'life-cycle-assessment': `${BASE_PATH}/images/course-life-cycle-assessment.webp`,
+  'green-finance-in-action': `${BASE_PATH}/images/course-green-finance-in-action.webp`,
+  'esg-risk-management': `${BASE_PATH}/images/course-esg-risk-management.webp`,
+  'sustainable-procurement': `${BASE_PATH}/images/course-sustainable-procurement.webp`,
 };
 
 const DEFAULT_IMAGE = `${BASE_PATH}/images/cer-default.webp`;
