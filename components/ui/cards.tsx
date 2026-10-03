@@ -56,13 +56,9 @@ const ARTICLE_IMAGES: Record<string, string> = {
 };
 
 /**
- * Photography for a service, added one slug at a time as each image is
- * produced. A listed slug renders its photograph; anything not yet listed
- * falls back to its diagram.
- *
- * The diagrams are scaffolding, not the destination. Once all nineteen
- * photographs are in place, this map becomes the only source and
- * `components/solutions/visuals` can be deleted outright.
+ * Photography for a service, one image per slug. All nineteen services are
+ * covered; a slug missing here renders a card with no media rather than a
+ * broken image, so adding a service without its photograph degrades quietly.
  */
 const SOLUTION_IMAGES: Record<string, string> = {
   'carbon-accounting': `${BASE_PATH}/images/solutions/carbon-accounting.webp`,

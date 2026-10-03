@@ -1,23 +1,21 @@
 # Solutions card imagery
 
 Art direction and asset specification for the nineteen Solutions service
-cards. Each service has one dedicated photorealistic image. Until a service's
-image is supplied, its card falls back to a temporary SVG diagram.
+cards. Each service has one dedicated photorealistic image. All nineteen are
+in place.
 
-## How to install an image
+## How to replace an image
 
-1. Export the image to the exact filename below.
+1. Export the image to the exact filename below, overwriting the current one.
 2. Save it to `public/images/solutions/`.
-3. Add one line to `SOLUTION_IMAGES` in `components/ui/cards.tsx`:
+
+`SOLUTION_IMAGES` in `components/ui/cards.tsx` already maps every slug, so
+replacing the file is the whole change. Adding a twentieth service does need a
+new line there:
 
 ```ts
 'carbon-accounting': `${BASE_PATH}/images/solutions/carbon-accounting.webp`,
 ```
-
-That card switches from its diagram to the photograph. The other cards are
-untouched. When all nineteen lines are present, delete
-`components/solutions/visuals/`, the `SolutionVisual` import and the
-`sv-` motion block in `app/globals.css`: the fallback has no remaining purpose.
 
 ## Technical specification
 
