@@ -33,7 +33,7 @@ export const metadata: Metadata = buildMetadata({
   seo: {
     title: 'CER Academy | Compliance Training & Learning Platform Singapore',
     description:
-      'CER Academy delivers AI-powered compliance training for Singapore SMEs and NGOs: AML, PDPA, ESG, workplace safety and more. PSG grant-eligible LMS platform and professional programmes taught by practising consultants.',
+      'Compliance training for Singapore SMEs and NGOs, covering AML, PDPA, ESG and workplace safety. PSG grant eligible programmes taught by practising consultants.',
     primaryKeyword: 'compliance training Singapore',
     secondaryKeywords: ['ESG training Singapore', 'sustainability training Singapore', 'PSG grant training Singapore'],
   },
