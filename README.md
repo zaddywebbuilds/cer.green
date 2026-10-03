@@ -313,7 +313,10 @@ Target: WCAG 2.2 AA.
 ## Security
 
 - CSP, HSTS, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy` and
-  `Permissions-Policy` on every response (`next.config.ts`).
+  `Permissions-Policy` are **not** set by this repository. The site builds with
+  `output: export`, so `next.config.ts` `headers()` would never run: there is no
+  server to run it. They must be configured on the host or CDN that serves
+  `out/`, and the QA checklist verifies them with `curl` against the live site.
 - Server-side validation on every endpoint; nothing downstream sees an unparsed
   body.
 - Error pages never render a stack trace.

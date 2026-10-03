@@ -92,4 +92,6 @@ To change the recipient address, log in at web3forms.com and update the access k
 - **Google Search Console**: Coverage, Core Web Vitals, any manual actions.
 - **Uptime monitor**: Set up UptimeRobot or Better Uptime on the homepage and the contact form page.
 
-Watch for unexpected 404 spikes in the first week: any spike means an old URL was not in the redirect map. Since this is a static export, redirects are handled in `next.config.ts` (exported as `_redirects` via the static adapter). Add a redirect and redeploy. The fix is in `next.config.ts`.
+Watch for unexpected 404 spikes in the first week: any spike means an old URL was not in the redirect map. Since this is a static export, `next.config.ts` redirects never run. The map lives in `lib/redirects.ts`, and `app/[...legacy]/page.tsx` turns each entry into a real HTML file carrying a zero-delay meta refresh plus a canonical pointing at the destination. Add the old path to `lib/redirects.ts` and redeploy.
+
+Note that this serves `200` with a meta refresh, not a `301`. Google treats the refresh and canonical pairing as a permanent redirect, but the QA checklist asks for a literal `301`. To satisfy that, configure the redirects on the host or CDN as well.
