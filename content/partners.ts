@@ -7,11 +7,10 @@ import type { Partner } from '@/types/content';
  * CER's own wording describes these as collaborations, and explicitly does not
  * describe any of them as clients, so none is presented as one here.
  *
- * DESCRIPTIONS: where CER supplied one it is used verbatim. The rest state only
- * the collaboration type CER assigned, because what each partnership actually
- * covers has not been supplied and inventing it would put words in another
- * organisation's mouth. They read as placeholders on purpose and should be
- * replaced as CER confirms each one.
+ * DESCRIPTIONS: all thirteen are CER's own wording, supplied 3 October 2026 to
+ * replace the placeholders that previously stated only the collaboration type.
+ * They are used verbatim. Do not paraphrase them: they describe what another
+ * organisation does with CER, which is not ours to reword.
  *
  * Logos are not bundled: they require the partner's written approval and a
  * licensed asset. See docs/CONTENT-GUIDE.md.
@@ -27,36 +26,40 @@ export const partners: Partner[] = [
   {
     name: 'TÜV NORD',
     relationship: 'Assurance Partner',
-    description: 'Assurance collaboration supporting CER engagements.',
+    description:
+      'CER works with TÜV NORD on ESG and ISO-related certification and assurance services for organisations across the region.',
   },
 
   // ── Project ────────────────────────────────────────────────────────────────
   {
     name: 'SPETA',
     relationship: 'Project Partner',
-    description: 'Project collaboration on ESG and sustainability engagements.',
+    description:
+      'CER partners with SPETA to raise ESG awareness and build sustainability skills among its member companies.',
   },
   {
     name: 'SW Group',
     relationship: 'Project Partner',
-    description: 'Project collaboration on ESG and sustainability engagements.',
+    description:
+      'CER supports SW Group with tailored ESG advisory and sustainability solutions for its business operations.',
   },
   {
     name: 'BSM Bank Indonesia',
     relationship: 'Project Partner',
     description:
-      'Collaboration on ESG initiatives in the Indonesian banking sector, including green finance.',
+      'CER works with BSM Indonesia to help MSMEs become ready for sustainable finance and get access to green loans.',
   },
   {
-    name: 'SoftScheck',
+    name: 'softScheck',
     relationship: 'Project Partner',
     description:
-      'Project collaboration supporting ESG knowledge development and capability building.',
+      'CER works with softScheck APAC to offer integrated ESG and cybersecurity governance solutions to businesses in Asia Pacific.',
   },
   {
     name: 'Merandi',
     relationship: 'Project Partner',
-    description: 'Project collaboration on ESG and sustainability engagements.',
+    description:
+      'CER works with Merandi to deliver practical sustainability solutions that help businesses move towards greener operations.',
   },
 
   // ── Academic and training ──────────────────────────────────────────────────
@@ -64,25 +67,25 @@ export const partners: Partner[] = [
     name: 'King Mongkut\'s University of Technology Thonburi (KMUTT)',
     relationship: 'Academic & Training Partner',
     description:
-      'Academic collaboration with the university in Thailand, supporting sustainability education and capability building.',
+      'CER works with King Mongkut\'s University of Technology Thonburi (KMUTT) to advance sustainability education and research in Thailand.',
   },
   {
     name: 'Aventis Singapore',
     relationship: 'Academic & Training Partner',
     description:
-      'Academic and training collaboration supporting sustainability capability building.',
+      'CER offers ESG and sustainability courses with Aventis School of Management, from foundation to advanced levels.',
   },
   {
     name: 'NCC Education',
     relationship: 'Academic & Training Partner',
     description:
-      'Academic and training collaboration supporting sustainability capability building.',
+      'CER works with NCC Education to bring internationally recognised sustainability and ESG learning to students and professionals.',
   },
   {
     name: 'Momenta',
     relationship: 'Academic & Training Partner',
     description:
-      'Academic and training collaboration supporting sustainability capability building.',
+      'CER partners with Momenta to drive ESG adoption and sustainable business change across the region.',
   },
 
   // ── Technology ─────────────────────────────────────────────────────────────
@@ -90,13 +93,13 @@ export const partners: Partner[] = [
     name: 'Verde Kinetics',
     relationship: 'Technology Partner',
     description:
-      'Technology collaboration on sustainability and decarbonisation initiatives.',
+      'CER works with Verde Kinetika in Indonesia to speed up decarbonisation and sustainability projects on the ground.',
   },
   {
     name: 'Cygnus Technology Asia',
     relationship: 'Technology Partner',
     description:
-      'Technology collaboration supporting ESG and sustainability project delivery.',
+      'CER works with Cygnus Technology Asia to use technology to help businesses measure, manage and report their ESG performance.',
   },
 ];
 
