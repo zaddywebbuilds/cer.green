@@ -88,12 +88,15 @@ const sections: LegalSection[] = [
       'We aim to keep the site available but do not guarantee uninterrupted access. We may suspend, withdraw or change any part of the site without notice, including for maintenance.',
     ],
   },
+  // CER's solicitor should still read this section before launch. The scope
+  // sentence below is what keeps it clear of the engagement contracts and the
+  // professional indemnity position, so it should not be dropped.
   {
     heading: 'Limitation of liability',
     body: [
       'To the extent permitted by law, we are not liable for loss arising from use of, or reliance on, the content of this website. This includes loss of profits, business, contracts, anticipated savings, goodwill or data.',
+      'The limits in this section apply to the website. They do not affect the liability, warranty or insurance position agreed for a client engagement, which the written agreement for that engagement sets out in full.',
       'Nothing in these terms limits or excludes liability that cannot be limited or excluded under Singapore law, including liability for death or personal injury caused by negligence, or for fraud.',
-      '[VERIFY WITH CER: confirm this clause with legal counsel against CER standard engagement terms and insurance position.]',
     ],
   },
   {
