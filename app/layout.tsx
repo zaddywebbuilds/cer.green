@@ -38,6 +38,11 @@ export const metadata: Metadata = {
     template: '%s',
   },
   description: site.positioning,
+  // The only one of the six headers in the QA checklist that a static host can
+  // actually deliver: browsers honour Referrer-Policy in meta form. The rest
+  // (CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Permissions-Policy)
+  // are response headers only, and GitHub Pages cannot set them. See README.
+  referrer: 'strict-origin-when-cross-origin',
   applicationName: site.name,
   authors: [{ name: site.legalName }],
   creator: site.legalName,

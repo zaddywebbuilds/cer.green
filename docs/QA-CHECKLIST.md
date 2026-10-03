@@ -93,17 +93,19 @@ curl -sI -o /dev/null -w "%{http_code} -> %{redirect_url}\n" https://www.cer.gre
 curl -sI -o /dev/null -w "%{http_code} -> %{redirect_url}\n" https://www.cer.green/dashboard/
 ```
 
-Each must return `301` and a new URL in one hop.
+On GitHub Pages these return `200`, not `301`. A static host cannot issue a
+redirect, so `app/[...legacy]/page.tsx` ships each old URL as a real page
+carrying a zero-delay meta refresh plus a canonical pointing at the
+destination, which Google treats as a permanent redirect. Retired workflow
+paths cannot return `410` either; they ship as `noindex` pages saying the page
+is gone. Check the markup rather than the status code.
 
-```bash
-curl -sI -o /dev/null -w "%{http_code}\n" https://www.cer.green/course-step/upload-fuel-consumption/
-```
-
-Must return `410`.
-
-- [ ] No redirect chains (two 301s in sequence). `curl -L -sI` to check.
-- [ ] All old sitemap URLs redirect to live pages (not to 404s).
-- [ ] 410s are returned for all retired workflow paths.
+- [ ] Every old URL serves a refresh plus a canonical to a live page, not a 404.
+- [ ] The canonical target is the final destination, so no two-hop chains.
+- [ ] Retired workflow paths carry `noindex`.
+- [ ] If literal `301` and `410` responses are required, put Cloudflare or
+      another proxy in front and configure them there. See the Security headers
+      section, which has the same answer.
 
 ---
 
@@ -126,13 +128,19 @@ Must return `410`.
 
 ## Security headers
 
-```bash
-curl -sI https://www.cer.green/ | grep -iE "content-security|strict-transport|x-content-type|x-frame|referrer-policy|permissions-policy"
-```
+This site is a static export served by GitHub Pages, which does not let you set
+response headers. Of the six headers usually checked, only `Referrer-Policy`
+can be delivered, because browsers honour it in `<meta>` form; it is set in
+`app/layout.tsx`. CSP, HSTS, `X-Content-Type-Options`, `X-Frame-Options` and
+`Permissions-Policy` are response headers only and **cannot be set from this
+repository at all**.
 
-All six headers must be present. Confirm CSP does not contain `unsafe-eval`
-except on Next.js routes that require it (check the Next.js changelog for the
-current v16 requirement).
+- [ ] `<meta name="referrer">` is present in the page source (this must pass).
+- [ ] GitHub Pages "Enforce HTTPS" is on, which is what provides HSTS.
+- [ ] Accept that the other four are absent, **or** put a proxy that can set
+      headers in front (Cloudflare's free tier does this with Transform Rules,
+      and would also provide the real 301s in the Redirects section). Record
+      which choice was made, so the gap is deliberate rather than forgotten.
 
 - [ ] `npm audit --omit=dev` shows 0 vulnerabilities.
 - [ ] No secrets are visible in page source or network requests. Open devtools,

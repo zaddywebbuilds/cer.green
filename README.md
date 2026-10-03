@@ -312,11 +312,14 @@ Target: WCAG 2.2 AA.
 
 ## Security
 
-- CSP, HSTS, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy` and
-  `Permissions-Policy` are **not** set by this repository. The site builds with
-  `output: export`, so `next.config.ts` `headers()` would never run: there is no
-  server to run it. They must be configured on the host or CDN that serves
-  `out/`, and the QA checklist verifies them with `curl` against the live site.
+- `Referrer-Policy` is set to `strict-origin-when-cross-origin` in
+  `app/layout.tsx`, which browsers honour in `<meta>` form.
+- CSP, HSTS, `X-Content-Type-Options`, `X-Frame-Options` and
+  `Permissions-Policy` are **not** set, and cannot be from this repository.
+  The site builds with `output: export` and deploys to GitHub Pages, so
+  `next.config.ts` `headers()` would never run and the host cannot set response
+  headers. Putting a proxy in front (Cloudflare's free tier, say) is the only
+  way to add them. See the Security headers section of `docs/QA-CHECKLIST.md`.
 - Server-side validation on every endpoint; nothing downstream sees an unparsed
   body.
 - Error pages never render a stack trace.
