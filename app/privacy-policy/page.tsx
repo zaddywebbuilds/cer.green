@@ -20,7 +20,7 @@ export const metadata: Metadata = buildMetadata({
   seo: {
     title: 'Privacy Policy | CER',
     description:
-      'How CER collects, uses and protects personal data submitted through this website, including enquiry forms, analytics and cookies.',
+      'How CER collects, uses and protects personal data submitted through this website, including enquiry forms, analytics and cookies, and your rights over it.',
   },
 });
 

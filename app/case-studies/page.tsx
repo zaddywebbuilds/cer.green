@@ -16,7 +16,7 @@ export const metadata: Metadata = buildMetadata({
   seo: {
     title: 'Case Studies | Sustainability in Practice',
     description:
-      'Project work by CER across ESG, carbon, climate and sustainable finance engagements for organisations in Singapore and across Asia.',
+      'Project work by CER across ESG, carbon, climate and sustainable finance engagements for organisations in Singapore and Asia, published with client consent.',
     primaryKeyword: 'ESG case studies Singapore',
   },
 });

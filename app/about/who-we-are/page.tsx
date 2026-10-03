@@ -22,7 +22,7 @@ export const metadata: Metadata = buildMetadata({
   seo: {
     title: 'Who We Are | CER Singapore',
     description:
-      'CER is a Singapore-based sustainability advisory and training organisation. What we do, how we work, and the principles we hold to.',
+      'CER is a Singapore-based sustainability advisory and training organisation. Who we are, what we do, how we work, and the principles we hold ourselves to.',
     primaryKeyword: 'CER Consultancy Singapore',
   },
 });

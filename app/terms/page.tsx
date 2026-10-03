@@ -17,7 +17,7 @@ export const metadata: Metadata = buildMetadata({
   seo: {
     title: 'Terms of Use | CER',
     description:
-      'The terms on which CER makes this website available, including acceptable use, intellectual property and limitations of liability.',
+      'The terms on which CER makes this website available, including acceptable use, intellectual property, limitations of liability and governing law.',
   },
 });
 

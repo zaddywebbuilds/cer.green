@@ -360,7 +360,7 @@ export const esgSolutions: Solution[] = [
     seo: {
       title: 'ESG Data & KPI Consulting Singapore',
       description:
-        'ESG data and KPI frameworks in Singapore. Metric definitions, data ownership, controls and reporting calendars that stand up to assurance.',
+        'ESG data and KPI frameworks in Singapore. Metric definitions, data ownership, quality controls and reporting calendars that stand up to external assurance.',
       primaryKeyword: 'ESG data management Singapore',
       secondaryKeywords: ['ESG KPI framework', 'ESG data governance Asia'],
     },

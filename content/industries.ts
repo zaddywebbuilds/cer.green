@@ -46,7 +46,7 @@ export const industries: Industry[] = [
     seo: {
       title: 'ESG & Climate Advisory for Financial Services',
       description:
-        'ESG, climate risk and financed emissions advisory for banks, insurers and asset managers in Singapore and across Asia.',
+        'ESG, climate risk and financed emissions advisory for banks, insurers and asset managers in Singapore and across Asia, from disclosure to portfolio measurement.',
       primaryKeyword: 'ESG consulting financial services Singapore',
       secondaryKeywords: ['climate risk banks Singapore', 'financed emissions Asia'],
     },
@@ -85,7 +85,7 @@ export const industries: Industry[] = [
     seo: {
       title: 'Sustainability Advisory for Manufacturing & Supply Chain',
       description:
-        'Carbon measurement, Scope 3, CBAM readiness and sustainable procurement for manufacturers and supply chains in Singapore and across Asia.',
+        'Carbon measurement, Scope 3, CBAM readiness and sustainable procurement for manufacturers and supply chains in Singapore and Asia, beyond the factory gate.',
       primaryKeyword: 'manufacturing sustainability consultant Singapore',
       secondaryKeywords: ['Scope 3 manufacturing Asia', 'CBAM manufacturers Singapore'],
     },

@@ -41,7 +41,7 @@ export const solutionCategories: SolutionCategory[] = [
     seo: {
       title: 'ESG Consultancy Singapore',
       description:
-        'ESG strategy, sustainability reporting, materiality assessment and ESG risk advisory for organisations in Singapore and across Asia.',
+        'ESG strategy, sustainability reporting, materiality assessment and ESG risk advisory for organisations in Singapore and Asia, built around what is material.',
       primaryKeyword: 'ESG consultancy Singapore',
       secondaryKeywords: ['ESG consultant Singapore', 'sustainability consultant Singapore'],
     },
@@ -81,7 +81,7 @@ export const solutionCategories: SolutionCategory[] = [
     seo: {
       title: 'Green Finance & Climate Risk Consulting Singapore',
       description:
-        'Green finance, climate risk and financed emissions advisory for banks and financial institutions in Singapore and across Asia.',
+        'Green finance, climate risk and financed emissions advisory for banks and financial institutions in Singapore and across Asia, including PCAF measurement.',
       primaryKeyword: 'green finance consultant Singapore',
       secondaryKeywords: ['climate risk consultant Singapore', 'PCAF consultant Singapore'],
     },

@@ -16,7 +16,7 @@ export const metadata: Metadata = buildMetadata({
   seo: {
     title: 'Insights | ESG, Carbon & Sustainability Analysis',
     description:
-      'Analysis on carbon accounting, ESG reporting, regulation and sustainable finance affecting organisations in Singapore and across Asia.',
+      'Analysis on carbon accounting, ESG reporting, regulation and sustainable finance affecting organisations in Singapore and Asia, from our own consultants.',
     primaryKeyword: 'ESG insights Singapore',
     secondaryKeywords: ['sustainability regulation Asia', 'carbon accounting analysis'],
   },

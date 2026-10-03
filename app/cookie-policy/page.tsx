@@ -16,7 +16,7 @@ export const metadata: Metadata = buildMetadata({
   seo: {
     title: 'Cookie Policy | CER',
     description:
-      'What cookies and similar technologies this website uses, what each is for, and how to change your preferences at any time.',
+      'What cookies and similar technologies this website uses, what each one is for, how long it lasts, and how to change your preferences at any time.',
   },
 });
 
