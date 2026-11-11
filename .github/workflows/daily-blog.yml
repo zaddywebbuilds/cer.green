@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   generate:
@@ -44,3 +45,9 @@ jobs:
           SLUG=$(git diff --cached content/articles.ts | grep "^+  slug:" | head -1 | sed "s/.*slug: '//;s/'.*//")
           git commit -m "insights: add daily article ${SLUG}"
           git push
+
+      - name: Trigger deploy
+        run: |
+          gh workflow run deploy.yml --repo ${{ github.repository }} --ref master
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
