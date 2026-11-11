@@ -41,7 +41,7 @@ export const site = {
 
   /** Verified from cer.green. */
   email: 'enquiry@cer.green',
-  linkedin: 'https://www.linkedin.com/company/cer-consultancy',
+  linkedin: 'https://www.linkedin.com/company/cer-consultancy/',
 
   /** Supplied by CER, 1 October 2026. Carried into the organisation schema. */
   phone: '+65 8814 1051',
