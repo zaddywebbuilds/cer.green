@@ -58,6 +58,112 @@ export const articleCategories: ArticleCategory[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'tnfd-readiness-singapore-nature-related-disclosures',
+    title: 'TNFD Readiness for Singapore Companies: What to Disclose and When',
+    excerpt: 'The Taskforce on Nature-related Financial Disclosures is moving from voluntary to expected. Here is how SGX-listed companies and financial institutions in Singapore should prepare, and what the LEAP approach requires in practice.',
+    type: 'Guide',
+    categorySlug: 'singapore',
+    authorSlug: 'raymond-cheung',
+    publishedAt: '2026-11-11',
+    intro: [
+      'Nature risk is no longer a niche concern for Singapore companies. The Taskforce on Nature-related Financial Disclosures (TNFD) published its final recommendations in September 2023, and adoption has accelerated through 2024 and 2025 as financial institutions, investors and regulators begin to ask for nature-related information alongside climate disclosures.',
+      'For SGX-listed companies, the immediate driver is not a standalone TNFD mandate. It is the interaction between TNFD, the ISSB standards and the Singapore Exchange\'s climate reporting requirements. IFRS S1 requires entities to disclose material sustainability-related risks and opportunities, and nature and biodiversity sit squarely within that scope. Companies preparing ISSB-aligned reporting will find that TNFD provides the structured framework for the nature component.',
+      'This guide sets out what TNFD asks for, how it connects to Singapore\'s regulatory timeline, and what a practical readiness programme looks like for a listed company or financial institution in the region.',
+    ],
+    sections: [
+      {
+        heading: 'What TNFD actually requires',
+        id: 'what-tnfd-requires',
+        body: [
+          'TNFD is built on four pillars that mirror TCFD: governance, strategy, risk and impact management, and metrics and targets. The difference is that TNFD asks companies to assess both risks and impacts on nature, not only financial risks to the business. This dual lens is the source of most of the implementation difficulty.',
+          'The framework includes 14 recommended disclosures and a set of core global metrics. Companies are expected to disclose their direct operations and upstream and downstream value chain dependencies and impacts, with a materiality assessment used to scope the work. TNFD explicitly allows a phased approach, and the taskforce has published sector guidance covering food and agriculture, mining, energy, and financial institutions.',
+          'The LEAP approach is the recommended assessment methodology: Locate the interface with nature, Evaluate dependencies and impacts, Assess risks and opportunities, and Prepare to respond. LEAP is not a reporting standard in itself. It is the analytical process that generates the information the disclosures require.',
+        ],
+      },
+      {
+        heading: 'How TNFD connects to Singapore\'s reporting timeline',
+        id: 'tnfd-singapore-timeline',
+        body: [
+          'SGX introduced mandatory climate reporting on an comply or explain basis from financial year 2022, aligned with TCFD recommendations. In 2024 SGX consulted on moving to ISSB-aligned requirements, and the Singapore regulator has signalled a phased transition to IFRS S1 and S2 for listed issuers, with larger issuers moving first.',
+          'ACRA has also progressed its sustainability reporting roadmap for large non-listed companies, and MAS has issued guidance for banks, insurers and asset managers on environmental risk management that includes nature-related considerations. The direction of travel is consistent: disclosure expectations are widening from climate to broader environmental risk.',
+          'For practical purposes, a Singapore company that reports under ISSB will need to consider nature where it is material. TNFD is the most developed framework for doing so, and regulators and investors increasingly treat TNFD-aligned disclosure as the benchmark. Companies that wait for an explicit mandate will be preparing under time pressure.',
+        ],
+      },
+      {
+        heading: 'Sectors in Singapore with the highest nature exposure',
+        id: 'sectors-nature-exposure',
+        body: [
+          'Singapore\'s economy is services-heavy, but nature dependencies run through several sectors that are central to the listed market. Financial institutions carry nature risk through their lending and investment portfolios, particularly where exposure to palm oil, forestry, seafood, and commodities is material. MAS has been explicit that banks should assess environmental risk, including nature-related risk, in their credit processes.',
+          'Real estate and construction companies face dependencies on ecosystem services such as water regulation and flood protection, and impacts through land use change and materials sourcing. Food and beverage companies, and companies with agricultural supply chains in the region, have direct dependencies on pollination, soil health and water availability.',
+          'Shipping, logistics and energy companies face transition and physical risks linked to coastal and marine ecosystems. For most companies the most material exposure is upstream, in the supply chain, which is why TNFD places so much emphasis on value chain assessment.',
+        ],
+      },
+      {
+        heading: 'A practical readiness sequence',
+        id: 'readiness-sequence',
+        body: [
+          'Start with scoping and materiality. Identify which parts of the value chain are likely to have material nature dependencies and impacts, using sector guidance and the TNFD sector materiality tools. This step should be proportionate: not every company needs a full biodiversity assessment of every supplier.',
+          'Then run LEAP for the priority areas. Locate the interface with nature using geospatial data where possible, evaluate dependencies and impacts against the core metrics, and assess risks and opportunities in financial terms. Document the methodology and the assumptions, because assurance providers will test them.',
+          'Finally, integrate the outputs into existing reporting and governance. The nature disclosures should sit alongside the climate disclosures in the annual report, use the same risk register and the same board oversight structures, and be subject to the same internal controls. Companies that treat TNFD as a separate reporting exercise create duplication and inconsistent messaging.',
+        ],
+        list: [
+          'Scope the value chain and apply sector materiality guidance',
+          'Run LEAP on priority locations and commodities',
+          'Map outputs to the 14 recommended disclosures and core metrics',
+          'Integrate with ISSB reporting, risk registers and board oversight',
+          'Set targets and transition actions where impacts are material',
+        ],
+      },
+      {
+        heading: 'What assurance providers will look for',
+        id: 'assurance-expectations',
+        body: [
+          'Assurance providers will test whether the nature assessment is complete and whether the conclusions are supported by evidence. The most common weaknesses are an incomplete value chain scope, unsupported claims about supplier practices, and metrics that cannot be traced to source data.',
+          'Where companies rely on third-party data, such as geospatial datasets or supplier questionnaires, they need to document the source, the version and the limitations. Where estimates are used, the basis for the estimate should be disclosed. These are the same disciplines that apply to Scope 3 and climate risk disclosure, and companies that have already built those controls have a head start.',
+          'Companies should also be clear about what they have not assessed. TNFD allows phased disclosure, and a transparent statement of gaps with a plan to close them is more credible than an overreaching claim of completeness.',
+        ],
+      },
+      {
+        heading: 'Getting started',
+        id: 'getting-started',
+        body: [
+          'The most useful first step is a gap assessment against the TNFD recommendations, combined with a review of how the company\'s existing climate and sustainability reporting would need to change. This typically takes four to eight weeks for a listed company with an established reporting function.',
+          'CER supports Singapore and ASEAN companies with TNFD readiness, including materiality assessment, LEAP implementation, integration with ISSB reporting, and assurance readiness. If your company is preparing its first ISSB-aligned report, the nature component should be scoped now, not after the climate work is complete.',
+        ],
+      },
+    ],
+    relatedSolutions: [
+      'climate-risk',
+      'sustainability-reporting',
+      'assurance-readiness',
+      'materiality-assessment',
+    ],
+    relatedArticles: [
+      'singapore-climate-reporting-what-applies-and-when',
+      'what-assurance-providers-actually-test',
+      'regulation',
+    ],
+    tags: [
+      'TNFD',
+      'Nature',
+      'Biodiversity',
+      'ISSB',
+      'Singapore',
+      'Disclosure',
+    ],
+    seo: {
+      title: 'TNFD Readiness for Singapore Companies: What to Disclose',
+      description: 'How SGX-listed companies and financial institutions in Singapore should prepare for TNFD nature-related disclosures, LEAP assessment and assurance.',
+      primaryKeyword: 'TNFD Singapore',
+      secondaryKeywords: [
+        'nature-related financial disclosures',
+        'TNFD LEAP approach',
+        'ISSB nature disclosure Singapore',
+      ],
+    },
+    status: 'published',
+  },
+  {
     slug: 'singapore-climate-reporting-what-applies-and-when',
     title: 'Singapore climate reporting: what applies to your company, and when',
     excerpt:
