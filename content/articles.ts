@@ -58,6 +58,103 @@ export const articleCategories: ArticleCategory[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'sgx-climate-reporting-assurance-readiness',
+    title: 'SGX Climate Reporting: What Assurance Providers Will Test First',
+    excerpt: 'Singapore\'s listed issuers must obtain limited assurance on Scope 1 and 2 emissions from FY2027. Here is what assurance providers will examine first, and how to prepare the evidence trail now.',
+    type: 'Article',
+    categorySlug: 'singapore',
+    authorSlug: 'raymond-cheung',
+    publishedAt: '2026-11-12',
+    intro: [
+      'From FY2027, SGX-listed issuers must obtain limited assurance on Scope 1 and Scope 2 greenhouse gas emissions, following the climate reporting requirements aligned with the ISSB standards. The Singapore Exchange Regulation has confirmed this timeline, and ACRA has issued the relevant orders under the Companies Act for listed companies. For many issuers, the assurance deadline is now one reporting cycle away.',
+      'Most companies have spent the past two years building a GHG inventory. Fewer have built the evidence that an assurance provider will actually test. Limited assurance is not a review of your sustainability narrative. It is a verification of whether the reported emissions figures are supported by a controlled, documented and reproducible measurement process.',
+      'This article sets out the areas assurance providers examine first, based on the ISAE 3410 standard used for greenhouse gas statements, and the practical steps issuers should take before their first assurance engagement. The focus is on what will be tested, not on what will be written in the sustainability report.',
+    ],
+    sections: [
+      {
+        heading: 'The boundary question comes first',
+        id: 'boundary-question',
+        body: [
+          'Assurance providers begin with the organisational boundary. Under the GHG Protocol Corporate Standard, an issuer must apply either the equity share or the control approach consistently across the group. The choice must be documented, applied to every entity and disclosed. A common failure is a boundary that shifts between the inventory and the financial statements, particularly where joint ventures, leased assets or newly acquired subsidiaries are involved.',
+          'The provider will reconcile the entity list in the GHG inventory against the consolidation scope in the audited financial statements. Any difference must be explained. If an entity is consolidated financially but excluded from the emissions boundary, the provider will ask why, and the answer must be supported by the stated consolidation approach rather than convenience.',
+          'Operational boundary questions follow: which facilities, which vehicles, which refrigerants are in scope. For Scope 2, issuers must state whether they are reporting location-based, market-based or both. Under the SGX requirements, both are expected. The provider will test that the same boundary is used for both methods.',
+        ],
+      },
+      {
+        heading: 'Activity data and its source records',
+        id: 'activity-data',
+        body: [
+          'The largest share of assurance effort goes to activity data: litres of fuel, kWh of electricity, kilograms of refrigerant, tonnes of purchased gas. Providers will sample transactions and trace each one back to a source document, such as a utility invoice, a fuel delivery note or a metered reading. Where data is estimated, the estimation method must be documented and applied consistently.',
+          'Issuers should expect questions on data completeness. If a site reports electricity from a landlord\'s recharge rather than a direct meter, the provider will ask how that figure was derived and whether it covers the full reporting period. Estimated data is acceptable if it is disclosed and the method is sound, but unexplained gaps are not.',
+          'Spreadsheets remain the most common weak point. A provider will test version control, access restrictions and the audit trail from source document to final reported figure. A spreadsheet that has been emailed between three people with no change log is difficult to assure, even if the numbers are correct.',
+        ],
+      },
+      {
+        heading: 'Emission factors and calculation methodology',
+        id: 'emission-factors',
+        body: [
+          'Providers will test the emission factors used against their published sources. For Singapore operations, the grid emission factor published by the Energy Market Authority is the standard reference for location-based Scope 2. For market-based Scope 2, the provider will examine the contractual instruments, such as renewable energy certificates or green electricity products, and confirm they meet the GHG Protocol Scope 2 Guidance quality criteria.',
+          'For Scope 1, the provider will check that the correct factors are applied to each fuel type and that unit conversions are consistent. Refrigerant emissions require the correct global warming potential from the applicable IPCC assessment report, and the issuer must state which version is used.',
+          'The calculation methodology itself should be documented in a methodology note that the provider can test against. This note should cover the consolidation approach, the emission factors and their sources, the calculation formulas, and any estimation methods. Without it, the provider will reconstruct the methodology from the spreadsheets, which extends the engagement and increases the likelihood of findings.',
+        ],
+      },
+      {
+        heading: 'Controls, governance and the evidence file',
+        id: 'controls-governance',
+        body: [
+          'Limited assurance under ISAE 3410 requires the provider to understand the entity\'s internal controls over the emissions data. Issuers should be able to describe who collects the data, who reviews it, what checks are performed and how errors are corrected. A documented review step, with evidence that it happened, is the single most useful control an issuer can put in place.',
+          'The provider will also assess the competence of the people preparing the data and the oversight applied by management and the board. Under the SGX requirements, the board is responsible for the climate reporting. Assurance providers increasingly ask for evidence that the board or its sustainability committee has reviewed the emissions figures before publication.',
+          'Issuers should build an evidence file that maps each reported figure to its source records, calculation and review sign-off. This file is the working paper set the provider will sample from. Building it after the report is drafted is far more costly than building it as the data is collected.',
+        ],
+        list: [
+          'A documented organisational and operational boundary, reconciled to the financial statements',
+          'Source records for every sampled activity data point, retained for the reporting period',
+          'A methodology note covering factors, formulas and estimation methods',
+          'Evidence of management review and board oversight of the reported figures',
+          'A change log for the inventory spreadsheet and restricted access to the master file',
+        ],
+      },
+      {
+        heading: 'What to do before the first engagement',
+        id: 'preparation-steps',
+        body: [
+          'Issuers should run an internal readiness review against the ISAE 3410 evidence requirements at least one reporting cycle before the assurance engagement begins. This review should identify gaps in source records, undocumented estimation methods and controls that exist in practice but are not evidenced. Each gap should be closed before the provider is appointed.',
+          'A dry run, in which an independent reviewer tests a sample of the inventory as an assurance provider would, is the most effective way to surface problems early. It also gives the finance and sustainability teams a shared view of what the evidence file must contain.',
+          'CER supports SGX-listed issuers with GHG inventory preparation under ISO 14064, assurance readiness reviews and the evidence documentation that limited assurance engagements require. The work is practical: it produces the file the provider will test, not a narrative about it.',
+        ],
+      },
+    ],
+    relatedSolutions: [
+      'assurance-readiness',
+      'ghg-inventory',
+      'scope-1-2-3',
+      'iso-14064',
+    ],
+    relatedArticles: [
+      'what-assurance-providers-actually-test',
+      'singapore-climate-reporting-what-applies-and-when',
+      'scope-3-where-to-start',
+    ],
+    tags: [
+      'SGX',
+      'Assurance',
+      'GHG Inventory',
+      'Scope 1 and 2',
+      'ISAE 3410',
+    ],
+    seo: {
+      title: 'SGX Climate Reporting: Assurance Readiness for FY2027',
+      description: 'SGX-listed issuers need limited assurance on Scope 1 and 2 from FY2027. Learn what assurance providers test first and how to prepare the evidence file.',
+      primaryKeyword: 'SGX climate reporting assurance',
+      secondaryKeywords: [
+        'limited assurance Scope 1 Scope 2',
+        'ISAE 3410 Singapore',
+        'GHG inventory assurance readiness',
+      ],
+    },
+    status: 'published',
+  },
+  {
     slug: 'tnfd-readiness-singapore-nature-related-disclosures',
     title: 'TNFD Readiness for Singapore Companies: What to Disclose and When',
     excerpt: 'The Taskforce on Nature-related Financial Disclosures is moving from voluntary to expected. Here is how SGX-listed companies and financial institutions in Singapore should prepare, and what the LEAP approach requires in practice.',
