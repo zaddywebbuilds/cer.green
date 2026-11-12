@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Hero } from '@/components/sections/Hero';
 import { Methodology } from '@/components/sections/Methodology';
 import { CtaBanner } from '@/components/sections/CtaBanner';
+import { CollaborationOrbit } from '@/components/sections/CollaborationOrbit';
 import {
   ArrowLink,
   Button,
@@ -65,29 +66,38 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* ---- Trust bar -------------------------------------------------- */}
+      {/* ---- Strategic collaborations ------------------------------------ */}
       <Section surface="ivory" size="sm" labelledBy="trust-heading">
-        <h2 id="trust-heading" className="font-heading text-h4 font-semibold">
-          Trusted expertise. Practical implementation.
+        <p className="eyebrow text-lime-ink">Strategic collaborations</p>
+        <h2 id="trust-heading" className="mt-4 max-w-[20ch] font-heading text-h3 font-semibold">
+          Trusted expertise. <span className="text-lime-ink">Practical implementation.</span>
         </h2>
-        <p className="mt-3 max-w-[70ch] text-muted">
+        <p className="mt-5 max-w-[62ch] text-muted">
           CER collaborates with the organisations below on training delivery, project work and
           technology. These are collaborations rather than client relationships.
         </p>
 
-        {/* Names are rendered as text until CER supplies approved, licensed logo
-            assets. Text is accessible by default and cannot be stretched. */}
-        <ul className="mt-8 flex flex-wrap items-center gap-x-10 gap-y-4">
-          {partners.map((partner) => (
-            <li key={partner.name} className="font-heading text-[0.95rem] font-medium text-muted">
-              {partner.name}
-            </li>
-          ))}
-        </ul>
+        <div className="mt-14 flex items-center gap-5">
+          <p className="eyebrow shrink-0 text-muted">Our collaborative ecosystem</p>
+          <span aria-hidden="true" className="h-px flex-1 bg-line" />
+        </div>
 
-        <ArrowLink href="/about/partners/" className="mt-8">
-          View partner organisations
-        </ArrowLink>
+        <CollaborationOrbit partners={partners} />
+
+        <div className="mt-10">
+          <Link
+            href="/about/partners/"
+            className="group inline-flex items-center gap-2.5 rounded-(--radius-lg) border border-forest/30 px-5 py-3 font-heading text-[0.95rem] font-semibold text-forest transition-colors duration-200 hover:border-forest hover:bg-forest hover:text-white"
+          >
+            View partner organisations
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            >
+              &rarr;
+            </span>
+          </Link>
+        </div>
       </Section>
 
       {/* ---- Business problem ------------------------------------------- */}
@@ -379,9 +389,7 @@ export default function HomePage() {
       <Section surface="ivory" labelledBy="insights-heading">
         <div className="flex items-baseline justify-between gap-8">
           <div>
-            <p className="eyebrow text-muted">
-              <span className="text-lime-ink">{'//'}</span> Insights
-            </p>
+            <p className="eyebrow text-muted">Insights</p>
             <h2 id="insights-heading" className="mt-3 text-h2">Latest thinking</h2>
           </div>
           <ArrowLink href="/insights/" className="hidden shrink-0 sm:flex">View all insights</ArrowLink>
