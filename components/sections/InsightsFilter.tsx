@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { ArticleCard, CardGrid } from '@/components/ui/cards';
+import { ArticleCard, CardGrid, PhotoBadge, articleImage } from '@/components/ui/cards';
 import { cn, formatDate } from '@/lib/utils';
 import type { Article, ArticleCategory } from '@/types/content';
 import { readingTime } from '@/lib/content';
@@ -49,8 +49,23 @@ export function InsightsFilter({
       </p>
 
       {featured ? (
-        <article className="mt-10 border-y border-line py-10">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-end">
+        <article className="group mt-10 border-y border-line py-10">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center lg:gap-14">
+            <Link
+              href={`/insights/${featured.slug}/`}
+              className="relative block aspect-[16/9] overflow-hidden rounded-(--radius-card)"
+              tabIndex={-1}
+              aria-hidden="true"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={articleImage(featured)}
+                alt=""
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <PhotoBadge>{categoryTitle(featured.categorySlug)}</PhotoBadge>
+            </Link>
+
             <div>
               <p className="eyebrow text-lime-ink">
                 {featured.type} · {categoryTitle(featured.categorySlug)}
@@ -61,12 +76,12 @@ export function InsightsFilter({
                 </Link>
               </h3>
               <p className="mt-5 max-w-[68ch] text-lead text-ink-700">{featured.excerpt}</p>
+              <p className="mt-6 text-sm text-muted">
+                <time dateTime={featured.publishedAt}>{formatDate(featured.publishedAt)}</time>
+                <span aria-hidden="true"> · </span>
+                {readingTime(featured)} min read
+              </p>
             </div>
-            <p className="text-sm text-muted">
-              <time dateTime={featured.publishedAt}>{formatDate(featured.publishedAt)}</time>
-              <span aria-hidden="true"> · </span>
-              {readingTime(featured)} min read
-            </p>
           </div>
         </article>
       ) : (

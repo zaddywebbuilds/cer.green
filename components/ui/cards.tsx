@@ -56,6 +56,31 @@ const ARTICLE_IMAGES: Record<string, string> = {
 };
 
 /**
+ * Photography by article topic, used when a slug has no photograph of its own.
+ * Articles published automatically never appear in ARTICLE_IMAGES, so without
+ * this every one of them would render the same default frame.
+ */
+const ARTICLE_CATEGORY_IMAGES: Record<string, string> = {
+  'carbon-climate': `${BASE_PATH}/images/carbon-climate.webp`,
+  esg: `${BASE_PATH}/images/esg-sustainability.webp`,
+  regulation: `${BASE_PATH}/images/compliance-standards.webp`,
+  'sustainable-finance': `${BASE_PATH}/images/sustainable-finance.webp`,
+  standards: `${BASE_PATH}/images/industry-manufacturing-supply-chain.webp`,
+  training: `${BASE_PATH}/images/why-cer.webp`,
+  singapore: `${BASE_PATH}/images/industry-financial-services.webp`,
+  asean: `${BASE_PATH}/images/industry-energy-infrastructure.webp`,
+};
+
+/** Resolves the header photograph for an article: own photo, then topic, then default. */
+export function articleImage(article: Article): string {
+  return (
+    ARTICLE_IMAGES[article.slug] ??
+    ARTICLE_CATEGORY_IMAGES[article.categorySlug] ??
+    DEFAULT_IMAGE
+  );
+}
+
+/**
  * Photography for a service, one image per slug. All nineteen services are
  * covered; a slug missing here renders a card with no media rather than a
  * broken image, so adding a service without its photograph degrades quietly.
@@ -118,7 +143,7 @@ const DEFAULT_IMAGE = `${BASE_PATH}/images/cer-default.webp`;
 const CARD_HOVER = 'transition-colors duration-200 hover:border-forest/40';
 
 /** Pill badge overlaid on a photo, e.g. duration, category. */
-function PhotoBadge({ children }: { children: React.ReactNode }) {
+export function PhotoBadge({ children }: { children: React.ReactNode }) {
   return (
     <span className="absolute bottom-3 left-3 rounded-[2px] bg-forest-900/85 px-2.5 py-1 font-heading text-xs font-semibold uppercase tracking-wider text-lime backdrop-blur-sm">
       {children}
@@ -281,7 +306,7 @@ export function CourseCard({ course }: { course: Course }) {
 
 /** Article card with an editorial photo header. */
 export function ArticleCard({ article, category }: { article: Article; category?: string }) {
-  const img = ARTICLE_IMAGES[article.slug] ?? DEFAULT_IMAGE;
+  const img = articleImage(article);
   return (
     <article
       className={cn(
