@@ -62,9 +62,7 @@ export function Eyebrow({
   as?: 'p' | 'span' | 'div';
 }) {
   return (
-    <Tag className={cn('eyebrow text-muted', className)}>
-      <span className="text-lime-ink">&#47;&#47;</span> {children}
-    </Tag>
+    <Tag className={cn('eyebrow text-muted', className)}>{children}</Tag>
   );
 }
 
