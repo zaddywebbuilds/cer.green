@@ -58,6 +58,105 @@ export const articleCategories: ArticleCategory[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'internal-carbon-pricing-singapore',
+    title: 'Internal Carbon Pricing: A Practical Tool for Singapore Companies Preparing for Mandatory Climate Reporting',
+    excerpt: 'Internal carbon pricing is moving from voluntary best practice to a core component of climate transition planning. Here is how Singapore companies can design a shadow price that supports ISSB-aligned disclosure and decarbonisation decisions.',
+    type: 'Article',
+    categorySlug: 'singapore',
+    authorSlug: 'raymond-cheung',
+    publishedAt: '2026-11-13',
+    intro: [
+      'Internal carbon pricing (ICP) is no longer a niche instrument used only by large multinationals. As Singapore\'s mandatory climate reporting regime takes effect under ACRA and SGX requirements aligned with IFRS S1 and S2, companies are being asked to disclose how climate risk affects their strategy, financial planning and capital allocation. An internal carbon price gives management a defensible, quantified basis for those disclosures.',
+      'The concept is straightforward: a company assigns a monetary value to each tonne of carbon dioxide equivalent it emits, or expects to emit, and uses that value in investment appraisal, procurement, budgeting and scenario analysis. The discipline lies in choosing the right price, applying it consistently, and documenting the assumptions so that auditors and assurance providers can test them.',
+      'This article sets out the practical design choices for Singapore and ASEAN companies adopting ICP for the first time, with reference to the disclosure expectations under IFRS S2 and the transition planning requirements now embedded in the SGX climate reporting rules.',
+    ],
+    sections: [
+      {
+        heading: 'Why internal carbon pricing matters now',
+        id: 'why-icp-matters-now',
+        body: [
+          'IFRS S2 requires entities to disclose their climate-related transition plan, including the assumptions used and the internal carbon prices applied. Paragraph 14 of IFRS S2 specifically identifies internal carbon prices as a relevant assumption where an entity uses one. This turns ICP from a voluntary management tool into a disclosure input that assurance providers will examine.',
+          'Singapore\'s carbon tax provides an external reference point. The tax is scheduled to rise from S$25 per tonne in 2024 and 2025 to S$45 per tonne in 2026 and 2027, with a further increase planned toward S$50 to S$80 by 2030. Companies that set an internal price well below the statutory trajectory are unlikely to demonstrate credible transition planning to investors or lenders.',
+          'For SGX-listed issuers, the climate reporting requirements introduced in 2022 and progressively aligned with ISSB standards mean that board committees and audit committees are now expected to challenge management on the financial implications of climate risk. An ICP gives them a consistent metric to do so.',
+        ],
+      },
+      {
+        heading: 'Choosing the pricing approach',
+        id: 'choosing-pricing-approach',
+        body: [
+          'There are three common approaches. A shadow price is used internally for decision-making without any cash flow. An internal carbon fee involves an actual internal transfer, often from business units to a central sustainability fund. An implicit price is derived retrospectively from the abatement cost of projects already undertaken.',
+          'For most Singapore companies at an early stage of maturity, the shadow price is the most practical starting point. It requires no treasury or tax restructuring, can be applied to capital expenditure decisions immediately, and produces the assumptions needed for IFRS S2 disclosure.',
+          'The price level itself should be anchored to something defensible. Reasonable anchors include the Singapore carbon tax trajectory, the marginal abatement cost of the company\'s own decarbonisation levers, or a peer benchmark drawn from the CDP disclosure database. Companies with EU exposure should also consider the CBAM certificate price, since embedded emissions in exported goods will carry a direct cost from 2026.',
+        ],
+      },
+      {
+        heading: 'Design decisions that assurance providers will test',
+        id: 'design-decisions',
+        body: [
+          'Assurance providers and auditors will look for consistency and documentation. The following design choices should be recorded in a written methodology note approved by the board or its sustainability committee.',
+          'Scope of application: which decisions and which emissions the price applies to. A common approach is to apply the shadow price to Scope 1 and Scope 2 emissions for all capital projects above a defined threshold, and to Scope 3 where supplier selection or product design is materially affected.',
+          'Price trajectory: whether a single price or a rising trajectory is used. A trajectory aligned to the Singapore carbon tax schedule and to the company\'s own net zero target year is more credible than a flat price, and is easier to reconcile with IFRS S2 scenario analysis.',
+          'Governance: who sets the price, how often it is reviewed, and how exceptions are approved. This should mirror the company\'s existing capital allocation governance rather than sit outside it.',
+          'Disclosure: how the price and its application are described in the sustainability report. IFRS S2 requires the assumptions to be disclosed where they are material to the transition plan.',
+        ],
+        list: [
+          'Document the pricing method, price level and review cadence in a board-approved methodology note',
+          'Apply the price consistently across capital expenditure, procurement and scenario analysis',
+          'Reconcile the price to the Singapore carbon tax trajectory and to any CBAM exposure',
+          'Disclose the price and its use in the IFRS S2 transition plan narrative',
+        ],
+      },
+      {
+        heading: 'Linking internal carbon pricing to transition planning',
+        id: 'linking-to-transition-planning',
+        body: [
+          'An internal carbon price becomes useful for transition planning when it is embedded in the financial model rather than applied as an afterthought. Companies should run their capital allocation plan under at least two price scenarios, for example the statutory Singapore trajectory and a higher stress case consistent with a 1.5 degree pathway.',
+          'The output is a ranked list of decarbonisation levers by abatement cost, which is directly usable in the transition plan required under IFRS S2 and in the decarbonisation roadmap that underpins a science-based target. It also gives the finance function a way to test whether planned investments remain viable under higher carbon prices.',
+          'For companies with EU customers, the same model can be extended to estimate CBAM certificate costs on embedded emissions, which is a direct financial exposure rather than a shadow cost. This is particularly relevant for exporters of aluminium, cement, fertilisers, iron and steel, hydrogen and electricity.',
+        ],
+      },
+      {
+        heading: 'Getting started: a 90 day implementation sequence',
+        id: 'getting-started',
+        body: [
+          'A first internal carbon price does not require a lengthy programme. A focused 90 day sequence is usually sufficient to produce a board-ready methodology and a first set of decision outputs.',
+          'Weeks one to four: establish the baseline. Confirm the emissions inventory boundary, identify the decisions where the price will be applied, and gather the abatement cost data already available from energy audits or ISO 50001 work.',
+          'Weeks five to eight: set the price and test it. Select the anchor, run the capital plan under two price scenarios, and identify which projects change ranking. This is the point at which the price becomes useful rather than theoretical.',
+          'Weeks nine to twelve: document and approve. Draft the methodology note, take it through the sustainability committee and audit committee, and prepare the disclosure language for the next sustainability report. From there, the price should be reviewed annually alongside the carbon tax schedule and any changes to the company\'s transition plan.',
+        ],
+      },
+    ],
+    relatedSolutions: [
+      'carbon-accounting',
+      'decarbonisation',
+      'climate-risk',
+      'assurance-readiness',
+    ],
+    relatedArticles: [
+      'singapore-climate-reporting-what-applies-and-when',
+      'cbam-what-asian-exporters-need',
+      'what-assurance-providers-actually-test',
+    ],
+    tags: [
+      'Internal carbon pricing',
+      'IFRS S2',
+      'Singapore carbon tax',
+      'Transition planning',
+      'Decarbonisation',
+    ],
+    seo: {
+      title: 'Internal Carbon Pricing for Singapore Companies: IFRS S2 Guide',
+      description: 'How Singapore companies can design an internal carbon price to support IFRS S2 transition plan disclosure, capital allocation and decarbonisation decisions.',
+      primaryKeyword: 'internal carbon pricing Singapore',
+      secondaryKeywords: [
+        'IFRS S2 transition plan',
+        'Singapore carbon tax 2026',
+        'shadow carbon price',
+      ],
+    },
+    status: 'published',
+  },
+  {
     slug: 'sgx-climate-reporting-assurance-readiness',
     title: 'SGX Climate Reporting: What Assurance Providers Will Test First',
     excerpt: 'Singapore\'s listed issuers must obtain limited assurance on Scope 1 and 2 emissions from FY2027. Here is what assurance providers will examine first, and how to prepare the evidence trail now.',
