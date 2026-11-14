@@ -58,6 +58,104 @@ export const articleCategories: ArticleCategory[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'singapore-mandatory-climate-reporting-issb-ifrs-s1-s2-readiness',
+    title: 'Singapore Mandatory Climate Reporting: Getting Ready for ISSB-Aligned IFRS S1 and S2',
+    excerpt: 'ACRA and SGX are phasing in mandatory ISSB-aligned climate reporting for listed and large non-listed companies. Here is what the requirements actually say, who they apply to, and what finance and sustainability teams need to build now.',
+    type: 'Regulatory Update',
+    categorySlug: 'regulation',
+    authorSlug: 'raymond-cheung',
+    publishedAt: '2026-11-14',
+    intro: [
+      'Singapore has moved from voluntary sustainability reporting to a mandatory, ISSB-aligned regime. The Accounting and Corporate Regulatory Authority (ACRA) and Singapore Exchange Regulation (SGX RegCo) have set out a phased timetable for climate reporting based on IFRS S1 General Requirements for Disclosure of Sustainability-related Financial Information and IFRS S2 Climate-related Disclosures. For SGX-listed issuers and large non-listed companies, the question is no longer whether to report but how to build a reporting system that survives assurance.',
+      'The regime is deliberately staged. Listed issuers were the first cohort, with climate reporting required from FY2025 for issuers in the STI constituents and other specified sectors, followed by the remaining listed issuers. Large non-listed companies follow on a separate schedule, with thresholds set by ACRA. Across all cohorts, the reporting standard is IFRS S2, applied together with IFRS S1, and the disclosures are expected to be subject to external assurance on a phased basis.',
+      'This article sets out what the published requirements actually say, where the common readiness gaps sit, and what a practical implementation programme looks like for a Singapore company with a December financial year end. It does not repeat the general case for climate disclosure. It focuses on the specific mechanics that boards, CFOs and sustainability leads are being asked to sign off.',
+    ],
+    sections: [
+      {
+        heading: 'What the Singapore regime requires, and who it covers',
+        id: 'what-the-regime-requires',
+        body: [
+          'The Singapore requirements are built on IFRS S1 and IFRS S2, issued by the International Sustainability Standards Board. IFRS S1 sets the general requirements for sustainability-related financial disclosures: governance, strategy, risk management, and metrics and targets, applied to sustainability risks and opportunities that could affect enterprise value. IFRS S2 applies that architecture specifically to climate, and adds the detailed disclosure requirements on Scope 1, 2 and 3 greenhouse gas emissions, climate resilience, transition plans and internal carbon prices.',
+          'The coverage is phased. SGX-listed issuers in the STI constituents and specified sectors were the first to report under IFRS S2, starting with financial years beginning on or after 1 January 2025. Other listed issuers follow in subsequent years. For large non-listed companies, ACRA has set the reporting thresholds and timetable, with the largest companies in scope first. Companies should confirm their own cohort against the published ACRA and SGX RegCo rules rather than relying on general summaries.',
+          'Two features of the regime matter more than the headline dates. First, the disclosures are financial-statement adjacent: they are expected to be issued with the annual report and are subject to the same governance discipline. Second, assurance is phased in, so companies that treat the first reporting year as a drafting exercise will find the second year considerably harder.',
+        ],
+      },
+      {
+        heading: 'The readiness gaps that show up first',
+        id: 'readiness-gaps',
+        body: [
+          'In practice, the same five gaps appear in almost every readiness assessment we run for Singapore issuers. They are not conceptual. They are operational, and each one has a direct effect on whether the first disclosure can be assured.',
+          'The first is boundary. IFRS S2 requires disclosure for the consolidated group, and Scope 3 requires a defined inventory boundary that is consistent with the financial statements. Companies that have reported emissions on a voluntary, facility-by-facility basis often find that the boundary does not reconcile to the group consolidation. Resolving this takes longer than the emissions calculation itself.',
+          'The second is Scope 3. IFRS S2 requires Scope 3 disclosure, with relief provisions for the first year in some cases, but the expectation is that material Scope 3 categories are measured and disclosed. Most Singapore companies have purchased goods and services and upstream transport as their largest categories, and both require supplier data or credible spend-based estimation with a documented transition path to primary data.',
+          'The third is climate resilience and scenario analysis. IFRS S2 requires disclosure of the entity\'s climate resilience, assessed using climate-related scenario analysis, with at least one scenario aligned with the latest international agreement on climate change. This is a board-level exercise, not a consultant deliverable, and it needs to connect to the financial planning assumptions.',
+          'The fourth and fifth gaps are internal carbon pricing and transition plans. IFRS S2 asks whether the company uses an internal carbon price and, if so, how it is applied. It also asks for the company\'s climate transition plan, if it has one. Companies without either are not penalised for saying so, but the disclosure is more credible, and more useful to investors, when both exist and are linked to capital allocation.',
+        ],
+      },
+      {
+        heading: 'What good looks like: a 12-month implementation sequence',
+        id: 'implementation-sequence',
+        body: [
+          'For a company with a December year end reporting for the first time, the work needs to start at least twelve months before the reporting date. The sequence below reflects what has worked for SGX issuers moving from voluntary to ISSB-aligned reporting.',
+          'Months one to three: governance and boundary. Confirm board and management oversight, establish a sustainability reporting committee with finance representation, and fix the consolidation boundary for emissions and for financial effects. Agree the materiality assessment process and document it.',
+          'Months four to six: data and controls. Build the GHG inventory to ISO 14064-1 and the GHG Protocol Corporate Standard, with a documented data management plan. Identify the controls around each data point, from utility invoices to supplier emissions factors, and test them. This is the phase that determines assurance readiness.',
+          'Months seven to nine: scenario analysis and transition plan. Run the climate scenario analysis with the board and risk committee, connect the outputs to the financial planning assumptions, and draft the transition plan with capital expenditure and operational levers. Where an internal carbon price is used, document the price, the scope and the decision it informs.',
+          'Months ten to twelve: drafting and dry-run assurance. Prepare the IFRS S1 and S2 disclosures, run a gap assessment against the standards, and commission a dry-run review of the emissions inventory and the disclosure controls. Companies that do the dry run in year one find the actual assurance in year two substantially less disruptive.',
+        ],
+      },
+      {
+        heading: 'Assurance: what providers will actually test',
+        id: 'assurance-what-providers-test',
+        body: [
+          'Assurance under the Singapore regime is phased, but the direction is clear: limited assurance first, with a pathway to reasonable assurance. Providers will test the systems that produce the numbers, not just the numbers themselves.',
+          'Expect scrutiny of the emissions boundary and consolidation, the completeness of Scope 1 and 2 sources, the methodology and data sources for material Scope 3 categories, and the consistency between the sustainability disclosures and the financial statements. Expect questions on the governance of the reporting process, the evidence for the scenario analysis, and the basis for any internal carbon price disclosed.',
+          'The most common cause of a qualified or delayed assurance opinion is not a calculation error. It is an undocumented methodology or a data source that cannot be traced. Building the evidence file alongside the calculation, rather than after it, is the single highest-return change most companies can make.',
+        ],
+      },
+      {
+        heading: 'What to do now',
+        id: 'what-to-do-now',
+        body: [
+          'If your company is in the first or second cohort, the immediate priorities are boundary reconciliation, Scope 3 measurement for material categories, and board-level scenario analysis. If you are in a later cohort, use the time to build the inventory and controls properly rather than commissioning a disclosure draft that will need to be rebuilt.',
+          'CER supports Singapore issuers through the full sequence: materiality assessment, GHG inventory and Scope 3 measurement to ISO 14064-1 and the GHG Protocol, climate scenario analysis and TCFD and IFRS S2 alignment, transition planning, and assurance readiness reviews ahead of external verification. We also deliver board and finance team training on the IFRS S1 and S2 requirements.',
+          'The regime rewards companies that treat climate reporting as a financial reporting process with the same controls, evidence and governance. The companies that start now will be the ones whose first assured report is uneventful.',
+        ],
+      },
+    ],
+    relatedSolutions: [
+      'sustainability-reporting',
+      'carbon-accounting',
+      'ghg-inventory',
+      'scope-1-2-3',
+      'climate-risk',
+      'assurance-readiness',
+    ],
+    relatedArticles: [
+      'singapore-climate-reporting-what-applies-and-when',
+      'sgx-climate-reporting-assurance-readiness',
+      'scope-3-where-to-start',
+      'what-assurance-providers-actually-test',
+    ],
+    tags: [
+      'IFRS S1',
+      'IFRS S2',
+      'SGX climate reporting',
+      'ACRA',
+      'ISSB',
+      'assurance readiness',
+    ],
+    seo: {
+      title: 'Singapore Mandatory Climate Reporting: IFRS S1 and S2 Readiness',
+      description: 'ACRA and SGX are phasing in ISSB-aligned climate reporting. What IFRS S1 and S2 require, who is in scope, and how to build an assurrable reporting system.',
+      primaryKeyword: 'Singapore mandatory climate reporting',
+      secondaryKeywords: [
+        'IFRS S2 Singapore',
+        'ISSB climate reporting',
+        'SGX climate disclosure requirements',
+      ],
+    },
+    status: 'published',
+  },
+  {
     slug: 'internal-carbon-pricing-singapore',
     title: 'Internal Carbon Pricing: A Practical Tool for Singapore Companies Preparing for Mandatory Climate Reporting',
     excerpt: 'Internal carbon pricing is moving from voluntary best practice to a core component of climate transition planning. Here is how Singapore companies can design a shadow price that supports ISSB-aligned disclosure and decarbonisation decisions.',
