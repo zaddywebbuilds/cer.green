@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   actions: write
+  issues: write
 
 jobs:
   generate:
@@ -25,8 +26,12 @@ jobs:
 
       - run: npm ci
 
+      # Output is kept so a failure can report why, not just that it happened.
+      # pipefail matters here: without it the exit code would come from tee.
       - name: Generate article
-        run: node scripts/generate-article.mjs
+        run: |
+          set -o pipefail
+          node scripts/generate-article.mjs 2>&1 | tee /tmp/blog-run.log
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
 
@@ -51,3 +56,60 @@ jobs:
           gh workflow run deploy.yml --repo ${{ github.repository }} --ref master
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # A failed run is otherwise silent: the tab goes red and nothing says so.
+      # An issue is used rather than email because GitHub already notifies on
+      # issues, so this needs no webhook, address or extra secret. One issue is
+      # reused for a run of failures so a dry API balance cannot open seven.
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          TITLE="Daily blog post is failing"
+          REASON=$(tail -c 1500 /tmp/blog-run.log 2>/dev/null || echo "(no output captured)")
+
+          BODY=$(cat <<EOF
+          The scheduled post did not publish on $(date -u '+%Y-%m-%d').
+
+          **Run:** $RUN_URL
+
+          <details><summary>Last output</summary>
+
+          \`\`\`
+          $REASON
+          \`\`\`
+
+          </details>
+
+          Common cause: the DeepSeek balance has run out, which shows as
+          \`402 Insufficient Balance\`. Topping it up is enough, the schedule
+          resumes on its own the next morning.
+
+          This issue closes automatically once a run succeeds.
+          EOF
+          )
+
+          EXISTING=$(gh issue list --repo "$REPO" --state open \
+            --search "\"$TITLE\" in:title" --json number --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --repo "$REPO" --body "$BODY"
+            echo "Commented on existing issue #$EXISTING"
+          else
+            gh issue create --repo "$REPO" --title "$TITLE" --body "$BODY"
+          fi
+
+      - name: Clear failure notice
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          OPEN=$(gh issue list --repo "$REPO" --state open \
+            --search "\"Daily blog post is failing\" in:title" --json number --jq '.[].number')
+          for n in $OPEN; do
+            gh issue close "$n" --repo "$REPO" --comment "Recovered: a run has succeeded."
+          done
