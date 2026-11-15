@@ -40,28 +40,81 @@ const COMPETITOR_PAGES = [
   { name: 'Sustainalytics', url: 'https://www.sustainalytics.com/esg-research/esg-insights' },
 ];
 
-// ── Trending search topics to include in the prompt ───────────────────────────
-// These are updated periodically based on what professionals in Singapore and
-// Asia are actively searching for in the ESG, carbon and sustainability space.
+// ── Topic rotation ────────────────────────────────────────────────────────────
+// Asking the model to "avoid what we have already covered" is not enough on its
+// own: left to choose freely it returns to whatever is most prominent, which in
+// this field is Singapore reporting, and the blog ends up arguing with itself
+// for the same search terms. The category is therefore assigned by the date and
+// the model writes to it, so consecutive days cannot land in the same area.
 
-const SEARCH_CONTEXT = `
-Current high-search-volume topics in ESG and sustainability for Singapore and Asia (2026):
-- Singapore mandatory climate reporting (SGX, ACRA, ISSB-aligned)
-- Scope 3 measurement and supplier engagement
-- CBAM (EU Carbon Border Adjustment Mechanism) for Asian exporters
-- TCFD and TNFD disclosure requirements
-- Transition finance and green taxonomy in ASEAN
-- MAS sustainability guidelines for financial institutions
-- ISO 14001 and ISO 50001 implementation
-- Internal carbon pricing
-- Nature-related financial disclosures (TNFD)
-- Sustainability assurance and third-party verification
-- IFRS S1 and S2 adoption timelines in Asia
-- Carbon credits and voluntary carbon markets
-- Plastic and packaging regulations in Singapore
-- Supply chain due diligence requirements (EU CSDDD)
-- Singapore Green Plan 2030 obligations
-`.trim();
+const CATEGORY_ROTATION = [
+  'singapore',
+  'carbon-climate',
+  'sustainable-finance',
+  'standards',
+  'esg',
+  'asean',
+  'regulation',
+  'training',
+];
+
+/** Seeds per category, so the suggested ground matches the day's assignment. */
+const TOPIC_POOL = {
+  singapore: [
+    'SGX and ACRA reporting phasing by listing status and size',
+    'Singapore Green Plan 2030 obligations for business',
+    'MAS sustainability guidelines for financial institutions',
+    'Singapore plastic and packaging reporting',
+  ],
+  'carbon-climate': [
+    'Scope 3 screening and supplier engagement',
+    'Internal carbon pricing as a decision tool',
+    'Decarbonisation roadmaps and abatement sequencing',
+    'Product carbon footprints and life cycle assessment',
+  ],
+  'sustainable-finance': [
+    'Green and sustainability-linked loan structuring',
+    'Financed emissions and PCAF methodology',
+    'Transition finance and credibility of transition plans',
+    'Climate risk in lending and investment decisions',
+  ],
+  standards: [
+    'ISO 14001 implementation beyond certification',
+    'ISO 50001 and energy management in practice',
+    'ISO 14064 and greenhouse gas quantification',
+    'Assurance readiness and evidence retention',
+  ],
+  esg: [
+    'Double materiality assessment in practice',
+    'ESG data governance and traceable KPIs',
+    'Sustainable procurement and supplier standards',
+    'Board oversight of sustainability performance',
+  ],
+  asean: [
+    'ASEAN taxonomy adoption across member states',
+    'Cross-border reporting for regional groups',
+    'Indonesia, Malaysia and Thailand disclosure developments',
+    'Regional supply chain due diligence exposure',
+  ],
+  regulation: [
+    'CBAM obligations for Asian exporters',
+    'EU CSDDD supply chain due diligence reach into Asia',
+    'IFRS S1 and S2 adoption across Asian jurisdictions',
+    'Voluntary carbon market integrity rules',
+  ],
+  training: [
+    'Building an internal sustainability capability',
+    'What a competent carbon accounting team needs to know',
+    'Training boards and executives on climate risk',
+    'Closing the skills gap for assurance readiness',
+  ],
+};
+
+/** Rotates by date, so the lane advances once per day regardless of run time. */
+function assignedCategory() {
+  const epochDay = Math.floor(Date.now() / 86_400_000);
+  return CATEGORY_ROTATION[epochDay % CATEGORY_ROTATION.length];
+}
 
 // ── Scrape competitor pages ───────────────────────────────────────────────────
 
@@ -111,6 +164,69 @@ const articlesSource = readFileSync(ARTICLES_PATH, 'utf-8');
 const existingSlugs = [...articlesSource.matchAll(/slug:\s*'([^']+)'/g)].map(m => m[1]);
 const today = new Date().toISOString().split('T')[0];
 
+const unescape = (s) => s.replace(/\\'/g, "'");
+
+/**
+ * Article titles only. `articleCategories` above uses the same key at the same
+ * indent, and its entries are one or two words, which would otherwise dominate
+ * the overlap check and reject anything mentioning, say, climate.
+ */
+const articlesBlock = articlesSource.slice(articlesSource.indexOf('export const articles:'));
+const existingTitles = [...articlesBlock.matchAll(/\n {4}title:\s*\n?\s*'((?:[^'\\]|\\.)*)'/g)].map(
+  (m) => unescape(m[1]),
+);
+
+const existingKeywords = [
+  ...articlesSource.matchAll(/primaryKeyword:\s*'((?:[^'\\]|\\.)*)'/g),
+].map((m) => unescape(m[1]));
+
+// ── Overlap guard ─────────────────────────────────────────────────────────────
+// A slug check only catches an exact repeat. These articles compete with each
+// other when they chase the same terms, which happens well before the slugs
+// match, so the real test is how much significant vocabulary a proposed title
+// shares with one already published.
+
+const STOPWORDS = new Set(
+  ('the a an and or for to of in on at as by be is are it its with from that this what how why ' +
+    'when where your you we our not but they their there here into over under more most can').split(
+    ' ',
+  ),
+);
+
+function significantWords(text) {
+  return new Set(
+    text
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, ' ')
+      .split(/\s+/)
+      .filter((w) => w.length > 2 && !STOPWORDS.has(w)),
+  );
+}
+
+/** Returns the clashing title when a proposal covers ground already taken. */
+function findOverlap(title, keyword) {
+  const proposed = significantWords(`${title} ${keyword ?? ''}`);
+  if (proposed.size === 0) return null;
+
+  for (const existing of [...existingTitles, ...existingKeywords]) {
+    const taken = significantWords(existing);
+    if (taken.size === 0) continue;
+
+    let shared = 0;
+    for (const word of proposed) if (taken.has(word)) shared += 1;
+
+    // Four shared terms is a duplicate however long the titles are.
+    if (shared >= 4) return existing;
+
+    // Otherwise the question is how much of the existing entry the proposal
+    // swallows. Measuring against the existing side keeps short target keywords
+    // enforceable without letting a two-word category name veto everything that
+    // happens to mention one of its words.
+    if (taken.size >= 3 && shared / taken.size >= 0.75) return existing;
+  }
+  return null;
+}
+
 // ── DeepSeek API call ─────────────────────────────────────────────────────────
 
 async function callDeepSeek(systemPrompt, userPrompt) {
@@ -142,7 +258,7 @@ async function callDeepSeek(systemPrompt, userPrompt) {
 
 // ── Main generation ───────────────────────────────────────────────────────────
 
-async function generate(competitorResearch) {
+async function generate(competitorResearch, category, rejection) {
   const system = `You are a content strategist and writer for CER, a Singapore-based sustainability advisory and professional training firm.
 
 CER's services:
@@ -163,15 +279,27 @@ Voice: authoritative, precise, Singapore-focused, practical. Never use em dashes
 
   const user = `You have done market research. Here is what you found.
 
-TRENDING SEARCH TOPICS (what people in Singapore and Asia are actively searching for):
-${SEARCH_CONTEXT}
+TODAY'S ASSIGNED CATEGORY: ${category}
+You MUST set categorySlug to exactly "${category}". This rotates daily so the blog
+covers CER's full range instead of returning to the same subject. Do not pick a
+different category even if another feels more newsworthy.
+
+GROUND TO CONSIDER WITHIN THIS CATEGORY (pick one, or a better one in the same area):
+${(TOPIC_POOL[category] ?? []).map((t) => `- ${t}`).join('\n')}
 
 WHAT COMPETITORS ARE COVERING (recent topics from top-ranked ESG advisory sites):
 ${competitorResearch}
 
-TOPICS CER HAS ALREADY COVERED (do not repeat these):
-${existingSlugs.join(', ')}
+ALREADY PUBLISHED BY CER. Your article must not overlap with any of these. Not a
+different angle on the same subject: genuinely different ground. A proposal is
+rejected automatically if its title reuses much of the vocabulary below.
 
+Titles:
+${existingTitles.map((t) => `- ${t}`).join('\n')}
+
+Target keywords already claimed:
+${existingKeywords.map((k) => `- ${k}`).join('\n')}
+${rejection ? `\nYOUR PREVIOUS ATTEMPT WAS REJECTED: ${rejection}\nChoose a clearly different subject within the assigned category.\n` : ''}
 ---
 
 Your task: choose the best topic for a new CER Insights article. It must be:
@@ -240,7 +368,7 @@ CONSTRAINTS:
 
 // ── Parse and validate ────────────────────────────────────────────────────────
 
-function parseArticle(raw) {
+function parseArticle(raw, category) {
   const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
 
   let obj;
@@ -255,6 +383,19 @@ function parseArticle(raw) {
   if (!obj.title) throw new Error('Missing title');
   if (!Array.isArray(obj.intro) || obj.intro.length === 0) throw new Error('Missing intro');
   if (!Array.isArray(obj.sections) || obj.sections.length === 0) throw new Error('Missing sections');
+
+  if (obj.categorySlug !== category) {
+    throw new Error(
+      `categorySlug was "${obj.categorySlug}" but today's assigned category is "${category}"`,
+    );
+  }
+
+  const clash = findOverlap(obj.title, obj.seo?.primaryKeyword);
+  if (clash) {
+    throw new Error(
+      `"${obj.title}" covers ground already taken by "${clash}". Pick a different subject.`,
+    );
+  }
 
   // Drop any relatedArticles entries that don't exist
   if (Array.isArray(obj.relatedArticles)) {
@@ -317,8 +458,30 @@ console.log('Researching competitors...');
 const competitorResearch = await researchCompetitors();
 console.log('Competitor research done.');
 
-console.log('Generating article with DeepSeek...');
-const raw = await generate(competitorResearch);
+const category = assignedCategory();
+console.log(`Today's category: ${category}`);
+console.log(`Guarding against ${existingTitles.length} published titles.`);
 
-const article = parseArticle(raw);
+// A rejection is a near-duplicate, not a broken run: hand the reason back and
+// let the model pick different ground rather than losing the day's article.
+const MAX_ATTEMPTS = 3;
+let article;
+let rejection = '';
+
+for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
+  console.log(`Generating with DeepSeek (attempt ${attempt} of ${MAX_ATTEMPTS})...`);
+  const raw = await generate(competitorResearch, category, rejection);
+
+  try {
+    article = parseArticle(raw, category);
+    break;
+  } catch (err) {
+    rejection = err.message;
+    console.log(`Rejected: ${rejection}`);
+    if (attempt === MAX_ATTEMPTS) {
+      throw new Error(`No usable article after ${MAX_ATTEMPTS} attempts. Last: ${rejection}`);
+    }
+  }
+}
+
 inject(article);
