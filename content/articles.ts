@@ -58,6 +58,97 @@ export const articleCategories: ArticleCategory[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'double-materiality-assessment-singapore-practice',
+    title: 'Double Materiality in Practice: Running a Defensible Assessment for SGX and CSRD Exposure',
+    excerpt: 'Double materiality is now the working method behind IFRS S1 materiality and the explicit test under the CSRD. Here is how Singapore companies can run an assessment that survives board, auditor and investor scrutiny.',
+    type: 'Article',
+    categorySlug: 'esg',
+    authorSlug: 'raymond-cheung',
+    publishedAt: '2026-11-15',
+    intro: [
+      'Double materiality has moved from a European concept to a working requirement for many Singapore and ASEAN companies. The CSRD requires undertakings in scope to report on both financial materiality and impact materiality, and the first wave of large listed companies has already published against ESRS. At the same time, IFRS S1 asks entities to disclose material information about sustainability related risks and opportunities that could reasonably be expected to affect prospects, which is closer to financial materiality but still requires a documented process.',
+      'For SGX-listed issuers, the Sustainability Reporting Advisory Committee recommendations and the move toward ISSB-aligned climate reporting mean the materiality process is no longer a communications exercise. It is the control that determines what enters the annual report, what gets assured, and what the board signs off. Companies with European customers, lenders or parent groups are also being asked for impact materiality data that Singapore reporting has historically not required.',
+      'This article sets out how to run a double materiality assessment that is defensible: how to define the process, how to score and threshold, how to document judgements, and how to connect the output to IFRS S1 and S2 disclosures and to assurance readiness. It is written for sustainability leads, finance teams and board committees who need a method, not a framework summary.',
+    ],
+    sections: [
+      {
+        heading: 'What double materiality actually requires',
+        id: 'what-double-materiality-requires',
+        body: [
+          'Double materiality has two dimensions. Impact materiality looks at how the company affects people and the environment, including impacts connected through its value chain. Financial materiality looks at how sustainability matters create or erode enterprise value, through cash flows, cost of capital or access to finance. The CSRD requires reporting where a matter is material on either dimension, which is why it is sometimes called the union approach.',
+          'IFRS S1 does not use the term double materiality, but it does require an entity to identify sustainability related risks and opportunities that could reasonably be expected to affect its prospects, and to disclose the process used to identify and assess them. In practice, a well-run double materiality assessment provides the evidence base for that process. It shows how the company moved from a long list of topics to a defined set of disclosures.',
+          'The practical difference matters. A purely financial materiality exercise will screen out impacts that do not yet have a price, such as biodiversity loss or labour practices deep in the supply chain. A purely impact exercise will miss matters that affect enterprise value but are not yet regulated. A defensible assessment runs both lenses and records where they diverge.',
+        ],
+      },
+      {
+        heading: 'Building the process: scoping, stakeholders and evidence',
+        id: 'building-the-process',
+        body: [
+          'Start with scope. Define the reporting boundary, including upstream and downstream value chain where impacts and dependencies are significant. For a Singapore-headquartered group, this usually means mapping subsidiaries, joint ventures and key suppliers, and deciding which entities are consolidated for reporting and which are covered through value chain disclosure.',
+          'Next, build the topic universe from a recognised source rather than internal opinion. The ESRS topic list, the SASB industry standards and the IFRS S2 industry-based guidance are all defensible starting points. Map each topic to the business model and value chain, then screen with a documented rationale. A topic should only be removed with a recorded reason, not because no one in the room had data.',
+          'Stakeholder engagement is where most assessments are weakest. Regulators and assurance providers will ask who was consulted, how they were selected and what they said. Keep a register of engagement: investors, lenders, customers, suppliers, employees, regulators and affected communities where relevant. Record the questions asked, the responses, and how the responses changed the scoring. This register is the evidence that the assessment is not a desk exercise.',
+        ],
+      },
+      {
+        heading: 'Scoring, thresholds and the judgement trail',
+        id: 'scoring-and-thresholds',
+        body: [
+          'Use a scoring scale that separates likelihood from severity for impacts, and likelihood from magnitude of financial effect for financial materiality. Severity for impacts should consider scale, scope and irremediability, consistent with the ESRS approach. Financial magnitude should be expressed in a way finance can defend: effect on revenue, cost, asset life, cost of capital or access to finance, with a time horizon attached.',
+          'Set thresholds before scoring, not after. A common failure is to score first and then set the threshold so that the answer matches the existing report. Document the threshold, the rationale and the sensitivity. If a small change in the threshold changes the material topics, say so and explain why the chosen threshold is appropriate.',
+          'The judgement trail is what makes the assessment defensible. For each material topic, record the data sources, the internal owners consulted, the assumptions made, the uncertainties, and the link to the disclosures that follow. Where quantitative data is unavailable, state that and describe the qualitative basis. Assurance providers under ISAE 3000 or ISSA 5000 will test the process, not just the output, so the trail needs to exist before the assurance engagement begins.',
+        ],
+      },
+      {
+        heading: 'Connecting the assessment to IFRS S1 and S2 disclosure',
+        id: 'connecting-to-ifrs-s1-s2',
+        body: [
+          'The output of the assessment should be a defined set of material topics with a clear mapping to disclosure requirements. Under IFRS S1, that means governance, strategy, risk management, and metrics and targets for each material sustainability related risk and opportunity. Under IFRS S2, climate specific requirements apply: governance, strategy including transition planning, risk management, and metrics including Scope 1, 2 and 3 greenhouse gas emissions and industry-based metrics.',
+          'Map each material topic to the specific disclosure it drives. A material water dependency, for example, should connect to the risk management disclosure, to any targets, and to the metrics used to track performance. A material labour practice impact in the supply chain should connect to the value chain disclosure and to the supplier standards the company applies. If a material topic has no corresponding disclosure, the assessment or the report is incomplete.',
+          'The assessment also sets the boundary for assurance. SGX climate reporting requirements phase in assurance on Scope 1 and 2 emissions, and the materiality process is the control that determines which other metrics are in scope. A topic that is material but unmeasured is a gap the board should see, not a reason to leave it out.',
+        ],
+      },
+      {
+        heading: 'Common failure points and how to avoid them',
+        id: 'common-failure-points',
+        body: [
+          'The most common failure is treating the assessment as a one-off workshop. Double materiality is a recurring process, refreshed annually and whenever the business changes materially, such as an acquisition, a new market or a shift in the regulatory perimeter. Build it into the risk and reporting calendar.',
+          'The second failure is separating the sustainability team from finance and risk. Financial materiality cannot be scored credibly without finance input, and impact materiality cannot be scored credibly without operational and supply chain input. A joint ownership model, with the sustainability team running the process and finance and risk signing off the financial dimension, is the practical answer.',
+          'The third failure is overreach. Companies sometimes try to assess every ESRS datapoint in the first year and produce a document no one can defend. Start with the topics that are clearly material, document the screening for the rest, and improve the evidence base over successive cycles. A smaller, well-evidenced assessment is more defensible than a comprehensive one with no audit trail.',
+        ],
+      },
+    ],
+    relatedSolutions: [
+      'materiality-assessment',
+      'esg-strategy',
+      'sustainability-reporting',
+      'assurance-readiness',
+    ],
+    relatedArticles: [
+      'esg',
+      'singapore-mandatory-climate-reporting-issb-ifrs-s1-s2-readiness',
+      'sgx-climate-reporting-assurance-readiness',
+      'what-assurance-providers-actually-test',
+    ],
+    tags: [
+      'Double materiality',
+      'ESG strategy',
+      'CSRD',
+      'IFRS S1',
+      'Materiality assessment',
+    ],
+    seo: {
+      title: 'Double Materiality Assessment: A Practical Guide for Singapore',
+      description: 'How Singapore companies can run a defensible double materiality assessment for IFRS S1, SGX reporting and CSRD exposure, with scoring, thresholds and evidence.',
+      primaryKeyword: 'double materiality assessment Singapore',
+      secondaryKeywords: [
+        'double materiality CSRD',
+        'IFRS S1 materiality process',
+        'ESG materiality assessment',
+      ],
+    },
+    status: 'published',
+  },
+  {
     slug: 'singapore-mandatory-climate-reporting-issb-ifrs-s1-s2-readiness',
     title: 'Singapore Mandatory Climate Reporting: Getting Ready for ISSB-Aligned IFRS S1 and S2',
     excerpt: 'ACRA and SGX are phasing in mandatory ISSB-aligned climate reporting for listed and large non-listed companies. Here is what the requirements actually say, who they apply to, and what finance and sustainability teams need to build now.',
