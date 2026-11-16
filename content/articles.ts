@@ -58,6 +58,99 @@ export const articleCategories: ArticleCategory[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'asean-taxonomy-cross-border-reporting-singapore',
+    title: 'ASEAN Taxonomy and Cross-Border Reporting: What Singapore Groups with Regional Operations Need to Know',
+    excerpt: 'The ASEAN Taxonomy for Sustainable Finance now has a working multi-tier framework. For Singapore headquartered groups with operations across the region, the practical question is how it interacts with national taxonomies, SGX reporting and lender expectations.',
+    type: 'Article',
+    categorySlug: 'asean',
+    authorSlug: 'raymond-cheung',
+    publishedAt: '2026-11-16',
+    intro: [
+      'Singapore listed groups rarely operate in one jurisdiction. A holding company on SGX may have subsidiaries in Indonesia, Malaysia, Thailand and Vietnam, each subject to a different stage of sustainability disclosure and each with its own set of lenders, regulators and customers asking for taxonomy aligned data.',
+      'The ASEAN Taxonomy for Sustainable Finance, developed under the ASEAN Taxonomy Board, is the regional reference point. Version 3, published in 2024, moved the framework into a multi-tier structure: the Foundation Framework, which applies to all sectors, and the Plus Standard, which sets out activity level screening criteria for priority sectors including energy, transport, and in later workstreams, agriculture and construction.',
+      'For a Singapore group, the taxonomy is not a reporting obligation in itself. It becomes relevant through three channels: the national taxonomies that member states are building on top of it, the sustainable finance products that reference it, and the SGX climate reporting requirements that require you to explain how your disclosures connect to recognised frameworks. This article sets out how those channels interact and what to do about them.',
+    ],
+    sections: [
+      {
+        heading: 'The ASEAN Taxonomy is not one rulebook, and that is the point',
+        id: 'asean-taxonomy-structure',
+        body: [
+          'The ASEAN Taxonomy is deliberately designed as a layered framework rather than a single list of eligible activities. The Foundation Framework applies an environmental objective screening test and an essential criteria assessment covering climate change mitigation and adaptation, protection of healthy ecosystems and biodiversity, resource resilience and transition, and social aspects including transition. The Plus Standard then adds technical screening criteria for specific activities, starting with the energy and transport sectors.',
+          'The distinction matters for a regional group because the Foundation Framework is intended to be usable now, while the Plus Standard criteria are being developed sector by sector. A company reporting against the taxonomy today is typically doing a Foundation Framework assessment, and should say so explicitly rather than implying full alignment.',
+          'The taxonomy also recognises a transition category, which is significant for ASEAN economies where hard to abate sectors dominate. A coal-fired plant and a solar farm are not treated the same way, but the framework does allow activities with a credible transition pathway to be classified, provided the essential criteria are met. That is a different posture from the EU taxonomy, which is stricter on gas and nuclear.',
+        ],
+      },
+      {
+        heading: 'How national taxonomies in the region diverge',
+        id: 'national-taxonomy-divergence',
+        body: [
+          'Several member states have issued or are developing national taxonomies that sit alongside the ASEAN framework. Indonesia published its Taxonomy for Sustainable Finance in 2022 and has since extended it into a Taksonomi Keuangan Berkelanjutan Indonesia with sector guidance. Malaysia issued its Climate Change and Principle-based Taxonomy in 2021 through Bank Negara Malaysia, which applies a principle based approach rather than a pure activity list. Thailand has issued a taxonomy for sustainable finance through the Bank of Thailand and the Securities and Exchange Commission. The Philippines and Vietnam are at earlier stages.',
+          'The practical consequence is that a project in Indonesia may be assessed against the Indonesian taxonomy, a financing in Malaysia against the CCT, and a regional green bond against the ASEAN Taxonomy or ICMA Green Bond Principles. These are not interchangeable, and a group that assumes one assessment covers all of them will find itself reworking the analysis at the point of financing.',
+          'There is convergence work underway through the ASEAN Taxonomy Board and through the International Platform on Sustainable Finance, but for the near term, a Singapore group should map which taxonomy applies to which entity, which lender and which instrument.',
+        ],
+      },
+      {
+        heading: 'The SGX connection: framework interoperability in your climate report',
+        id: 'sgx-framework-interoperability',
+        body: [
+          'SGX Listing Rule 711B requires issuers to prepare an annual sustainability report on a comply or explain basis, and from FY2025 the climate reporting requirements align with the ISSB standards, IFRS S1 and IFRS S2, for issuers in the specified tiers. IFRS S1 requires disclosure of the frameworks and standards used, and IFRS S2 requires disclosure of how climate related risks and opportunities are identified and assessed.',
+          'The ASEAN Taxonomy does not replace IFRS S1 or S2, and it is not a substitute for a GHG inventory. What it does is provide a recognised reference point for classifying revenue, capital expenditure and financing as sustainable or transitioning, which can feed into the disclosure of climate related opportunities and into the metrics you present to lenders.',
+          'A defensible approach is to state clearly in the sustainability report which taxonomy or taxonomies were applied, at which tier, to which portion of the business, and on what basis the assessment was performed. Boilerplate references to alignment without a stated methodology will not survive assurance scrutiny.',
+        ],
+      },
+      {
+        heading: 'What lenders and investors are actually asking for',
+        id: 'lender-investor-expectations',
+        body: [
+          'Banks in Singapore, Malaysia and Indonesia are increasingly applying taxonomy alignment tests to sustainability linked loans and green financing. A sustainability linked loan does not strictly require taxonomy alignment, because the pricing mechanism is tied to sustainability performance targets, but lenders are now asking for taxonomy mapping as part of their own internal reporting and their own regulatory obligations.',
+          'For green bonds and green loans, the alignment question is more direct. If the use of proceeds is claimed as green, the lender or investor will want to know which taxonomy or principles the claim rests on, and the answer needs to be consistent with the second party opinion or the framework document.',
+          'The practical preparation is to build a mapping between your activities, your revenue and capex lines, and the relevant taxonomy criteria, so that when a lender asks, the answer is a document rather than a project. That mapping also feeds directly into the taxonomy related disclosures that are increasingly expected in annual reports.',
+        ],
+      },
+      {
+        heading: 'A workable sequence for a regional group',
+        id: 'regional-group-sequence',
+        body: [
+          'Start with a jurisdictional inventory. List every entity in the group, its country of operation, the regulator with sustainability disclosure requirements that applies to it, and the lenders or instruments it uses. This is usually the step that reveals the scale of the problem, because most groups discover they have more exposure than the head office assumed.',
+          'Second, map activities to the ASEAN Taxonomy Foundation Framework and, where available, the Plus Standard. Record the environmental objective, the essential criteria assessment and the transition classification. Keep the evidence for each determination, because this is what assurance providers and lenders will test.',
+          'Third, reconcile the taxonomy mapping with the IFRS S2 disclosure. The taxonomy classification should be consistent with the climate related opportunities and the capex figures disclosed in the annual report. Inconsistency between the two is one of the most common findings in assurance reviews.',
+          'Fourth, build the internal capability to maintain the mapping. Taxonomy criteria are still being developed, national rules are still being issued, and a mapping done once will be out of date within a year. Assign ownership and set a review cycle.',
+        ],
+      },
+    ],
+    relatedSolutions: [
+      'esg-strategy',
+      'sustainability-reporting',
+      'green-finance',
+      'assurance-readiness',
+    ],
+    relatedArticles: [
+      'asean',
+      'singapore',
+      'singapore-climate-reporting-what-applies-and-when',
+      'double-materiality-assessment-singapore-practice',
+    ],
+    tags: [
+      'ASEAN Taxonomy',
+      'Cross-border reporting',
+      'Sustainable finance',
+      'SGX',
+      'Taxonomy alignment',
+    ],
+    seo: {
+      title: 'ASEAN Taxonomy and Cross-Border Reporting for Singapore Groups',
+      description: 'How the ASEAN Taxonomy interacts with national taxonomies, SGX climate reporting and lender expectations for Singapore groups with regional operations.',
+      primaryKeyword: 'ASEAN Taxonomy Singapore',
+      secondaryKeywords: [
+        'ASEAN Taxonomy for Sustainable Finance',
+        'cross-border sustainability reporting',
+        'Singapore regional groups taxonomy',
+        'taxonomy alignment green loans',
+      ],
+    },
+    status: 'published',
+  },
+  {
     slug: 'double-materiality-assessment-singapore-practice',
     title: 'Double Materiality in Practice: Running a Defensible Assessment for SGX and CSRD Exposure',
     excerpt: 'Double materiality is now the working method behind IFRS S1 materiality and the explicit test under the CSRD. Here is how Singapore companies can run an assessment that survives board, auditor and investor scrutiny.',
