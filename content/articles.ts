@@ -58,6 +58,103 @@ export const articleCategories: ArticleCategory[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'ifrs-s1-s2-adoption-asia-jurisdictions',
+    title: 'IFRS S1 and S2 Adoption Across ASEAN: Where Each Jurisdiction Stands',
+    excerpt: 'Singapore has set the pace, but Malaysia, Indonesia, the Philippines and Thailand are all moving on ISSB-aligned reporting. A jurisdiction by jurisdiction view of what is final, what is proposed, and what Singapore groups with regional operations should plan for.',
+    type: 'Regulatory Update',
+    categorySlug: 'regulation',
+    authorSlug: 'raymond-cheung',
+    publishedAt: '2026-11-17',
+    intro: [
+      'The International Sustainability Standards Board published IFRS S1 and IFRS S2 in June 2023. Since then, the question for Singapore headquartered groups has shifted from whether ASEAN will adopt them to how unevenly and on what timetable. That unevenness now has direct consequences for group reporting calendars, data collection, and assurance scoping.',
+      'Singapore moved first. ACRA and SGX RegCo confirmed in September 2024 that issuers must report under IFRS S1 and S2 for financial years beginning on or after 1 January 2025, with a phased approach for large non-listed companies following from FY2027. The Singapore standard is aligned with the ISSB baseline, which means the group consolidation work is already underway for many listed issuers.',
+      'Other ASEAN regulators have taken different routes. Some have issued final standards, some have published consultation papers, and some have signalled alignment without a firm date. For a Singapore group with subsidiaries, joint ventures or suppliers in these markets, the practical problem is not the group standard. It is reconciling the local filing obligation with the group IFRS S2 disclosure, often on a different boundary and a different timeline.',
+    ],
+    sections: [
+      {
+        heading: 'Singapore: final, phased, and already in force',
+        id: 'singapore-final-phased',
+        body: [
+          'Singapore was the first Asian jurisdiction to fully align its mandatory climate reporting regime with the ISSB standards. SGX RegCo\'s September 2024 rule changes require issuers to prepare climate disclosures in accordance with IFRS S1 and S2 for financial years beginning on or after 1 January 2025. Scope 1 and Scope 2 disclosures are required from the outset, with Scope 3 following on a later phase for most issuers.',
+          'The listed issuer requirement is supported by a parallel ACRA regime for large non-listed companies, which will apply from FY2027 for entities meeting the large company thresholds. Both regimes rely on the same ISSB baseline, which simplifies the technical work but not the operational work: the boundary of the group report and the boundary of each local filing are rarely identical.',
+          'For a Singapore listed issuer, the practical implication is that the group sustainability report is now a regulated disclosure, not a voluntary one. The assurance roadmap, the internal controls over sustainability information, and the audit committee\'s oversight role all follow from that.',
+        ],
+      },
+      {
+        heading: 'Malaysia, Indonesia, the Philippines and Thailand: different stages, same direction',
+        id: 'asean-jurisdictions-status',
+        body: [
+          'Malaysia\'s Bursa Malaysia has been consulting on ISSB-aligned reporting for Main Market listed issuers, with a phased implementation that begins with the largest issuers. The direction of travel is clear: the Sustainability Reporting Guide is being updated to reference IFRS S1 and S2 as the baseline, with transitional relief on Scope 3 and climate scenario analysis.',
+          'Indonesia\'s OJK has issued a roadmap for mandatory sustainability reporting that references ISSB alignment, though the implementing regulation for listed issuers is still being finalised. The POJK framework has historically been principle based, so the shift to an ISSB baseline is a significant change in the level of technical specificity required from Indonesian issuers.',
+          'The Philippines SEC has published draft guidance on IFRS S1 and S2 adoption and is working through the consultation process. Thailand\'s SEC has signalled alignment with ISSB and has been updating its sustainability reporting requirements for listed companies. In each case, the key questions for a Singapore group are the same: which entity files, on what boundary, and from which financial year.',
+        ],
+        list: [
+          'Singapore: final, IFRS S1 and S2 mandatory for listed issuers from FY2025, large non-listed from FY2027',
+          'Malaysia: ISSB-aligned requirements being phased in for Main Market issuers, consultation ongoing',
+          'Indonesia: OJK roadmap references ISSB, implementing regulation pending',
+          'Philippines: SEC draft guidance published, consultation in progress',
+          'Thailand: SEC signalling ISSB alignment, requirements being updated',
+        ],
+      },
+      {
+        heading: 'Why the boundary problem matters more than the standard',
+        id: 'boundary-problem',
+        body: [
+          'IFRS S1 requires a reporting entity to disclose sustainability related risks and opportunities that could affect its prospects, and IFRS S2 applies the same boundary to climate. For a Singapore group, that boundary is the consolidated group. But a subsidiary in Malaysia or Indonesia may have a local filing obligation on a different boundary, with different materiality thresholds and different transition relief.',
+          'The practical consequence is that the group cannot simply collect one dataset and file it everywhere. Scope 3 category boundaries, the treatment of joint ventures and associates, and the choice of emission factors often diverge between the group report and the local filing. Reconciling these differences requires a documented basis of preparation and a data model that can produce both views.',
+          'This is where many groups underestimate the effort. The technical standard is the same, but the operational reality of a multi jurisdiction group is that the same underlying activity may need to be reported on two or three different bases. The audit trail has to support all of them.',
+        ],
+      },
+      {
+        heading: 'What Singapore groups should do now',
+        id: 'what-to-do-now',
+        body: [
+          'The first step is a jurisdiction mapping exercise. For each market where the group has a listed entity, a large subsidiary, or a significant supplier, establish the current filing obligation, the applicable standard, the effective date, and the boundary. This should be owned by the group sustainability function but signed off by finance and legal.',
+          'The second step is to design the group data model so that it can produce the IFRS S2 consolidated view and the local filing views from the same source data. That means a documented basis of preparation, a clear mapping of emission factors, and a reconciliation between the group boundary and each local boundary.',
+          'The third step is assurance readiness. Singapore\'s regime moves to limited assurance on Scope 1 and Scope 2 from FY2027 for listed issuers, and other ASEAN jurisdictions are following similar paths. The controls that an assurance provider will test need to be in place before the first assurance year, not after.',
+        ],
+      },
+      {
+        heading: 'The risks of waiting for regional convergence',
+        id: 'risks-of-waiting',
+        body: [
+          'Some groups are deferring regional work on the assumption that ASEAN will converge on a single standard and a single timeline. That assumption is not supported by the published roadmaps. The ISSB baseline is converging, but the effective dates, transition relief and local filing boundaries are not.',
+          'Waiting creates two specific risks. The first is a data gap: the first year of local filing often arrives with less lead time than the group report, and retrofitting data collection into a subsidiary\'s systems is slow. The second is an assurance gap: if the group\'s Scope 1 and Scope 2 numbers are assured but the local filing numbers are not reconcilable to them, the group faces questions it cannot easily answer.',
+          'The pragmatic approach is to treat the group IFRS S2 disclosure as the master dataset and to build local filing views as controlled derivations from it. That way, when a jurisdiction finalises its rules, the incremental work is a mapping exercise rather than a rebuild.',
+        ],
+      },
+    ],
+    relatedSolutions: [
+      'sustainability-reporting',
+      'ghg-inventory',
+      'assurance-readiness',
+      'esg-data-kpis',
+    ],
+    relatedArticles: [
+      'singapore-mandatory-climate-reporting-issb-ifrs-s1-s2-readiness',
+      'asean-taxonomy-cross-border-reporting-singapore',
+      'sgx-climate-reporting-assurance-readiness',
+    ],
+    tags: [
+      'IFRS S1',
+      'IFRS S2',
+      'ISSB',
+      'ASEAN sustainability reporting',
+      'Singapore climate reporting',
+    ],
+    seo: {
+      title: 'IFRS S1 and S2 Adoption Across ASEAN: Jurisdiction Guide',
+      description: 'Where Singapore, Malaysia, Indonesia, the Philippines and Thailand stand on ISSB-aligned reporting, and what Singapore groups with regional operations must plan for.',
+      primaryKeyword: 'IFRS S1 S2 ASEAN adoption',
+      secondaryKeywords: [
+        'ISSB adoption Asia',
+        'ASEAN sustainability reporting requirements',
+        'Singapore IFRS S2 group reporting',
+      ],
+    },
+    status: 'published',
+  },
+  {
     slug: 'eu-csddd-supply-chain-due-diligence-asian-suppliers',
     title: 'EU CSDDD: What Asian Suppliers and Their Singapore Buyers Must Prepare For',
     excerpt: 'The EU Corporate Sustainability Due Diligence Directive reaches into Asian supply chains through large EU buyers. Here is what the obligations actually require, which Asian companies are captured, and how to prepare evidence that survives a buyer audit.',
