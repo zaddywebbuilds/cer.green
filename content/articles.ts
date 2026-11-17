@@ -58,6 +58,102 @@ export const articleCategories: ArticleCategory[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'eu-csddd-supply-chain-due-diligence-asian-suppliers',
+    title: 'EU CSDDD: What Asian Suppliers and Their Singapore Buyers Must Prepare For',
+    excerpt: 'The EU Corporate Sustainability Due Diligence Directive reaches into Asian supply chains through large EU buyers. Here is what the obligations actually require, which Asian companies are captured, and how to prepare evidence that survives a buyer audit.',
+    type: 'Article',
+    categorySlug: 'regulation',
+    authorSlug: 'raymond-cheung',
+    publishedAt: '2026-11-17',
+    intro: [
+      'The EU Corporate Sustainability Due Diligence Directive (CSDDD, Directive (EU) 2024/1760) is often read as a European compliance story. For companies in Singapore and across ASEAN, it is a commercial story. The directive obliges large EU-incorporated companies, and non-EU companies meeting its turnover thresholds, to conduct human rights and environmental due diligence across their chains of activities. Your factory, plantation, logistics provider or contract manufacturer sits inside those chains.',
+      'The practical consequence is that CSDDD requirements will arrive at Asian suppliers through contract clauses, supplier questionnaires and audit requests from EU customers, often before any local law changes. A supplier that cannot produce credible due diligence evidence will be treated as a risk regardless of its actual performance.',
+      'This article sets out who is captured, what the obligations require in operational terms, and what Asian suppliers and their Singapore-based buyers should be building now. It is not a summary of the political debate over the directive\'s timing. It is a preparation note.',
+    ],
+    sections: [
+      {
+        heading: 'Who is actually captured by CSDDD',
+        id: 'who-is-captured',
+        body: [
+          'CSDDD applies to EU limited liability companies with more than 1,000 employees and worldwide net turnover above EUR 450 million. It also applies to non-EU companies with net turnover in the EU above EUR 450 million, and to companies in high-impact sectors such as textiles, agriculture, food and minerals at lower thresholds of 500 employees and EUR 150 million turnover. Franchise and licensing arrangements have their own thresholds.',
+          'For an Asian supplier, the key point is that you do not need to be directly regulated to be affected. You are in the chain of activities of a company that is. The directive covers upstream business partners in the production of goods or provision of services, including activities related to the sale, distribution, transport, storage and disposal of the product.',
+          'The directive entered into force in July 2024. Member states must transpose it into national law. The Commission proposed a delay to the first phase of application, and companies should track the final transposition timetable in the relevant member state rather than assume the original dates hold.',
+        ],
+      },
+      {
+        heading: 'What the due diligence obligations require in practice',
+        id: 'due-diligence-obligations',
+        body: [
+          'The directive requires in-scope companies to integrate due diligence into corporate policies, identify and assess actual and potential adverse human rights and environmental impacts, prevent or mitigate potential impacts, and bring actual impacts to an end. They must also establish a grievance mechanism, monitor the effectiveness of their measures, and communicate publicly on their due diligence.',
+          'For suppliers, this translates into four demands. First, a documented code of conduct that your buyer can flow down. Second, a mapping of your own upstream suppliers, because the buyer\'s obligation extends through the chain. Third, evidence of remediation where issues are found, not just a denial that issues exist. Fourth, a named contact and process for handling grievances raised by workers or communities.',
+          'The environmental side of the directive covers impacts under international conventions, including climate change obligations. Companies in scope must adopt a transition plan for climate change mitigation, which means your buyer will be asking for your emissions data and decarbonisation commitments as part of the same exercise.',
+        ],
+      },
+      {
+        heading: 'What Asian suppliers will be asked to provide',
+        id: 'supplier-evidence',
+        body: [
+          'Expect requests in three waves. The first is contractual: codes of conduct, audit rights, termination clauses for non-compliance, and requirements to cascade obligations to sub-suppliers. The second is informational: site-level human rights and environmental data, grievance records, and evidence of corrective action plans. The third is assurance: independent verification of the data you report.',
+          'Suppliers with existing ISO 14001 certification, a GHG inventory prepared to ISO 14064, and a documented supplier code will find this far less burdensome. Those starting from scratch will be asked to produce evidence they do not have, on timelines set by the buyer rather than by regulation.',
+        ],
+        list: [
+          'A written supplier code of conduct aligned to the buyer\'s CSDDD policy, with flow-down to your own suppliers.',
+          'Site-level environmental data: energy, water, waste, emissions, and permits, with a clear boundary and methodology.',
+          'Human rights due diligence records: risk assessment, grievance log, and corrective action plans.',
+          'A climate transition plan or at minimum a credible emissions baseline and reduction target.',
+          'Named accountability: a director-level owner for due diligence and a grievance contact.',
+        ],
+      },
+      {
+        heading: 'The Singapore buyer side: groups with EU customers',
+        id: 'singapore-buyer-side',
+        body: [
+          'Singapore-headquartered groups with EU operations or EU-listed customers face the directive from both directions. As a customer, they may be asked by their EU buyers to demonstrate due diligence over their own Asian supply base. As a parent, they may be asked by their EU subsidiaries to provide group-level data and policies.',
+          'The practical response is to treat CSDDD as an extension of the governance and data work already required for SGX climate reporting. The same supplier data, emissions inventory and grievance process can serve both. Building them once, to a defensible standard, is cheaper than responding to each customer questionnaire separately.',
+          'Companies should also map which of their EU customers are in scope and on what timeline. That determines the sequence of preparation, not an abstract compliance calendar.',
+        ],
+      },
+      {
+        heading: 'A practical preparation sequence',
+        id: 'preparation-sequence',
+        body: [
+          'Start with a supply chain map. Identify which customers are EU-incorporated or meet the non-EU turnover thresholds, and which of your products or sites sit in their chains of activities. This tells you where requests will come from first.',
+          'Then build the evidence base. A supplier code with flow-down, a grievance mechanism, and a site-level environmental and human rights data set are the minimum. Where you already hold ISO 14001 or an ISO 14064 inventory, align the CSDDD response to those systems rather than creating parallel records.',
+          'Finally, test the evidence. Run a mock buyer audit against your own supplier code and grievance log. The gaps that surface are the ones your customers will find. Addressing them before the first formal request is the difference between a supplier that is trusted and one that is managed as a risk.',
+        ],
+      },
+    ],
+    relatedSolutions: [
+      'esg-strategy',
+      'sustainable-procurement',
+      'assurance-readiness',
+      'ghg-inventory',
+    ],
+    relatedArticles: [
+      'regulation',
+      'asean',
+      'cbam-what-asian-exporters-need',
+    ],
+    tags: [
+      'CSDDD',
+      'Supply chain due diligence',
+      'EU regulation',
+      'Asian exporters',
+      'Human rights',
+    ],
+    seo: {
+      title: 'EU CSDDD: What Asian Suppliers Must Prepare For',
+      description: 'CSDDD reaches Asian supply chains through EU buyers. What suppliers and Singapore groups must evidence, and how to prepare before the first audit request.',
+      primaryKeyword: 'EU CSDDD Asian suppliers',
+      secondaryKeywords: [
+        'CSDDD supply chain due diligence',
+        'CSDDD Singapore companies',
+        'EU corporate sustainability due diligence directive',
+      ],
+    },
+    status: 'published',
+  },
+  {
     slug: 'asean-taxonomy-cross-border-reporting-singapore',
     title: 'ASEAN Taxonomy and Cross-Border Reporting: What Singapore Groups with Regional Operations Need to Know',
     excerpt: 'The ASEAN Taxonomy for Sustainable Finance now has a working multi-tier framework. For Singapore headquartered groups with operations across the region, the practical question is how it interacts with national taxonomies, SGX reporting and lender expectations.',
