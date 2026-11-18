@@ -58,6 +58,115 @@ export const articleCategories: ArticleCategory[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'carbon-accounting-team-training-singapore',
+    title: 'Building a Carbon Accounting Team That Can Withstand Assurance: What to Train and Who to Train',
+    excerpt: 'SGX climate reporting under IFRS S1 and S2 will test the competence of the team behind the numbers. Here is what a competent carbon accounting function needs to know, and how to build it without hiring an army.',
+    type: 'Article',
+    categorySlug: 'training',
+    authorSlug: 'raymond-cheung',
+    publishedAt: '2026-11-18',
+    intro: [
+      'Singapore\'s mandatory climate reporting regime moves from disclosure ambition to assurance reality. SGX-listed issuers are already required to report under the climate reporting rules, and the transition to ISSB-aligned IFRS S1 and IFRS S2 raises the technical bar considerably: scenario analysis, Scope 3, financed emissions for financial institutions, and a governance structure that can survive external scrutiny.',
+      'Most of the attention goes to the disclosure itself. The harder question sits one layer down: who actually prepares the numbers, and can that person defend them in front of an assurance provider? A sustainability report signed off by the board is only as good as the GHG inventory behind it, and that inventory is only as good as the competence of the team that compiled it.',
+      'This article sets out what a competent carbon accounting function in a Singapore-listed company needs to know, how to structure training across the finance, sustainability and operations teams, and where the common competence gaps show up when assurance providers start testing.',
+    ],
+    sections: [
+      {
+        heading: 'The competence gap is not where companies think it is',
+        id: 'competence-gap',
+        body: [
+          'When companies assess their readiness for IFRS S1 and S2 reporting, they usually look at the disclosure template: do we have the data points, do we have the scenario analysis, do we have the Scope 3 categories. These are output questions. The input question is whether anyone in the organisation can explain, on the record, how each number was produced.',
+          'In practice, the gap sits in the middle layer. Finance teams understand controls, materiality and audit trails but not emission factors or organisational boundaries. Sustainability teams understand the GHG Protocol but often lack the control discipline that an assurance provider expects. Operations teams hold the activity data but have never been told why the unit of measurement matters.',
+          'The result is a report that reads well but cannot be defended. Assurance providers test the process, not the prose. If the person compiling the inventory cannot explain why a particular emission factor was chosen, or why an entity was consolidated one way and not another, the finding writes itself.',
+        ],
+      },
+      {
+        heading: 'What a competent carbon accounting team actually needs to know',
+        id: 'what-to-know',
+        body: [
+          'Competence in carbon accounting is not a single skill. It is a stack, and each layer has a specific standard behind it.',
+          'At the base sits the GHG Protocol Corporate Standard and its Scope 3 Standard: organisational boundary setting (equity share, financial control, operational control), the fifteen Scope 3 categories, and the rules on recalculation when the business changes. On top of that sits ISO 14064-1, which is the standard most assurance providers in Singapore will reference when verifying a GHG inventory, and which imposes its own requirements on documentation, quantification methodology and uncertainty.',
+          'Above that sits the reporting layer. IFRS S2 requires disclosure of Scope 1, 2 and 3 emissions, the measurement approach, and the targets against which performance is assessed. For financial institutions, financed emissions under PCAF add another methodology layer. A team that has only ever compiled a basic inventory will struggle with the reconciliation between the inventory, the disclosure and the targets.',
+          'Finally, there is the controls layer: data governance, evidence retention, version control, and the ability to reproduce a prior year figure on demand. This is the layer that assurance providers test most aggressively, and the one most often missing from sustainability training programmes.',
+        ],
+      },
+      {
+        heading: 'Who to train, and to what depth',
+        id: 'who-to-train',
+        body: [
+          'A common mistake is to send one sustainability manager on a course and assume the capability now exists. Carbon accounting is a team function. The training plan should map to three distinct audiences.',
+          'The first is the preparer group: the sustainability and finance staff who compile the inventory and draft the disclosure. They need deep technical training in the GHG Protocol, ISO 14064-1, IFRS S2 and the assurance process. This is where formal certification has value, because it gives the individual a defensible credential and the organisation a documented competence record.',
+          'The second is the data owners: operations, procurement, facilities, logistics and HR staff who supply activity data. They do not need the full methodology, but they do need to understand why the unit of measurement, the source document and the reporting period matter, and what happens when they get it wrong. A short, role-specific module is usually more effective than a general ESG awareness course.',
+          'The third is the board and audit committee. They are not compiling the inventory, but they are approving the report and, under the SGX rules, carrying responsibility for its accuracy. Their training needs to cover the governance of climate reporting, the questions to ask of management, and the nature of assurance findings. This is a different curriculum from the preparer course, and treating it as the same thing is a common failure.',
+        ],
+      },
+      {
+        heading: 'The assurance readiness test: can your team answer these questions',
+        id: 'assurance-test',
+        body: [
+          'A useful way to design training is to work backwards from the questions an assurance provider will ask. If the team cannot answer them confidently, the training has not landed.',
+          'The questions tend to cluster around five areas: boundary and consolidation, emission factors and their sources, activity data and evidence, estimation and uncertainty, and restatement of prior year figures. Each maps to a specific standard and each can be taught.',
+          'A practical exercise is to run an internal mock assurance session before the external provider arrives. Put the preparer in front of the CFO and the audit committee chair and have them walk through a single material emission source from activity data to disclosed figure. The gaps that surface are the training syllabus for the following quarter.',
+        ],
+        list: [
+          'Which consolidation approach did we use, and why, and does it match the financial statements?',
+          'Which emission factor did we apply to this source, from which version of which database, and when was it published?',
+          'Where is the source document for this activity data, and can we reproduce the figure from it?',
+          'Which figures are estimated rather than measured, and what is the uncertainty range?',
+          'If we restate last year, what triggered the restatement and how have we disclosed it?',
+        ],
+      },
+      {
+        heading: 'Building the capability without building a department',
+        id: 'building-capability',
+        body: [
+          'Few Singapore companies need a large in-house carbon accounting team. What they need is a small number of deeply competent people, a wider group of trained data owners, and a governance structure that connects them. That is a training problem more than a hiring problem.',
+          'A workable model is a two-tier structure. A central team of two to four people holds the technical methodology and owns the inventory and disclosure. A distributed network of data owners in each business unit is trained to a defined standard and accountable for the data they supply. The central team trains the network, and the network feeds the central team.',
+          'This structure has a second benefit: it creates a documented competence record. Assurance providers increasingly ask not only whether the numbers are right but whether the people who produced them were competent to do so. Training records, certification and a defined competency framework are evidence of exactly that.',
+        ],
+      },
+      {
+        heading: 'Where CER can help',
+        id: 'where-cer-can-help',
+        body: [
+          'CER runs professional ESG and sustainability training for Singapore and ASEAN organisations, including carbon accounting and GHG inventory courses aligned to the GHG Protocol and ISO 14064, assurance readiness workshops, and board-level briefings on climate reporting governance.',
+          'We also work with companies to design the internal competency framework that sits behind the training: who needs which module, at what depth, and how competence is recorded and refreshed as the reporting requirements evolve.',
+          'If your team is preparing for IFRS S1 and S2 disclosure and you are not confident it could survive an assurance review, the place to start is a competence assessment, not another report.',
+        ],
+      },
+    ],
+    relatedSolutions: [
+      'carbon-accounting',
+      'ghg-inventory',
+      'assurance-readiness',
+      'iso-14064',
+    ],
+    relatedArticles: [
+      'singapore-mandatory-climate-reporting-issb-ifrs-s1-s2-readiness',
+      'sgx-climate-reporting-assurance-readiness',
+      'what-assurance-providers-actually-test',
+      'scope-3-where-to-start',
+    ],
+    tags: [
+      'Carbon Accounting Training',
+      'GHG Inventory',
+      'Assurance Readiness',
+      'IFRS S2',
+      'Singapore',
+    ],
+    seo: {
+      title: 'Carbon Accounting Team Training for SGX Reporting',
+      description: 'What a competent carbon accounting team needs to know for IFRS S1 and S2 assurance, who to train, and how to build the capability in Singapore.',
+      primaryKeyword: 'carbon accounting training Singapore',
+      secondaryKeywords: [
+        'GHG inventory training',
+        'IFRS S2 competence',
+        'assurance readiness training',
+      ],
+    },
+    status: 'published',
+  },
+  {
     slug: 'ifrs-s1-s2-adoption-asia-jurisdictions',
     title: 'IFRS S1 and S2 Adoption Across ASEAN: Where Each Jurisdiction Stands',
     excerpt: 'Singapore has set the pace, but Malaysia, Indonesia, the Philippines and Thailand are all moving on ISSB-aligned reporting. A jurisdiction by jurisdiction view of what is final, what is proposed, and what Singapore groups with regional operations should plan for.',
