@@ -58,6 +58,117 @@ export const articleCategories: ArticleCategory[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'acra-sustainability-reporting-timeline',
+    title: 'ACRA Sustainability Reporting Timeline: What Companies Must File',
+    excerpt: 'ACRA\'s sustainability reporting timeline applies to large companies and listed issuers. Here is what must be filed, when, and how it interacts with SGX requirements.',
+    type: 'Regulatory Update',
+    categorySlug: 'singapore',
+    authorSlug: 'raymond-cheung',
+    publishedAt: '2026-11-19',
+    intro: [
+      'ACRA\'s sustainability reporting timeline requires large companies and listed issuers to prepare sustainability reports alongside their annual financial statements, with the first reports due for financial years beginning on or after 1 January 2025. The requirement is set out in the Accounting and Corporate Regulatory Authority (ACRA) sustainability reporting regime, which was announced in 2024 and is being phased in by company size and listing status.',
+      'The regime operates alongside, not instead of, the SGX sustainability reporting rules. A listed issuer files its sustainability report to SGX under the Listing Rules, while a large non-listed company files to ACRA under the Companies Act. Where a company is both listed and large, it must satisfy both sets of requirements, and the ACRA filing is designed to align with the SGX framework.',
+      'This article sets out the ACRA sustainability reporting timeline, who falls within scope, what must be filed, and the practical steps companies should take now. It does not cover the parallel SGX requirements in detail; those are addressed in our separate article on SGX climate reporting.',
+    ],
+    sections: [
+      {
+        heading: 'Who falls within the ACRA sustainability reporting regime',
+        id: 'acra-scope',
+        body: [
+          'The ACRA regime applies to companies incorporated in Singapore that are either listed on SGX or meet the definition of a large company. A large company is one that meets at least two of three thresholds: annual revenue of S$100 million or more, total assets of S$50 million or more, and 500 or more employees. These thresholds mirror the large company definition used elsewhere in Singapore company law.',
+          'Listed issuers are in scope regardless of size, because the SGX Listing Rules already require sustainability reporting. The ACRA regime adds a statutory filing obligation for large non-listed companies, which previously had no mandatory sustainability reporting requirement.',
+          'Foreign companies with Singapore branches are not automatically in scope. The regime applies to Singapore-incorporated entities. Groups should map which legal entities in their structure are incorporated in Singapore and which meet the thresholds, because the obligation attaches at entity level, not group level.',
+        ],
+      },
+      {
+        heading: 'The ACRA sustainability reporting timeline by financial year',
+        id: 'acra-timeline',
+        body: [
+          'The ACRA regime is being phased in. For listed issuers, sustainability reporting has been required under SGX rules since financial year 2017 on a comply or explain basis, and from financial year 2025 on a mandatory basis for climate reporting aligned with IFRS S1 and S2. The ACRA filing obligation for listed issuers runs alongside this.',
+          'For large non-listed companies, the first sustainability report is required for financial years beginning on or after 1 January 2025. A company with a December year end therefore prepares its first report for the financial year ending 31 December 2026, filed together with its annual return.',
+          'Companies should confirm their financial year start date against the commencement date, because a company with a June year end has a different first reporting year from one with a December year end. The filing deadline follows the annual return deadline, which is within seven months of the financial year end for a private company and within five months for a public company.',
+        ],
+      },
+      {
+        heading: 'What the ACRA sustainability report must contain',
+        id: 'acra-content',
+        body: [
+          'The ACRA report must be prepared in accordance with the IFRS Sustainability Disclosure Standards issued by the International Sustainability Standards Board, namely IFRS S1 and IFRS S2. This is a significant change from the earlier SGX framework, which permitted a range of internationally recognised frameworks.',
+          'IFRS S1 requires disclosure of governance, strategy, risk management, and metrics and targets in relation to sustainability-related risks and opportunities. IFRS S2 adds climate-specific requirements, including Scope 1, 2 and 3 greenhouse gas emissions, climate resilience assessment, and transition plan disclosure.',
+          'The report must be filed in the format prescribed by ACRA and made available to the public through the ACRA register. Companies should plan for the report to be machine-readable where ACRA specifies a digital format, and should retain the underlying working papers, because ACRA may require supporting evidence.',
+        ],
+        list: [
+          'Governance: the board and management roles responsible for sustainability risks and opportunities.',
+          'Strategy: the identified sustainability and climate risks, their impact on the business model, and the financial effects.',
+          'Risk management: the processes used to identify, assess and manage sustainability risks.',
+          'Metrics and targets: GHG emissions in accordance with the GHG Protocol, plus industry-based metrics where applicable.',
+          'Climate resilience: scenario analysis consistent with IFRS S2, including at least one high-warming scenario.',
+        ],
+      },
+      {
+        heading: 'How the ACRA and SGX requirements interact',
+        id: 'acra-sgx-interaction',
+        body: [
+          'For listed issuers, the ACRA filing and the SGX sustainability report are two filings of substantially the same content. SGX requires the sustainability report to be issued together with the annual report, and the ACRA filing follows the annual return. Companies should prepare a single report that satisfies both, rather than two separate documents.',
+          'The SGX Listing Rules require the sustainability report to be subject to the same internal review and board approval as the annual report. ACRA\'s regime does not add an assurance requirement at this stage, but companies that obtain external assurance voluntarily should ensure the assurance statement is filed with the report.',
+          'There is a difference in enforcement. SGX can take listing rule action for non-compliance, while ACRA can take statutory action under the Companies Act. Companies should treat the ACRA filing as a statutory obligation with the same seriousness as the annual return.',
+        ],
+      },
+      {
+        heading: 'Practical steps for the first ACRA reporting year',
+        id: 'acra-steps',
+        body: [
+          'Companies within scope should start by confirming their financial year start date and the resulting first reporting year. This determines the data collection period and the deadline for the first report.',
+          'The next step is a gap assessment against IFRS S1 and S2. Most companies will find that their existing SGX report, if any, covers some but not all of the IFRS S2 requirements, particularly Scope 3 emissions and climate scenario analysis.',
+          'Finally, companies should establish the controls and evidence trail that will support the report. ACRA may require supporting evidence, and the report will be publicly available. A report that cannot be defended under scrutiny creates more risk than a delayed but accurate one.',
+        ],
+        list: [
+          'Confirm the financial year start date and first reporting year.',
+          'Map Singapore-incorporated entities against the large company thresholds.',
+          'Conduct an IFRS S1 and S2 gap assessment against the current report.',
+          'Build a Scope 3 inventory if the group has not already done so.',
+          'Run climate scenario analysis consistent with IFRS S2.',
+          'Establish board approval and internal review processes for the report.',
+        ],
+      },
+      {
+        heading: 'How CER can help',
+        id: 'acra-cer-support',
+        body: [
+          'CER supports Singapore companies through the ACRA sustainability reporting transition, from gap assessment against IFRS S1 and S2 through to the preparation of a filing-ready report. Our team works with finance, sustainability and legal functions to build a single report that satisfies both ACRA and SGX requirements.',
+          'We also provide training for boards and reporting teams on the IFRS S1 and S2 requirements, and assurance readiness support for companies that choose to obtain external assurance ahead of any mandatory requirement.',
+        ],
+      },
+    ],
+    relatedSolutions: [
+      'sustainability-reporting',
+      'assurance-readiness',
+      'carbon-accounting',
+    ],
+    relatedArticles: [
+      'singapore-mandatory-climate-reporting-issb-ifrs-s1-s2-readiness',
+      'sgx-climate-reporting-assurance-readiness',
+      'singapore-climate-reporting-what-applies-and-when',
+    ],
+    tags: [
+      'ACRA',
+      'Sustainability Reporting',
+      'IFRS S1 S2',
+      'Singapore',
+    ],
+    seo: {
+      title: 'ACRA Sustainability Reporting Timeline: Filing Requirements',
+      description: 'ACRA sustainability reporting timeline explained: who must file, when the first report is due, and what IFRS S1 and S2 require of Singapore companies.',
+      primaryKeyword: 'acra sustainability reporting timeline',
+      secondaryKeywords: [
+        'acra sustainability reporting requirements',
+        'acra sustainability reporting',
+        'sgx acra sustainability reporting',
+      ],
+    },
+    status: 'published',
+  },
+  {
     slug: 'singapore-green-plan-2030-business-obligations',
     title: 'Singapore Green Plan 2030: What It Actually Requires of Companies',
     excerpt: 'The Green Plan is a whole-of-nation strategy, not a corporate regulation. But several of its targets translate into concrete obligations for Singapore companies through procurement, grants, and sectoral rules. Here is what to prepare for.',
