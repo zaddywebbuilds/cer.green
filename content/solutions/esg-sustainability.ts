@@ -358,11 +358,11 @@ export const esgSolutions: Solution[] = [
     relatedIndustries: ['financial-services', 'technology'],
     expertSlugs: ['chan-ee-chong'],
     seo: {
-      title: 'ESG Data & KPI Consulting Singapore',
+      title: 'ESG Data & KPI Reporting Consultant Singapore',
       description:
         'ESG data and KPI frameworks in Singapore. Metric definitions, data ownership, quality controls and reporting calendars that stand up to external assurance.',
-      primaryKeyword: 'ESG data management Singapore',
-      secondaryKeywords: ['ESG KPI framework', 'ESG data governance Asia'],
+      primaryKeyword: 'ESG KPI reporting Singapore',
+      secondaryKeywords: ['ESG data management Singapore', 'ESG data governance Asia'],
     },
     status: 'published',
   },

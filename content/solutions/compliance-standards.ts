@@ -68,11 +68,11 @@ export const complianceSolutions: Solution[] = [
     relatedIndustries: ['manufacturing-supply-chain', 'healthcare'],
     expertSlugs: ['raymond-cheung'],
     seo: {
-      title: 'ISO Advisory & Implementation Singapore',
+      title: 'ISO 14001 & ISO 50001 Certification Singapore',
       description:
-        'ISO advisory in Singapore for ISO 14001, ISO 50001 and ISO 14064. Gap assessment, system design, internal audit and certification audit preparation.',
-      primaryKeyword: 'ISO consultant Singapore',
-      secondaryKeywords: ['ISO 14001 consultant Singapore', 'ISO 50001 Singapore'],
+        'ISO 14001 and ISO 50001 certification support in Singapore. Gap assessment, system design, internal audit and certification audit preparation.',
+      primaryKeyword: 'ISO 14001 certification Singapore',
+      secondaryKeywords: ['ISO 50001 Singapore', 'ISO consultant Singapore'],
     },
     status: 'published',
   },

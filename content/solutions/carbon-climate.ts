@@ -239,8 +239,8 @@ export const carbonClimateSolutions: Solution[] = [
       title: 'Scope 1, 2 & 3 Emissions Consultant Singapore',
       description:
         'Scope 1, 2 and 3 emissions measurement in Singapore. Screening, prioritisation and value-chain data collection under the GHG Protocol Scope 3 Standard.',
-      primaryKeyword: 'Scope 3 consultant Singapore',
-      secondaryKeywords: ['Scope 1 2 3 emissions Singapore', 'value chain emissions Asia'],
+      primaryKeyword: 'Scope 3 emissions Singapore',
+      secondaryKeywords: ['Scope 3 consultant Singapore', 'value chain emissions Asia'],
     },
     status: 'published',
   },

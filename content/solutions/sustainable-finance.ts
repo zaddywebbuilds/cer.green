@@ -226,11 +226,11 @@ export const financeSolutions: Solution[] = [
     relatedIndustries: ['financial-services'],
     expertSlugs: ['raymond-cheung', 'chan-ee-chong'],
     seo: {
-      title: 'PCAF & Financed Emissions Consultant Singapore',
+      title: 'Financed Emissions & PCAF Consultant Singapore',
       description:
         'Financed emissions measurement in Singapore under the PCAF standard. Asset class methodology, attribution, data quality scoring and disclosure support.',
-      primaryKeyword: 'PCAF consultant Singapore',
-      secondaryKeywords: ['financed emissions Singapore', 'portfolio emissions Asia'],
+      primaryKeyword: 'financed emissions Singapore',
+      secondaryKeywords: ['PCAF consultant Singapore', 'portfolio emissions Asia'],
     },
     status: 'published',
   },
