@@ -21,18 +21,14 @@ concurrency:
 #   staging     -> zaddywebbuilds.github.io/cer.green/
 #                  Served from a subdirectory, so basePath is set. Canonicals
 #                  point at the staging host and robots.txt disallows everything,
-#                  because www.cer.green still serves the old WordPress site --
-#                  pointing canonicals there while this build is crawlable would
-#                  tell Google the real version of every page is a different site.
+#                  so a preview build cannot compete with production in search.
 #
-#   production  -> www.cer.green
+#   production  -> cer.green
 #                  Served from the domain root, so basePath MUST be empty. The
-#                  CNAME file is written only here; shipping it while DNS still
-#                  points at WordPress makes GitHub Pages redirect the staging
-#                  URL to a domain that is not serving this site.
-#
-# To cut over: point DNS (CNAME www -> zaddywebbuilds.github.io), then set the
-# repository variable DEPLOY_TARGET to `production` and re-run this workflow.
+#                  apex is canonical: GitHub Pages redirects www.cer.green to
+#                  cer.green, so canonicals and the sitemap must name the apex.
+#                  Naming www instead makes every canonical resolve to a
+#                  redirect, and Google discards the declared canonical.
 env:
   DEPLOY_TARGET: ${{ vars.DEPLOY_TARGET || 'staging' }}
 
@@ -53,10 +49,10 @@ jobs:
         id: target
         run: |
           if [ "$DEPLOY_TARGET" = "production" ]; then
-            echo "site_url=https://www.cer.green"            >> "$GITHUB_OUTPUT"
+            echo "site_url=https://cer.green"                 >> "$GITHUB_OUTPUT"
             echo "base_path="                                 >> "$GITHUB_OUTPUT"
             echo "deploy_env=production"                      >> "$GITHUB_OUTPUT"
-            echo "custom_domain=www.cer.green"                >> "$GITHUB_OUTPUT"
+            echo "custom_domain=cer.green"                    >> "$GITHUB_OUTPUT"
           else
             echo "site_url=https://zaddywebbuilds.github.io/cer.green" >> "$GITHUB_OUTPUT"
             echo "base_path=/cer.green"                       >> "$GITHUB_OUTPUT"

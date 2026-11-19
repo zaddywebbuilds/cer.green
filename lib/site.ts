@@ -22,7 +22,7 @@ export function isPlaceholder(value: string | undefined | null): boolean {
 }
 
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.cer.green'
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://cer.green'
 ).replace(/\/$/, '');
 
 export const site = {

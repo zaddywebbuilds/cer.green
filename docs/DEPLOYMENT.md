@@ -9,7 +9,7 @@ Two targets exist, controlled by the `DEPLOY_TARGET` repository variable:
 | Target | URL | `DEPLOY_TARGET` value |
 | --- | --- | --- |
 | Staging | `https://zaddywebbuilds.github.io/cer.green/` | `staging` (default) |
-| Production | `https://www.cer.green` | `production` |
+| Production | `https://cer.green` | `production` |
 
 The workflow is at `.github/workflows/deploy.yml`. Every push to `master` triggers it.
 
@@ -34,7 +34,7 @@ Set these under **Settings > Secrets and variables > Actions > Variables** in th
 | Variable | Value |
 | --- | --- |
 | `DEPLOY_TARGET` | `staging` or `production` |
-| `NEXT_PUBLIC_SITE_URL` | `https://www.cer.green` (production) |
+| `NEXT_PUBLIC_SITE_URL` | `https://cer.green` (production) |
 | `NEXT_PUBLIC_GA4_ID` | Google Analytics 4 measurement ID (optional) |
 
 ## GitHub repository secrets
@@ -60,7 +60,7 @@ Set these under **Settings > Secrets and variables > Actions > Secrets**.
    - Remove or redirect any apex A record to `www`
 6. Wait for propagation (up to 48 h, usually much less).
 7. Verify HTTPS is active (GitHub Pages provisions it automatically via Let's Encrypt).
-8. Verify `robots.txt` at `www.cer.green/robots.txt` now shows `Allow: /` and references the sitemap.
+8. Verify `robots.txt` at `cer.green/robots.txt` now shows `Allow: /` and references the sitemap.
 9. Submit sitemap in Google Search Console.
 10. Request indexing for the homepage, `/solutions/`, `/academy/` and the top service pages.
 
