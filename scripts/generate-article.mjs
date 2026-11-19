@@ -3,12 +3,18 @@
  * Generates one new Insights article per run using DeepSeek.
  *
  * What it does:
- *   1. Fetches recent article titles from the top ESG consultancy competitor
- *      sites to understand what topics are being covered.
- *   2. Fetches Google Trends-adjacent signals by checking search-related pages.
- *   3. Passes all research context to DeepSeek to write a full article on a
- *      topic CER has not covered yet.
+ *   1. Harvests real search queries from Google and Bing autocomplete, seeded
+ *      with the day's assigned category.
+ *   2. Passes those queries to DeepSeek, so the topic is chosen from language
+ *      searchers actually type rather than from invented keywords.
+ *   3. Validates the result for keyword overlap and SEO field limits.
  *   4. Prepends the article to content/articles.ts.
+ *
+ * Autocomplete is used rather than search results because neither engine serves
+ * usable results to a script: Google renders them in JavaScript, and Bing
+ * degrades the query for non-browser clients, returning generic results for the
+ * wrong subject. The suggest endpoints are plain JSON, need no key, and return
+ * the exact phrasing people search with.
  *
  * Required env variable:
  *   DEEPSEEK_API_KEY
@@ -27,18 +33,64 @@ const ARTICLES_PATH = join(__dirname, '../content/articles.ts');
 const API_KEY = process.env.DEEPSEEK_API_KEY;
 if (!API_KEY) throw new Error('DEEPSEEK_API_KEY is not set.');
 
-// ── Competitor sites to monitor ───────────────────────────────────────────────
-// These are the top-ranked ESG advisory and consultancy sites for Singapore
-// and Asia. The script fetches their insights/blog index pages and extracts
-// recent article titles to understand what topics competitors are covering.
+// ── Query harvesting ──────────────────────────────────────────────────────────
+// Stems for the autocomplete lookup, not topic descriptions. The value is in
+// what the engines complete them to, so they are deliberately short and
+// unfinished: a complete sentence returns nothing useful.
 
-const COMPETITOR_PAGES = [
-  { name: 'ERM', url: 'https://www.erm.com/insights/' },
-  { name: 'Deloitte Sustainability', url: 'https://www.deloitte.com/global/en/services/risk-advisory/research/sustainability-climate-insights.html' },
-  { name: 'PwC Singapore ESG', url: 'https://www.pwc.com/sg/en/services/esg.html' },
-  { name: 'KPMG ESG', url: 'https://kpmg.com/sg/en/home/insights/topics/environmental-social-governance.html' },
-  { name: 'Sustainalytics', url: 'https://www.sustainalytics.com/esg-research/esg-insights' },
-];
+const QUERY_SEEDS = {
+  singapore: [
+    'singapore climate reporting',
+    'sgx sustainability reporting',
+    'acra sustainability reporting',
+    'singapore carbon tax',
+  ],
+  'carbon-climate': [
+    'scope 3 emissions',
+    'ghg inventory',
+    'internal carbon price',
+    'product carbon footprint',
+  ],
+  'sustainable-finance': [
+    'sustainability linked loan',
+    'financed emissions',
+    'green bond framework',
+    'climate transition plan',
+  ],
+  standards: [
+    'iso 14064',
+    'iso 14001',
+    'iso 50001',
+    'limited assurance sustainability',
+  ],
+  esg: [
+    'double materiality',
+    'esg data governance',
+    'sustainable procurement',
+    'board esg oversight',
+  ],
+  asean: [
+    'asean taxonomy',
+    'malaysia sustainability reporting',
+    'indonesia esg regulation',
+    'thailand sustainability disclosure',
+  ],
+  regulation: [
+    'cbam requirements',
+    'eu csddd',
+    'ifrs s2',
+    'carbon credit rules',
+  ],
+  training: [
+    'carbon accounting course',
+    'esg training',
+    'sustainability certification',
+    'ghg protocol training',
+  ],
+};
+
+/** Pulls question-shaped queries out of the same stem. */
+const QUERY_PREFIXES = ['', 'what is ', 'do i need ', 'when does '];
 
 // ── Topic rotation ────────────────────────────────────────────────────────────
 // Asking the model to "avoid what we have already covered" is not enough on its
@@ -116,46 +168,44 @@ function assignedCategory() {
   return CATEGORY_ROTATION[epochDay % CATEGORY_ROTATION.length];
 }
 
-// ── Scrape competitor pages ───────────────────────────────────────────────────
+// ── Autocomplete lookup ───────────────────────────────────────────────────────
+// Both endpoints answer with the same shape, [query, [suggestions], ...], so one
+// parser serves both. Failures are swallowed per request: a missing engine
+// should cost some suggestions, never the day's article.
 
-async function fetchPage(url) {
+async function suggest(url) {
   try {
     const res = await fetch(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; CER-ContentBot/1.0)',
-        'Accept': 'text/html',
-      },
-      signal: AbortSignal.timeout(10_000),
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; CER-ContentBot/1.0)' },
+      signal: AbortSignal.timeout(8_000),
     });
-    if (!res.ok) return null;
-    return await res.text();
+    if (!res.ok) return [];
+    const parsed = JSON.parse(await res.text());
+    return Array.isArray(parsed?.[1]) ? parsed[1] : [];
   } catch {
-    return null;
+    return [];
   }
 }
 
-function extractTitles(html) {
-  if (!html) return [];
-  // Pull text from h1–h3, <title>, and <a> that look like article links
-  const matches = [
-    ...html.matchAll(/<(?:h[123]|title)[^>]*>([^<]{20,120})<\/(?:h[123]|title)>/gi),
-    ...html.matchAll(/<a[^>]+href="[^"]*(?:insight|blog|article|news|report)[^"]*"[^>]*>([^<]{20,100})<\/a>/gi),
-  ];
-  return [...new Set(matches.map(m => m[1].replace(/\s+/g, ' ').trim()))].slice(0, 10);
-}
+async function harvestQueries(category) {
+  const seeds = QUERY_SEEDS[category] ?? [];
+  const found = new Set();
 
-async function researchCompetitors() {
-  const results = [];
-  for (const site of COMPETITOR_PAGES) {
-    const html = await fetchPage(site.url);
-    const titles = extractTitles(html);
-    if (titles.length > 0) {
-      results.push(`${site.name}:\n${titles.map(t => `  - ${t}`).join('\n')}`);
-    } else {
-      results.push(`${site.name}: (could not fetch page)`);
+  for (const seed of seeds) {
+    for (const prefix of QUERY_PREFIXES) {
+      const q = encodeURIComponent(`${prefix}${seed}`);
+      const [google, bing] = await Promise.all([
+        suggest(`https://suggestqueries.google.com/complete/search?client=firefox&q=${q}`),
+        suggest(`https://api.bing.com/osjson.aspx?query=${q}`),
+      ]);
+      for (const s of [...google, ...bing]) {
+        const clean = String(s).toLowerCase().trim();
+        if (clean.length > 8) found.add(clean);
+      }
     }
   }
-  return results.join('\n\n');
+
+  return [...found];
 }
 
 // ── Read existing state ───────────────────────────────────────────────────────
@@ -193,14 +243,59 @@ const STOPWORDS = new Set(
   ),
 );
 
+// Different words, one search intent. Folding these together before comparing is
+// what separates genuinely new ground from a rewrite: "Singapore mandatory
+// climate reporting" and "Singapore climate reporting requirements" answer the
+// same question, but share only three literal terms and so passed the guard.
+const SYNONYMS = new Map(
+  Object.entries({
+    mandatory: 'requirement',
+    required: 'requirement',
+    requires: 'requirement',
+    requirements: 'requirement',
+    obligation: 'requirement',
+    obligations: 'requirement',
+    rule: 'requirement',
+    rules: 'requirement',
+    readiness: 'prepare',
+    ready: 'prepare',
+    preparing: 'prepare',
+    preparation: 'prepare',
+    primer: 'guide',
+    explained: 'guide',
+    handbook: 'guide',
+    disclosure: 'reporting',
+    disclosures: 'reporting',
+    report: 'reporting',
+    reports: 'reporting',
+    emission: 'emissions',
+    company: 'companies',
+    firm: 'companies',
+    firms: 'companies',
+    organisation: 'companies',
+    organisations: 'companies',
+  }),
+);
+
 function significantWords(text) {
   return new Set(
     text
       .toLowerCase()
       .replace(/[^a-z0-9\s]/g, ' ')
       .split(/\s+/)
-      .filter((w) => w.length > 2 && !STOPWORDS.has(w)),
+      .filter((w) => w.length > 2 && !STOPWORDS.has(w))
+      .map((w) => SYNONYMS.get(w) ?? w),
   );
+}
+
+/** Share of a keyword's significant words that survive into the title. */
+function keywordCoverage(title, keyword) {
+  const wanted = significantWords(keyword);
+  if (wanted.size === 0) return 1;
+  const present = significantWords(title);
+  let hit = 0;
+  for (const word of wanted) if (present.has(word)) hit += 1;
+  return hit / wanted.size;
 }
 
 /** Returns the clashing title when a proposal covers ground already taken. */
@@ -222,7 +317,7 @@ function findOverlap(title, keyword) {
     // swallows. Measuring against the existing side keeps short target keywords
     // enforceable without letting a two-word category name veto everything that
     // happens to mention one of its words.
-    if (taken.size >= 3 && shared / taken.size >= 0.75) return existing;
+    if (taken.size >= 3 && shared / taken.size >= 0.6) return existing;
   }
   return null;
 }
@@ -258,7 +353,7 @@ async function callDeepSeek(systemPrompt, userPrompt) {
 
 // ── Main generation ───────────────────────────────────────────────────────────
 
-async function generate(competitorResearch, category, rejection) {
+async function generate(harvestedQueries, category, rejection) {
   const system = `You are a content strategist and writer for CER, a Singapore-based sustainability advisory and professional training firm.
 
 CER's services:
@@ -287,8 +382,18 @@ different category even if another feels more newsworthy.
 GROUND TO CONSIDER WITHIN THIS CATEGORY (pick one, or a better one in the same area):
 ${(TOPIC_POOL[category] ?? []).map((t) => `- ${t}`).join('\n')}
 
-WHAT COMPETITORS ARE COVERING (recent topics from top-ranked ESG advisory sites):
-${competitorResearch}
+REAL SEARCHES PEOPLE MADE IN THIS AREA. Harvested today from Google and Bing
+autocomplete, so this is the exact wording searchers type, not a guess at it:
+${harvestedQueries.map((q) => `- ${q}`).join('\n')}
+
+Your primary keyword must come from that list, or be a close variant of one
+entry. Do not invent a keyword that is absent from it. The list exists because
+these phrasings have proven demand and invented ones do not.
+
+Prefer an entry that is specific and question-shaped over a broad one. A broad
+head term is contested by firms with far more authority than CER, while a
+specific query is winnable and brings a reader who already knows what they
+need.
 
 ALREADY PUBLISHED BY CER. Your article must not overlap with any of these. Not a
 different angle on the same subject: genuinely different ground. A proposal is
@@ -303,11 +408,12 @@ ${rejection ? `\nYOUR PREVIOUS ATTEMPT WAS REJECTED: ${rejection}\nChoose a clea
 ---
 
 Your task: choose the best topic for a new CER Insights article. It must be:
-1. Something people are actively searching for right now
-2. Something competitors are writing about (so there is proven demand) OR a gap they have missed
-3. NOT already covered by CER
-4. Directly relevant to CER's services
-5. Actionable and specific, not generic
+1. Built on one query from the harvested list above
+2. NOT already covered by CER
+3. Directly relevant to CER's services
+4. Actionable and specific, not generic
+5. Answered directly in the opening paragraph, before any context or preamble.
+   Someone who searched that query should have their answer without scrolling.
 
 Write the article and return ONLY a JSON object (no markdown, no explanation, no code fences) with this exact shape:
 
@@ -353,6 +459,12 @@ Write the article and return ONLY a JSON object (no markdown, no explanation, no
 }
 
 CONSTRAINTS:
+- title: becomes the page H1. Maximum 70 characters. Lead with the primary
+  keyword, do not open with a hook and bury it after a colon. Most of the
+  keyword's words must appear in it.
+- seo.title: 45 to 65 characters, and must contain the primary keyword
+- seo.description: 120 to 160 characters, and must contain the primary keyword
+- seo.primaryKeyword: taken from the harvested query list above
 - type: one of Article, Guide, Regulatory Update
 - categorySlug: one of carbon-climate, esg, regulation, sustainable-finance, standards, training, singapore, asean
 - authorSlug: one of raymond-cheung, chan-ee-chong
@@ -388,6 +500,33 @@ function parseArticle(raw, category) {
     throw new Error(
       `categorySlug was "${obj.categorySlug}" but today's assigned category is "${category}"`,
     );
+  }
+
+  // SEO fields are the whole point of the exercise, so they are checked rather
+  // than trusted. The model counts characters badly and will cheerfully return
+  // a 190 character meta description that Google truncates.
+  const seo = obj.seo ?? {};
+  const keyword = seo.primaryKeyword;
+  if (!keyword) throw new Error('Missing seo.primaryKeyword');
+
+  if (obj.title.length > 70) {
+    throw new Error(`Title is ${obj.title.length} characters, maximum is 70: "${obj.title}"`);
+  }
+
+  if (keywordCoverage(obj.title, keyword) < 0.6) {
+    throw new Error(
+      `Title "${obj.title}" carries too little of the primary keyword "${keyword}".`,
+    );
+  }
+
+  const seoTitleLength = (seo.title ?? '').length;
+  if (seoTitleLength < 45 || seoTitleLength > 65) {
+    throw new Error(`seo.title is ${seoTitleLength} characters, must be 45 to 65.`);
+  }
+
+  const descriptionLength = (seo.description ?? '').length;
+  if (descriptionLength < 120 || descriptionLength > 160) {
+    throw new Error(`seo.description is ${descriptionLength} characters, must be 120 to 160.`);
   }
 
   const clash = findOverlap(obj.title, obj.seo?.primaryKeyword);
@@ -454,12 +593,20 @@ function inject(article) {
 
 // ── Run ───────────────────────────────────────────────────────────────────────
 
-console.log('Researching competitors...');
-const competitorResearch = await researchCompetitors();
-console.log('Competitor research done.');
-
 const category = assignedCategory();
 console.log(`Today's category: ${category}`);
+
+console.log('Harvesting search queries from Google and Bing autocomplete...');
+const harvestedQueries = await harvestQueries(category);
+console.log(`Harvested ${harvestedQueries.length} queries.`);
+
+// Both suggest endpoints are unauthenticated and independent, so an empty
+// result means something broader is wrong. Failing here is better than asking
+// the model to pick a keyword from an empty list.
+if (harvestedQueries.length === 0) {
+  throw new Error('No queries harvested: both Google and Bing returned nothing.');
+}
+
 console.log(`Guarding against ${existingTitles.length} published titles.`);
 
 // A rejection is a near-duplicate, not a broken run: hand the reason back and
@@ -470,7 +617,7 @@ let rejection = '';
 
 for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
   console.log(`Generating with DeepSeek (attempt ${attempt} of ${MAX_ATTEMPTS})...`);
-  const raw = await generate(competitorResearch, category, rejection);
+  const raw = await generate(harvestedQueries, category, rejection);
 
   try {
     article = parseArticle(raw, category);
