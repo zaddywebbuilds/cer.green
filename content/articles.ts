@@ -749,7 +749,7 @@ export const articles: Article[] = [
   },
   {
     slug: 'singapore-mandatory-climate-reporting-issb-ifrs-s1-s2-readiness',
-    title: 'Singapore Mandatory Climate Reporting: Getting Ready for ISSB-Aligned IFRS S1 and S2',
+    title: 'Singapore ISSB Requirements: Preparing for IFRS S1 and S2',
     excerpt: 'ACRA and SGX are phasing in mandatory ISSB-aligned climate reporting for listed and large non-listed companies. Here is what the requirements actually say, who they apply to, and what finance and sustainability teams need to build now.',
     type: 'Regulatory Update',
     categorySlug: 'regulation',
@@ -834,9 +834,9 @@ export const articles: Article[] = [
       'assurance readiness',
     ],
     seo: {
-      title: 'Singapore Mandatory Climate Reporting: IFRS S1 and S2 Readiness',
+      title: 'Singapore ISSB Requirements: IFRS S1 and S2 Readiness',
       description: 'ACRA and SGX are phasing in ISSB-aligned climate reporting. What IFRS S1 and S2 require, who is in scope, and how to build an assurrable reporting system.',
-      primaryKeyword: 'Singapore mandatory climate reporting',
+      primaryKeyword: 'Singapore ISSB requirements',
       secondaryKeywords: [
         'IFRS S2 Singapore',
         'ISSB climate reporting',
@@ -1374,7 +1374,7 @@ export const articles: Article[] = [
   },
   {
     slug: 'what-assurance-providers-actually-test',
-    title: 'What assurance providers actually test, and why your number is not the problem',
+    title: 'Sustainability Assurance Standards: What Providers Actually Test',
     excerpt:
       'Organisations preparing for their first sustainability assurance engagement usually assume the risk is in the calculation. It is almost always in the evidence trail.',
     type: 'Article',
@@ -1441,7 +1441,7 @@ export const articles: Article[] = [
       title: 'What Sustainability Assurance Providers Actually Test',
       description:
         'Limited assurance tests process and evidence, not just calculations. The four areas that produce findings, and why evidence retention cannot be fixed later.',
-      primaryKeyword: 'sustainability assurance readiness',
+      primaryKeyword: 'sustainability assurance standards',
       secondaryKeywords: ['limited assurance ESG', 'ESG assurance preparation'],
     },
     status: 'published',
