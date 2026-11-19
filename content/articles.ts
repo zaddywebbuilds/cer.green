@@ -58,6 +58,99 @@ export const articleCategories: ArticleCategory[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'singapore-green-plan-2030-business-obligations',
+    title: 'Singapore Green Plan 2030: What It Actually Requires of Companies',
+    excerpt: 'The Green Plan is a whole-of-nation strategy, not a corporate regulation. But several of its targets translate into concrete obligations for Singapore companies through procurement, grants, and sectoral rules. Here is what to prepare for.',
+    type: 'Article',
+    categorySlug: 'singapore',
+    authorSlug: 'raymond-cheung',
+    publishedAt: '2026-11-19',
+    intro: [
+      'The Singapore Green Plan 2030 is frequently cited in board papers and sustainability reports, often as a general statement of national ambition. That framing is not wrong, but it is incomplete. The Green Plan is a coordination framework across five pillars: City in Nature, Sustainable Living, Energy Reset, Green Economy, and Resilient Future. It sets targets for the public sector and creates conditions that flow through to private companies via procurement, licensing, grants, and sectoral regulation.',
+      'For most Singapore companies, the Green Plan does not impose a direct legal duty in the way that SGX climate reporting rules or the Carbon Pricing Act do. What it does is shape the operating environment: the emissions reporting thresholds administered by NEA, the public sector sustainability requirements under the GreenGov.SG framework, the grants administered by Enterprise Singapore and EMA, and the sectoral plans for aviation, maritime, and the built environment.',
+      'This article sets out where the Green Plan creates practical obligations or commercial consequences for companies, and how to map those against your existing ESG and reporting work. It is not a summary of every target. It is a guide to the parts that change what a company must do, document, or report.',
+    ],
+    sections: [
+      {
+        heading: 'What the Green Plan is, and what it is not',
+        id: 'what-the-green-plan-is',
+        body: [
+          'The Green Plan was launched in February 2021 and is coordinated by five ministries: MTI, MND, MOT, MSE, and MOE. It sets out targets such as phasing out new diesel car registrations from 2025, expanding the rail network, and achieving 2 GWp of solar deployment by 2030. These are national targets, not corporate obligations. A company is not directly liable for failing to contribute to a national solar target.',
+          'The obligations that matter to companies sit underneath the plan. The Carbon Pricing Act, administered by NEA, requires facilities emitting 25,000 tonnes of CO2e or more per year to register and report emissions, and to pay carbon tax on taxable emissions. The Energy Conservation Act, administered by NEA, requires large energy users in the industry sector to appoint an energy manager and submit energy use reports. These are the instruments that create enforceable duties.',
+          'Where the Green Plan matters commercially is through the public sector. Under GreenGov.SG, government agencies are required to procure goods and services that meet sustainability criteria, and to report on their own emissions. For suppliers to the public sector, this translates into tender requirements, disclosure requests, and contractual clauses. The Green Plan is the policy backdrop; the tender document is where it becomes binding.',
+        ],
+      },
+      {
+        heading: 'The Green Economy pillar and what it asks of business',
+        id: 'green-economy-pillar',
+        body: [
+          'The Green Economy pillar sets out to position Singapore as a centre for green finance, carbon services, and sustainable products. It includes targets for green bond issuance and for the development of carbon markets. For financial institutions, this connects directly to MAS notices and guidelines, including the Environmental Risk Management Guidelines for banks, insurers, and asset managers, and the MAS-led Singapore-Asia Taxonomy for Sustainable Finance.',
+          'For corporates, the Green Economy pillar creates both opportunity and expectation. Grants such as the Enterprise Sustainability Programme administered by Enterprise Singapore, and the Energy Efficiency Fund administered by NEA, are available to support emissions reduction and sustainability capability building. These grants come with documentation and reporting conditions, which are often the first time a smaller company has to produce a verified emissions baseline.',
+          'The pillar also underpins Singapore\'s approach to carbon markets. The Carbon Pricing (Amendment) Act 2022 introduced provisions allowing eligible international carbon credits to offset up to 5 per cent of taxable emissions, subject to conditions set by the Minister. Companies that plan to use this route need to understand the eligibility criteria and the documentation required, which are set out in subsidiary legislation and NEA guidance rather than in the Green Plan itself.',
+        ],
+      },
+      {
+        heading: 'Where the Green Plan intersects with SGX reporting',
+        id: 'green-plan-and-sgx-reporting',
+        body: [
+          'SGX climate reporting requirements are separate from the Green Plan, but they reference the same policy direction. SGX Listing Rule 711B requires issuers to prepare an annual sustainability report on a comply or explain basis, and from FY2025 mandatory climate reporting applies to issuers in the materials and buildings, and transport sectors, with other sectors following. The reporting framework is IFRS S1 and S2, aligned with the ISSB standards.',
+          'The Green Plan does not change these rules. What it does is reinforce the expectation that companies will report on their transition. The Singapore-Asia Taxonomy, developed under MAS leadership, provides a classification system for transition activities that companies can use to describe their capital expenditure and revenue alignment. That taxonomy is not mandatory for SGX reporting, but it is increasingly referenced by investors and by lenders.',
+          'For companies preparing their first ISSB-aligned report, the practical task is to reconcile three things: the emissions inventory required under the Carbon Pricing Act or Energy Conservation Act, the climate disclosures required under SGX rules, and the transition narrative that lenders and investors expect. The Green Plan provides the national context for that narrative, but the numbers must come from your own inventory and be prepared to a defensible standard.',
+        ],
+      },
+      {
+        heading: 'Sectoral plans that create direct obligations',
+        id: 'sectoral-plans',
+        body: [
+          'Several Green Plan targets are delivered through sectoral plans that do create direct obligations. The Singapore Green Building Masterplan, administered by BCA, sets requirements for new buildings and major retrofits under the Green Mark scheme. Building owners and developers need to meet Green Mark standards for new projects, and the scheme is updated periodically. For companies in the built environment sector, this is a compliance requirement, not a voluntary initiative.',
+          'In transport, the Land Transport Authority administers the Vehicle Emissions Scheme and the Commercial Vehicle Emissions Scheme, which affect fleet operators. The maritime sector is covered by the Singapore Registry of Ships and the Maritime and Port Authority\'s decarbonisation initiatives, including the Maritime Singapore Green Initiative. Aviation is covered by the Civil Aviation Authority of Singapore\'s sustainability programme. Each of these creates reporting or operational requirements for companies in the sector.',
+          'For companies outside these sectors, the most relevant obligation is likely to be the Energy Conservation Act or the Carbon Pricing Act. The ECA applies to large energy users in the industry sector, defined by energy consumption thresholds set out in the Act. The CPA applies to facilities above the 25,000 tonnes CO2e threshold. If you are unsure which applies, the starting point is a facility-level energy and emissions assessment.',
+        ],
+      },
+      {
+        heading: 'What to do now: a practical sequence',
+        id: 'practical-sequence',
+        body: [
+          'The first step is to determine which instruments apply to your company. That means checking your facility emissions against the CPA threshold, your energy consumption against the ECA threshold, and your listing status against SGX reporting requirements. For most large Singapore companies, at least one of these applies. For smaller companies in the supply chain, the obligation often arrives through a customer\'s procurement requirements rather than directly.',
+          'The second step is to build a defensible emissions inventory. The GHG Protocol Corporate Standard and ISO 14064-1 provide the methodological basis. If you are reporting under SGX rules, the inventory needs to cover Scope 1 and Scope 2, and material Scope 3 categories. If you are paying carbon tax, the inventory needs to meet the measurement and reporting requirements set out in the Carbon Pricing Act and its regulations.',
+          'The third step is to connect the inventory to your disclosure and your transition plan. The Green Plan sets the national direction, but your report needs to show your own baseline, your targets, and your progress. That is the ground that assurance providers will test, and it is the ground that lenders and investors will scrutinise. Building the inventory to a standard that can withstand review is the foundation for everything else.',
+        ],
+      },
+    ],
+    relatedSolutions: [
+      'esg-strategy',
+      'carbon-accounting',
+      'ghg-inventory',
+      'decarbonisation',
+      'assurance-readiness',
+    ],
+    relatedArticles: [
+      'singapore',
+      'singapore-mandatory-climate-reporting-issb-ifrs-s1-s2-readiness',
+      'singapore-climate-reporting-what-applies-and-when',
+      'internal-carbon-pricing-singapore',
+    ],
+    tags: [
+      'Singapore Green Plan 2030',
+      'Carbon Pricing Act',
+      'Energy Conservation Act',
+      'GreenGov.SG',
+      'SGX climate reporting',
+    ],
+    seo: {
+      title: 'Singapore Green Plan 2030: Business Obligations Explained',
+      description: 'What the Singapore Green Plan 2030 actually requires of companies, from Carbon Pricing Act thresholds to GreenGov.SG procurement and SGX reporting.',
+      primaryKeyword: 'Singapore Green Plan 2030 business obligations',
+      secondaryKeywords: [
+        'Carbon Pricing Act Singapore',
+        'Energy Conservation Act Singapore',
+        'GreenGov.SG procurement',
+        'Singapore Green Plan targets',
+      ],
+    },
+    status: 'published',
+  },
+  {
     slug: 'carbon-accounting-team-training-singapore',
     title: 'Building a Carbon Accounting Team That Can Withstand Assurance: What to Train and Who to Train',
     excerpt: 'SGX climate reporting under IFRS S1 and S2 will test the competence of the team behind the numbers. Here is what a competent carbon accounting function needs to know, and how to build it without hiring an army.',
