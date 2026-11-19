@@ -326,11 +326,15 @@ export const courses: Course[] = [
       },
     ],
     seo: {
-      title: 'ISO 14064 GHG Awareness Training Singapore',
+      title: 'ISO 14064 Course Singapore: GHG Emission Awareness',
       description:
-        'Half-day ISO 14064 awareness training in Singapore. Quantification, reporting, documentation requirements and what greenhouse gas verification involves.',
-      primaryKeyword: 'ISO 14064 training Singapore',
-      secondaryKeywords: ['GHG awareness course Singapore', 'ISO 14064 course Asia'],
+        'Half-day ISO 14064 awareness course in Singapore. Quantification, reporting, documentation requirements and what greenhouse gas verification involves.',
+      primaryKeyword: 'ISO 14064 course Singapore',
+      secondaryKeywords: [
+        'ISO 14064 training Singapore',
+        'GHG awareness course Singapore',
+        'ISO 14064 course Asia',
+      ],
     },
     status: 'published',
     registration: 'enquire',
@@ -832,11 +836,14 @@ export const courses: Course[] = [
       },
     ],
     seo: {
-      title: 'Risk Intelligence for Decision Makers Training Singapore',
+      title: 'ERM Course Singapore: Risk Intelligence for Leaders',
       description:
-        'One-day risk intelligence training in Singapore. Aligning enterprise risk management with business strategy, risk appetite and board decision-making.',
-      primaryKeyword: 'enterprise risk management training Singapore',
-      secondaryKeywords: ['ERM course Singapore', 'risk training for executives Asia'],
+        'One-day enterprise risk management course in Singapore. Aligning ERM with business strategy, risk appetite and board level decision-making.',
+      primaryKeyword: 'ERM course Singapore',
+      secondaryKeywords: [
+        'enterprise risk management course Singapore',
+        'risk training for executives Asia',
+      ],
     },
     status: 'published',
     registration: 'enquire',
