@@ -58,6 +58,106 @@ export const articleCategories: ArticleCategory[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'financed-emissions-pcaf-measurement-singapore',
+    title: 'Financed Emissions: What PCAF Requires and How to Measure Them',
+    excerpt: 'A practical guide to financed emissions under the PCAF methodology: what to include, how to calculate them, and what Singapore banks and asset managers must prepare.',
+    type: 'Guide',
+    categorySlug: 'sustainable-finance',
+    authorSlug: 'raymond-cheung',
+    publishedAt: '2026-11-21',
+    intro: [
+      'Financed emissions are the Scope 3, Category 15 greenhouse gas emissions of a financial institution: the emissions associated with its loans, investments, and other financial activities. The Partnership for Carbon Accounting Financials (PCAF) sets the methodology. PCAF requires each asset class to be measured using the attribution factor, which is the outstanding amount divided by the equity or debt of the borrower or investee, multiplied by the borrower\'s own emissions.',
+      'For Singapore banks and asset managers, financed emissions are becoming a supervisory expectation. The Monetary Authority of Singapore (MAS) has issued guidelines on environmental risk management for banks, insurers, and asset managers, and MAS has been clear that banks should measure financed emissions for material sectors using a recognised methodology such as PCAF.',
+      'This article answers the practical question: what does PCAF require, which asset classes are in scope, how do you calculate financed emissions, and what data quality constraints should Singapore institutions plan for.',
+    ],
+    sections: [
+      {
+        heading: 'What PCAF requires',
+        id: 'what-pcaf-requires',
+        body: [
+          'PCAF is a global partnership of financial institutions that developed a standardised methodology for measuring and disclosing financed emissions. The PCAF Standard (The Global GHG Accounting and Reporting Standard for the Financial Industry) was first published in 2020 and updated in 2022. It is built on the GHG Protocol Corporate Standard and the GHG Protocol Scope 3 Standard, which lists Category 15 (Investments) as the relevant category.',
+          'PCAF requires institutions to calculate financed emissions by asset class. The core formula is: financed emissions = attribution factor × borrower or investee emissions. The attribution factor for loans and investments is the outstanding amount divided by the total equity plus debt of the borrower. For listed equity, the attribution factor is the number of shares held divided by the total shares outstanding.',
+          'PCAF assigns a data quality score from 1 to 5 for each calculation. Score 1 is verified or reported emissions data. Score 5 is estimated data based on economic activity or revenue. Institutions must disclose the data quality score alongside the financed emissions figure so users can assess reliability.',
+        ],
+      },
+      {
+        heading: 'Asset classes in scope',
+        id: 'asset-classes-in-scope',
+        body: [
+          'PCAF covers seven asset classes. Each has its own calculation approach and attribution method.',
+          'The asset classes are: listed equity and corporate bonds, business loans and unlisted equity, project finance, commercial real estate, mortgages, motor vehicle loans, and sovereign debt. PCAF has also published guidance on additional asset classes including capital markets instruments and insurance underwriting.',
+          'For most Singapore banks, the priority asset classes are business loans and unlisted equity, project finance, and commercial real estate. These represent the largest share of lending to carbon-intensive sectors such as power, oil and gas, and real estate.',
+        ],
+        list: [
+          'Listed equity and corporate bonds: attribution based on shares held or bond value divided by enterprise value including cash',
+          'Business loans and unlisted equity: attribution based on outstanding loan divided by total equity plus debt',
+          'Project finance: attribution based on outstanding project debt divided by total project equity plus debt',
+          'Commercial real estate: attribution based on outstanding loan divided by property value at origination',
+          'Mortgages: attribution based on outstanding loan divided by property value at origination',
+          'Motor vehicle loans: attribution based on outstanding loan divided by vehicle value at origination',
+          'Sovereign debt: attribution based on outstanding sovereign debt divided by GDP (purchasing power parity adjusted)',
+        ],
+      },
+      {
+        heading: 'How to calculate financed emissions',
+        id: 'how-to-calculate',
+        body: [
+          'The calculation process has four steps. First, determine the scope: which asset classes, which portfolios, and which sectors are material. Second, collect borrower or investee emissions data. This is the hardest step. Most borrowers do not report Scope 1 and 2 emissions, let alone Scope 3. PCAF allows estimation using sector averages, economic intensity, or proxy data, but requires disclosure of the method used.',
+          'Third, apply the attribution factor. For business loans, the attribution factor is the outstanding amount divided by the borrower\'s total equity plus debt. For listed equity, it is the number of shares held divided by total shares outstanding. The attribution factor must be calculated at the same point in time as the emissions data, usually the reporting date.',
+          'Fourth, aggregate and disclose. PCAF requires disclosure by asset class, by sector, and by data quality score. It also requires disclosure of the total financed emissions in tonnes of CO2e, and the proportion of the portfolio covered by the calculation. The coverage ratio is important: a bank that measures only 20 percent of its portfolio should say so.',
+          'A common error is double counting. If a bank holds both a loan and a bond issued by the same borrower, the emissions should be attributed once, using the combined exposure. PCAF provides guidance on avoiding double counting across asset classes.',
+        ],
+      },
+      {
+        heading: 'Data quality and estimation',
+        id: 'data-quality',
+        body: [
+          'Data quality is the main challenge for Singapore institutions. PCAF\'s data quality score reflects the reliability of the emissions data, not the reliability of the attribution factor. Score 1 requires verified emissions data from the borrower. Score 2 requires reported but unverified data. Score 3 requires physical activity data, such as energy consumption, multiplied by emission factors. Score 4 requires economic activity data, such as revenue, multiplied by sector emission intensity. Score 5 requires estimated data based on proxies.',
+          'In practice, most Singapore banks will start at scores 3 to 5 for the majority of their portfolio. PCAF encourages institutions to improve data quality over time, and to set targets for increasing the proportion of the portfolio measured at score 1 or 2.',
+          'PCAF also allows the use of sector decarbonisation pathways to estimate emissions where borrower data is unavailable. For example, the International Energy Agency (IEA) scenarios provide sector-level emission intensities that can be applied to a borrower\'s revenue or production output. This approach is acceptable under PCAF but must be disclosed.',
+        ],
+      },
+      {
+        heading: 'What Singapore institutions should do now',
+        id: 'what-singapore-institutions-should-do',
+        body: [
+          'MAS expects banks to measure financed emissions for material sectors as part of their environmental risk management. The MAS Guidelines on Environmental Risk Management (for banks, issued December 2020) state that banks should incorporate environmental risk into their credit risk assessment and should measure financed emissions where relevant. MAS has also published a Code of Conduct for ESG ratings and data providers, and has been consulting on climate disclosure requirements aligned with ISSB.',
+          'The practical steps are: define the portfolio boundary, select the PCAF asset classes that are material, collect or estimate emissions data, apply attribution factors, and disclose with data quality scores. The first calculation will be imperfect. PCAF expects that. The key is to establish a baseline, disclose the methodology, and set a plan to improve data quality.',
+          'CER supports financial institutions with financed emissions measurement, PCAF alignment, and assurance readiness. We also deliver training for sustainability teams on Scope 3 Category 15 and PCAF data quality.',
+          'For Singapore banks, the first cycle should focus on business loans and project finance in carbon-intensive sectors. That is where the emissions are concentrated and where MAS will focus its supervisory attention.',
+        ],
+      },
+    ],
+    relatedSolutions: [
+      'financed-emissions',
+      'green-finance',
+      'climate-risk',
+    ],
+    relatedArticles: [
+      'sustainable-finance',
+      'sustainability-linked-loans-vs-green-loans',
+    ],
+    tags: [
+      'Financed emissions',
+      'PCAF',
+      'Sustainable finance',
+      'Scope 3',
+      'MAS',
+    ],
+    seo: {
+      title: 'Financed Emissions: What PCAF Requires and How to Measure',
+      description: 'Financed emissions under PCAF: what the standard requires, which asset classes are in scope, how to calculate them, and what Singapore banks must prepare.',
+      primaryKeyword: 'financed emissions pcaf',
+      secondaryKeywords: [
+        'financed emissions calculation',
+        'financed emissions scope 3',
+        'PCAF financed emissions standard',
+        'financed emissions methodology',
+      ],
+    },
+    status: 'published',
+  },
+  {
     slug: 'sustainability-linked-loans-vs-green-loans',
     title: 'Sustainability Linked Loans vs Green Loans: Key Differences',
     excerpt: 'Sustainability linked loans tie pricing to the borrower\'s sustainability performance across the whole business, while green loans restrict proceeds to eligible projects. Here is how the two structures differ under the LMA, APLMA and LSTA principles, and what Singapore borrowers must prepare.',
