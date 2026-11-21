@@ -58,6 +58,109 @@ export const articleCategories: ArticleCategory[] = [
 
 export const articles: Article[] = [
   {
+    slug: 'sustainability-linked-loans-vs-green-loans',
+    title: 'Sustainability Linked Loans vs Green Loans: Key Differences',
+    excerpt: 'Sustainability linked loans tie pricing to the borrower\'s sustainability performance across the whole business, while green loans restrict proceeds to eligible projects. Here is how the two structures differ under the LMA, APLMA and LSTA principles, and what Singapore borrowers must prepare.',
+    type: 'Article',
+    categorySlug: 'sustainable-finance',
+    authorSlug: 'raymond-cheung',
+    publishedAt: '2026-11-21',
+    intro: [
+      'A sustainability linked loan (SLL) ties the loan\'s margin to the borrower\'s performance against pre-agreed sustainability performance targets (SPTs), while a green loan restricts the use of proceeds to eligible green projects. The SLL rewards or penalises the borrower for how the whole business performs; the green loan governs what the money can be spent on. That single distinction drives every other difference in structure, documentation and reporting.',
+      'Both structures sit under the voluntary principles published by the Loan Market Association (LMA), the Asia Pacific Loan Market Association (APLMA) and the Loan Syndications and Trading Association (LSTA). The Sustainability Linked Loan Principles (SLLP) were first issued in 2019 and most recently updated in 2023, and the Green Loan Principles (GLP) follow the same update cycle. These are market standards, not regulation, but Singapore lenders and their credit committees apply them as the baseline.',
+      'For a Singapore borrower, the choice between the two is rarely about which is easier. It is about whether the company has a credible, measurable transition pathway it can commit to in a loan agreement, or whether it has a defined pipeline of eligible assets. This article sets out the differences, the SPT mechanics, and the preparation each structure demands.',
+    ],
+    sections: [
+      {
+        heading: 'The core difference: use of proceeds versus performance',
+        id: 'use-of-proceeds-versus-performance',
+        body: [
+          'A green loan is a use-of-proceeds instrument. Under the GLP, the borrower must declare the eligible green project categories the loan will finance, describe the environmental objectives and the process for project evaluation and selection, and commit to managing and reporting on the proceeds. The loan can be a general corporate facility only if the proceeds are ring-fenced to eligible projects.',
+          'An SLL has no use-of-proceeds restriction. The borrower can use the funds for general corporate purposes, working capital or refinancing. What matters is the SPTs: measurable, verifiable targets that the borrower commits to achieve within a defined timeline, with the loan margin adjusting up or down depending on whether the targets are met.',
+          'This is why SLLs have become the default instrument for large corporates in Singapore and ASEAN that do not have a large eligible project pipeline but do have a group-level decarbonisation commitment. A company with a Scope 1 and 2 emissions reduction target, or a renewable energy procurement target, can structure an SLL around that target without ring-fencing proceeds.',
+        ],
+      },
+      {
+        heading: 'The four core components of the SLLP',
+        id: 'four-core-components-sllp',
+        body: [
+          'The SLLP sets out four components that a credible SLL must address. Lenders will test each one during credit approval, and increasingly during annual review.',
+          'The first is the relationship to the borrower\'s overall sustainability strategy. The SPTs must be relevant to the borrower\'s business and material to its sustainability profile. A target that is easy to hit or peripheral to the company\'s actual impacts will be challenged.',
+          'The second is target setting. SPTs must be ambitious, measurable, externally verifiable and set on a predefined timeline. The SLLP encourages borrowers to use a baseline and to benchmark against a recognised standard or taxonomy where one exists.',
+          'The third is reporting. The borrower must report at least annually on progress against each SPT, and the SLLP encourages disclosure of the underlying methodology and any assumptions.',
+          'The fourth is verification. An independent external review is expected, at minimum before the loan is signed, and annually thereafter for the life of the facility. This is where many first-time borrowers underestimate the workload.',
+        ],
+      },
+      {
+        heading: 'What makes an SPT credible',
+        id: 'what-makes-an-spt-credible',
+        body: [
+          'An SPT is only as good as the data behind it. The most common failure in Singapore SLL structures is a target that cannot be measured from the borrower\'s existing systems without a new data collection exercise, which then slips in year one and undermines the whole facility.',
+          'The SLLP expects SPTs to be tied to a recognised benchmark where possible. For emissions targets, that means a GHG inventory prepared in line with the GHG Protocol and, ideally, verified under ISO 14064-3. For energy targets, it means a measurement and verification approach consistent with ISO 50001.',
+          'Borrowers should also consider scope. A Scope 1 and 2 target is easier to verify but may be challenged as unambitious if Scope 3 dominates the company\'s footprint. A Scope 3 target is more credible but requires supplier data that many Singapore companies are still building.',
+        ],
+        list: [
+          'Baseline year: documented and consistent with the borrower\'s GHG inventory or energy baseline',
+          'Target: absolute or intensity, with the unit and boundary stated explicitly',
+          'Timeline: interim and final dates, aligned to the loan tenor',
+          'Measurement: the standard, methodology and data sources that will be used',
+          'Verification: who will verify, to what standard, and how often',
+          'Step-up and step-down: the margin adjustment, typically 2.5 to 10 basis points per SPT',
+        ],
+      },
+      {
+        heading: 'Green loan structuring under the GLP',
+        id: 'green-loan-structuring-glp',
+        body: [
+          'Green loans follow the same four-component logic as the Green Bond Principles: use of proceeds, project evaluation and selection, management of proceeds, and reporting. The eligible categories are defined by reference to recognised taxonomies, and for Singapore borrowers the MAS Green Taxonomy and the ASEAN Taxonomy are the most relevant references.',
+          'The practical work is in the eligibility assessment. Each project must be mapped to an eligible category, and the borrower must be able to demonstrate that the project delivers the stated environmental objective. For a solar installation or a building retrofit this is straightforward. For process efficiency or circular economy projects the boundary and the baseline need more documentation.',
+          'Reporting for a green loan is project-level: the borrower reports on the allocation of proceeds and, where feasible, the environmental impact of the financed projects. This is a different reporting discipline from the SLL, which reports on company-level performance against SPTs.',
+        ],
+      },
+      {
+        heading: 'How Singapore borrowers should prepare',
+        id: 'how-singapore-borrowers-prepare',
+        body: [
+          'The preparation for an SLL starts with the data, not the term sheet. Before approaching lenders, a borrower should have a documented emissions or energy baseline, a target that is measurable against that baseline, and a clear view of who will verify it. Without those three, the SPT negotiation will stall.',
+          'For a green loan, the preparation is a project pipeline and an eligibility mapping. The borrower should be able to show lenders a schedule of eligible projects, the taxonomy reference for each, and the reporting that will be produced.',
+          'In both cases, the external review is the gating item. Lenders in Singapore increasingly expect a second party opinion or an independent reviewer\'s statement before signing, and annual verification thereafter. Building that into the transaction timetable, rather than treating it as an afterthought, is the difference between a smooth closing and a delayed one.',
+          'CER advises Singapore borrowers on SLL and green loan structuring, including SPT selection, baseline and target setting, GHG inventory preparation under ISO 14064, and assurance readiness for the annual verification cycle.',
+        ],
+      },
+    ],
+    relatedSolutions: [
+      'green-finance',
+      'financed-emissions',
+      'ghg-inventory',
+      'assurance-readiness',
+    ],
+    relatedArticles: [
+      'sustainable-finance',
+      'singapore-mandatory-climate-reporting-issb-ifrs-s1-s2-readiness',
+      'scope-3-where-to-start',
+      'what-assurance-providers-actually-test',
+    ],
+    tags: [
+      'Sustainability Linked Loans',
+      'Green Loans',
+      'SLLP',
+      'Green Finance',
+      'Singapore',
+    ],
+    seo: {
+      title: 'Sustainability Linked Loans vs Green Loans: Key Differences',
+      description: 'Sustainability linked loans vs green loans: how SLLs tie margin to SPTs while green loans restrict proceeds, and what Singapore borrowers must prepare.',
+      primaryKeyword: 'sustainability linked loans vs green loans',
+      secondaryKeywords: [
+        'sustainability linked loan principles',
+        'green loan principles',
+        'sustainability performance targets',
+        'what is a sustainability linked loan',
+      ],
+    },
+    status: 'published',
+  },
+  {
     slug: 'acra-sustainability-reporting-timeline',
     title: 'ACRA Sustainability Reporting Timeline: What Companies Must File',
     excerpt: 'ACRA\'s sustainability reporting timeline applies to large companies and listed issuers. Here is what must be filed, when, and how it interacts with SGX requirements.',
