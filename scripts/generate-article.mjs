@@ -322,6 +322,20 @@ function findOverlap(title, keyword) {
   return null;
 }
 
+/**
+ * What to do about a rejection depends on what was wrong with it. Only an
+ * overlap means the subject itself is taken. Telling the model to change
+ * subject after a field failure throws away a topic that was fine and sends it
+ * hunting for a new one, so a run can burn every attempt on headline length
+ * while the topic was never the problem.
+ */
+function rejectionGuidance(reason) {
+  if (reason.includes('covers ground already taken')) {
+    return 'Choose a clearly different subject within the assigned category.';
+  }
+  return 'Keep the same subject. Change only what the rejection names, and count the characters before returning.';
+}
+
 // ── DeepSeek API call ─────────────────────────────────────────────────────────
 
 async function callDeepSeek(systemPrompt, userPrompt) {
@@ -404,7 +418,7 @@ ${existingTitles.map((t) => `- ${t}`).join('\n')}
 
 Target keywords already claimed:
 ${existingKeywords.map((k) => `- ${k}`).join('\n')}
-${rejection ? `\nYOUR PREVIOUS ATTEMPT WAS REJECTED: ${rejection}\nChoose a clearly different subject within the assigned category.\n` : ''}
+${rejection ? `\nYOUR PREVIOUS ATTEMPT WAS REJECTED: ${rejection}\n${rejectionGuidance(rejection)}\n` : ''}
 ---
 
 Your task: choose the best topic for a new CER Insights article. It must be:
@@ -509,8 +523,11 @@ function parseArticle(raw, category) {
   const keyword = seo.primaryKeyword;
   if (!keyword) throw new Error('Missing seo.primaryKeyword');
 
-  if (obj.title.length > 70) {
-    throw new Error(`Title is ${obj.title.length} characters, maximum is 70: "${obj.title}"`);
+  // Only a guard against a bloated headline. Unlike seo.title this is never
+  // truncated anywhere, so a tight cap here rejects good headlines over a
+  // character or two while the coverage check below does the real work.
+  if (obj.title.length > 90) {
+    throw new Error(`Title is ${obj.title.length} characters, maximum is 90: "${obj.title}"`);
   }
 
   if (keywordCoverage(obj.title, keyword) < 0.6) {
