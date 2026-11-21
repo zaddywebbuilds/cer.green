@@ -855,7 +855,7 @@ export const courses: Course[] = [
     outcome:
       'Integrate sustainability, carbon management and CBAM compliance into your export strategy.',
     summary:
-      'A practical programme for Thai exporters covering sustainable procurement, product carbon footprint, the EU Carbon Border Adjustment Mechanism, ESG supply chain requirements and social responsibility — with reference to Thai TGO initiatives.',
+      'A practical programme for Thai exporters covering sustainable procurement, product carbon footprint, the EU Carbon Border Adjustment Mechanism, ESG supply chain requirements and social responsibility, with reference to Thai TGO initiatives.',
     description: [
       'International buyers, multinational supply chains and the European regulatory agenda are all placing sustainability and carbon-related requirements on Thai exporters. This programme gives exporters a working understanding of what those requirements are and what responding to them involves.',
       'The course covers sustainable procurement under ISO 20400, product carbon footprint and embedded emissions, the EU Carbon Border Adjustment Mechanism (CBAM) and its documentation requirements, ESG expectations from international customers, and the role of the Thailand Greenhouse Gas Management Organization (TGO).',
