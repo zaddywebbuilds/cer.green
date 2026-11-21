@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 
 import { CtaBanner } from '@/components/sections/CtaBanner';
-import { CoursesFilter } from '@/components/sections/CoursesFilter';
+import { CoursesFilter, CoursesListing } from '@/components/sections/CoursesFilter';
 import { JsonLd } from '@/components/layout/JsonLd';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Eyebrow, Section, SectionHeader } from '@/components/ui/primitives';
@@ -54,7 +54,7 @@ export default function CoursesPage() {
         <h2 id="courses-list" className="sr-only">
           Courses
         </h2>
-        <Suspense>
+        <Suspense fallback={<CoursesListing courses={courses} categories={categories} />}>
           <CoursesFilter courses={courses} categories={categories} />
         </Suspense>
       </Section>

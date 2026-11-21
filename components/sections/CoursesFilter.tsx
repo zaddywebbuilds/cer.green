@@ -6,16 +6,30 @@ import { CardGrid, CourseCard } from '@/components/ui/cards';
 import { cn } from '@/lib/utils';
 import type { Course, CourseCategory } from '@/types/content';
 
-export function CoursesFilter({
-  courses,
-  categories,
-}: {
-  courses: Course[];
-  categories: CourseCategory[];
-}) {
+type Props = { courses: Course[]; categories: CourseCategory[] };
+
+/**
+ * Reads the active filter from the URL, which is why it cannot be prerendered.
+ * Under `output: 'export'` useSearchParams forces this subtree to the client
+ * and Next renders the Suspense fallback into the static HTML in its place,
+ * so the markup lives in Listing below, owned by neither.
+ */
+export function CoursesFilter({ courses, categories }: Props) {
   const params = useSearchParams();
-  const selected = params.get('category') ?? '';
-  const active = categories.find((c) => c.slug === selected);
+  const active = categories.find((c) => c.slug === (params.get('category') ?? ''));
+  return <Listing courses={courses} categories={categories} active={active} />;
+}
+
+/**
+ * The unfiltered listing, used as that fallback. Without it the page ships no
+ * course links at all, and a crawler has to execute JavaScript to find any of
+ * them.
+ */
+export function CoursesListing({ courses, categories }: Props) {
+  return <Listing courses={courses} categories={categories} />;
+}
+
+function Listing({ courses, categories, active }: Props & { active?: CourseCategory }) {
   const filtered = active ? courses.filter((c) => c.category === active.slug) : courses;
 
   return (

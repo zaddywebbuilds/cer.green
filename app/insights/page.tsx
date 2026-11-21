@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 
 import { CtaBanner } from '@/components/sections/CtaBanner';
-import { InsightsFilter } from '@/components/sections/InsightsFilter';
+import { InsightsFilter, InsightsListing } from '@/components/sections/InsightsFilter';
 import { JsonLd } from '@/components/layout/JsonLd';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Eyebrow, Section } from '@/components/ui/primitives';
@@ -48,7 +48,7 @@ export default function InsightsPage() {
         <h2 id="insights-list" className="sr-only">
           Insights
         </h2>
-        <Suspense>
+        <Suspense fallback={<InsightsListing articles={articles} categories={categories} />}>
           <InsightsFilter articles={articles} categories={categories} />
         </Suspense>
       </Section>

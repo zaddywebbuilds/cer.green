@@ -7,16 +7,30 @@ import { cn, formatDate } from '@/lib/utils';
 import type { Article, ArticleCategory } from '@/types/content';
 import { readingTime } from '@/lib/content';
 
-export function InsightsFilter({
-  articles,
-  categories,
-}: {
-  articles: Article[];
-  categories: ArticleCategory[];
-}) {
+type Props = { articles: Article[]; categories: ArticleCategory[] };
+
+/**
+ * Reads the active filter from the URL, which is why it cannot be prerendered.
+ * Under `output: 'export'` useSearchParams forces this subtree to the client
+ * and Next renders the Suspense fallback into the static HTML in its place,
+ * so the markup lives in Listing below, owned by neither.
+ */
+export function InsightsFilter({ articles, categories }: Props) {
   const params = useSearchParams();
-  const selected = params.get('category') ?? '';
-  const active = categories.find((c) => c.slug === selected);
+  const active = categories.find((c) => c.slug === (params.get('category') ?? ''));
+  return <Listing articles={articles} categories={categories} active={active} />;
+}
+
+/**
+ * The unfiltered listing, used as that fallback. Without it the insights hub
+ * ships no article links at all, which leaves every published article with no
+ * crawlable path in from its own index.
+ */
+export function InsightsListing({ articles, categories }: Props) {
+  return <Listing articles={articles} categories={categories} />;
+}
+
+function Listing({ articles, categories, active }: Props & { active?: ArticleCategory }) {
   const filtered = active ? articles.filter((a) => a.categorySlug === active.slug) : articles;
   const [featured, ...rest] = filtered;
 
